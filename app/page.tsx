@@ -6,7 +6,6 @@ import CategoryNav from './components/CategoryNav'
 import BookGrid from './components/BookGrid'
 import Footer from './components/Footer'
 import { Book } from '@/lib/data'
-import { TARGET_CATEGORIES } from '@/lib/categoryMapping'
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('All Books')
@@ -52,7 +51,7 @@ export default function Home() {
           ) : (
             <div className="mt-8 text-center">
               <p className="text-xl text-gray-600">
-                No books found for "{searchTerm}"{activeCategory !== 'All Books' ? ` in ${activeCategory}` : ''}.
+                No books found for &quot;{searchTerm}&quot;{activeCategory !== 'All Books' ? ` in ${activeCategory}` : ''}.
               </p>
               <button 
                 onClick={() => {
