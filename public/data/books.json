@@ -252,7 +252,7 @@
     "author": "Karen Homer",
     "coverUrl": "/covers/little-book-of-hermes.jpg",
     "amazonUrl": "https://www.amazon.com/Little-Book-Herm%C3%A8s-Iconic-Fashion/dp/180279011X",
-    "category": "Uncategorized",
+    "category": "Business",
     "episodeRef": {
       "name": "Hermès",
       "seasonNumber": 14,
@@ -408,7 +408,7 @@
     "author": "Brandon Sanderson",
     "coverUrl": "https://covers.openlibrary.org/b/id/14658160-L.jpg",
     "amazonUrl": "https://www.amazon.com/Mistborn-Final-Empire-Brandon-Sanderson/dp/0765377136",
-    "category": "Courts and courtiers",
+    "category": "Fantasy",
     "episodeRef": {
       "name": "Visa",
       "seasonNumber": 13,
@@ -473,7 +473,7 @@
     "author": "Greg Hoffman",
     "coverUrl": "https://covers.openlibrary.org/b/id/14677333-L.jpg",
     "amazonUrl": "https://www.amazon.com/Emotion-Design-Creative-Leadership-Lessons/dp/1538705591",
-    "category": "Uncategorized",
+    "category": "Business, branding",
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
@@ -564,7 +564,7 @@
     "author": "Hamilton Helmer",
     "coverUrl": "https://covers.openlibrary.org/b/id/10208801-L.jpg",
     "amazonUrl": "https://www.amazon.com/7-Powers-Foundations-Business-Strategy/dp/0998116319",
-    "category": "Uncategorized",
+    "category": "Business",
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
@@ -954,7 +954,7 @@
     "author": "James Weber",
     "coverUrl": "https://covers.openlibrary.org/b/id/14701026-L.jpg",
     "amazonUrl": "https://www.amazon.com/Running-Purpose-Outpaced-Goliath-Competitors-ebook/dp/B09LV21K49",
-    "category": "Uncategorized",
+    "category": "Business",
     "episodeRef": {
       "name": "Arena Show Part II: Brooks Running (with CEO Jim Weber)",
       "seasonNumber": 10,
@@ -967,7 +967,7 @@
     "author": "James S. A. Corey",
     "coverUrl": "https://covers.openlibrary.org/b/id/12674980-L.jpg",
     "amazonUrl": "https://www.amazon.com/Memorys-Legion-Complete-Expanse-Collection-ebook/dp/B096RSDCVK",
-    "category": "Uncategorized",
+    "category": "Fantasy",
     "episodeRef": {
       "name": "Nvidia Part II: The Machine Learning Company (2006-2022)",
       "seasonNumber": 10,
@@ -1006,7 +1006,7 @@
     "author": "Michael Francis Taylor",
     "coverUrl": "/covers/taylor-swift.jpg",
     "amazonUrl": "https://www.amazon.com/Taylor-Swift-Loves-Global-Sensation/dp/1912587556",
-    "category": "Uncategorized",
+    "category": "Music history",
     "episodeRef": {
       "name": "Taylor Swift (Acquired’s Version)",
       "seasonNumber": 10,
@@ -1028,11 +1028,11 @@
   },
   {
     "id": "B07B2HS77M",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "Who Is Michael Ovitz?",
+    "author": "Michael Ovitz",
     "coverUrl": "/covers/who-is-michael.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B07B2HS77M",
-    "category": "Uncategorized",
+    "category": "Biography",
     "episodeRef": {
       "name": "TSMC",
       "seasonNumber": 9,
@@ -1136,7 +1136,7 @@
     "author": "Neal Stephenson",
     "coverUrl": "https://covers.openlibrary.org/b/id/8598269-L.jpg",
     "amazonUrl": "https://www.amazon.com/Diamond-Age-Illustrated-Primer-Spectra/dp/0553380966",
-    "category": "Revolutions",
+    "category": "Fiction",
     "episodeRef": {
       "name": "Ethereum (with Packy McCormick)",
       "seasonNumber": 8,
@@ -1275,11 +1275,11 @@
   },
   {
     "id": "B0058Z4NOQ",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "The Kingdom and the Power: Behind the Scenes at The New York Times",
+    "author": "Gay Talese",
     "coverUrl": "/covers/the-kingdom-and-the-power.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B0058Z4NOQ",
-    "category": "Uncategorized",
+    "category": "History",
     "episodeRef": {
       "name": "The New York Times Company",
       "seasonNumber": 8,
@@ -1448,7 +1448,7 @@
     "author": "Frank Herbert",
     "coverUrl": "https://covers.openlibrary.org/b/id/11481354-L.jpg",
     "amazonUrl": "https://www.amazon.com/Dune-Frank-Herbert-ebook/dp/B00B7NPRY8",
-    "category": "Dune (Imaginary place)",
+    "category": "Fiction",
     "episodeRef": {
       "name": "Huawei",
       "seasonNumber": 5,
@@ -1509,11 +1509,11 @@
   },
   {
     "id": "B079WN554H",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "The Messy Middle",
+    "author": "Scott Belsky",
     "coverUrl": "/covers/the-messy-middle.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B079WN554H",
-    "category": "Uncategorized",
+    "category": "Business",
     "episodeRef": {
       "name": "Behance (with Scott Belsky)",
       "seasonNumber": 3,
@@ -1522,11 +1522,11 @@
   },
   {
     "id": "B0124PP3AA",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "Alibaba: The House That Jack Ma Built",
+    "author": "Duncan Clark",
     "coverUrl": "/covers/alibaba-the-house.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B0124PP3AA",
-    "category": "Uncategorized",
+    "category": "Business",
     "episodeRef": {
       "name": "Alibaba",
       "seasonNumber": 3,
@@ -1561,11 +1561,11 @@
   },
   {
     "id": "B003XF1LKW",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "Mindfulness in Plain English",
+    "author": "Bhante Gunaratana",
     "coverUrl": "/covers/mindfulness-in-plain-english.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B003XF1LKW",
-    "category": "Uncategorized",
+    "category": "literature",
     "episodeRef": {
       "name": "PowerPoint",
       "seasonNumber": 2,
@@ -1574,8 +1574,8 @@
   },
   {
     "id": "B00IQO403K",
-    "title": "地球往事三部曲",
-    "author": "刘慈欣",
+    "title": "Three-Body Problem",
+    "author": "Liu Cixin",
     "coverUrl": "https://covers.openlibrary.org/b/id/10286008-L.jpg",
     "amazonUrl": "https://www.amazon.com/Three-Body-Problem-Remembrance-Earths-Past-ebook/dp/B00IQO403K",
     "category": "Fiction, science fiction, space opera",
@@ -1591,7 +1591,7 @@
     "author": "Ernest Cline",
     "coverUrl": "https://covers.openlibrary.org/b/id/8737626-L.jpg",
     "amazonUrl": "https://www.amazon.com/Ready-Player-One-Ernest-Cline-ebook/dp/B004J4WKUQ",
-    "category": "Regression (Civilization)",
+    "category": "Fiction",
     "episodeRef": {
       "name": "Raising a Seed Round with Against Gravity CEO Nick Fajt",
       "seasonNumber": 2,
@@ -1604,7 +1604,7 @@
     "author": "Neal Stephenson",
     "coverUrl": "https://covers.openlibrary.org/b/id/9295719-L.jpg",
     "amazonUrl": "https://www.amazon.com/Seveneves-Novel-Neal-Stephenson-ebook/dp/B00LZWV8JO",
-    "category": "Survival",
+    "category": "Fiction",
     "episodeRef": {
       "name": "Raising a Seed Round with Against Gravity CEO Nick Fajt",
       "seasonNumber": 2,
@@ -1630,7 +1630,7 @@
     "author": "Walter Isaacson",
     "coverUrl": "https://covers.openlibrary.org/b/id/541092-L.jpg",
     "amazonUrl": "https://www.amazon.com/Benjamin-Franklin-American-Walter-Isaacson-ebook/dp/B000FBJG4U",
-    "category": "Politics and government",
+    "category": "Biography",
     "episodeRef": {
       "name": "Zappos (with Alfred Lin)",
       "seasonNumber": 2,
@@ -1682,7 +1682,7 @@
     "author": "Dave Marsh",
     "coverUrl": "https://covers.openlibrary.org/b/id/789201-L.jpg",
     "amazonUrl": "https://www.amazon.com/Born-Run-Bruce-Springsteen-ebook/dp/B01BNSK4V2",
-    "category": "Rock musicians",
+    "category": "Biography",
     "episodeRef": {
       "name": "The Atlassian IPO",
       "seasonNumber": 1,
@@ -1704,11 +1704,11 @@
   },
   {
     "id": "B005C6FDFY",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "Season of the Witch: Enchantment, Terror and Deliverance in the City of Love",
+    "author": "David Talbot",
     "coverUrl": "/covers/season-of-the-witch.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B005C6FDFY",
-    "category": "Uncategorized",
+    "category": "History",
     "episodeRef": {
       "name": "AOL - Time Warner (with the Internet History Podcast)",
       "seasonNumber": 1,
@@ -1717,11 +1717,11 @@
   },
   {
     "id": "B01M5IJN1P",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "A Mind at Play: How Claude Shannon Invented the Information Age",
+    "author": "Jimmy Soni",
     "coverUrl": "/covers/a-mind-at-play.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B01M5IJN1P",
-    "category": "Uncategorized",
+    "category": "History",
     "episodeRef": {
       "name": "AOL - Time Warner (with the Internet History Podcast)",
       "seasonNumber": 1,
@@ -1730,11 +1730,11 @@
   },
   {
     "id": "B00DQ845EA",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers",
+    "author": "Ben Horowitz",
     "coverUrl": "/covers/the-hard-thing-about-hard-things.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B00DQ845EA",
-    "category": "Uncategorized",
+    "category": "Business",
     "episodeRef": {
       "name": "Opsware (with special guest Michel Feaster)",
       "seasonNumber": 1,
@@ -1743,11 +1743,11 @@
   },
   {
     "id": "B01L7NJNVU",
-    "title": "https://www.amazon.com/dp/B07Z6PQBMF",
-    "author": "Unknown Author",
+    "title": "Just around Midnight: Rock and Roll and the Racial Imagination",
+    "author": "Jack Hamilton",
     "coverUrl": "/covers/just-around-midnight.jpg",
     "amazonUrl": "https://www.amazon.com/dp/B01L7NJNVU/",
-    "category": "Uncategorized",
+    "category": "History",
     "episodeRef": {
       "name": "The LA Clippers",
       "seasonNumber": 1,
