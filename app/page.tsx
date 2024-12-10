@@ -39,7 +39,7 @@ export default function Home() {
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <main className="flex-grow flex flex-col px-4 overflow-hidden">
         <div className="flex flex-col justify-center h-full">
-          <h1 className="text-6xl font-bold text-black">
+          <h1 className="text-3xl md:text-6xl font-bold text-black text-center md:text-left">
             ACQUIRED PODCAST BOOKS
           </h1>
           <CategoryNav 
