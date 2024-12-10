@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "noEmit": false,
+      "outDir": "dist",
+      "allowImportingTsExtensions": false
+    },
+    "ts-node": {
+      "esm": true,
+      "experimentalSpecifierResolution": "node"
+    },
+    "include": ["scripts/**/*", "lib/**/*"],
+    "exclude": ["node_modules", ".next", "app"]
+  }
