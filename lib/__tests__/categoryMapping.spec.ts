@@ -21,7 +21,7 @@ describe('Category Mapping', () => {
 
     // Verify every book has a valid category
     processedBooks.forEach(book => {
-      expect(TARGET_CATEGORIES.includes(book.category as any)).toBe(true);
+      expect(TARGET_CATEGORIES.includes(book.category)).toBe(true);
     });
 
     // Log some sample mappings for manual review

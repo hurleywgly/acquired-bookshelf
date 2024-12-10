@@ -6,12 +6,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { TARGET_CATEGORIES } from '@/lib/categoryMapping'
 
 interface CategoryNavProps {
-  categories: readonly string[];
   activeCategory: string;
   setActiveCategory: (category: string) => void;
 }
 
-export default function CategoryNav({ categories, activeCategory, setActiveCategory }: CategoryNavProps) {
+export default function CategoryNav({ activeCategory, setActiveCategory }: CategoryNavProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {

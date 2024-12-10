@@ -44,7 +44,6 @@ export default function Home() {
             ACQUIRED PODCAST BOOKS
           </h1>
           <CategoryNav 
-            categories={TARGET_CATEGORIES}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />

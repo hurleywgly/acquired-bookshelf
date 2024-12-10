@@ -1,4 +1,4 @@
-import { mapToTargetCategory, TargetCategory } from './categoryMapping';
+import { mapToTargetCategory } from './categoryMapping';
 
 export interface Book {
   title: string;
