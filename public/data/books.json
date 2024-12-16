@@ -1,5 +1,44 @@
 [
   {
+    "id": "0767904575",
+    "title": "The Emperors of Chocolate: Inside the Secret World of Hershey and Mars",
+    "author": "Joël Glenn Brenner",
+    "coverUrl": "/covers/emperors-of-chocolate.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0767904575",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Mars Inc.",
+      "seasonNumber": 2024,
+      "episodeNumber": 4
+    }
+  },
+  {
+    "id": "1882605209",
+    "title": "Crisis in Candyland: Melting the Chocolate Shell of the Mars Family Empire",
+    "author": "Jan Pottker",
+    "coverUrl": "/covers/crisis-in-candyland.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1882605209",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Mars Inc.",
+      "seasonNumber": 2024,
+      "episodeNumber": 4
+    }
+  },
+  {
+    "id": "B0DDJMZ8PL",
+    "title": "The Power, Privilege, and Legacy of the Mars Family Empire",
+    "author": "Ben White",
+    "coverUrl": "/covers/power-privilege-and-legacy.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/B0DDJMZ8PL",
+    "category": "Biography",
+    "episodeRef": {
+      "name": "Mars Inc.",
+      "seasonNumber": 2024,
+      "episodeNumber": 4
+    }
+  },
+  {
     "id": "B00E8C5WAY",
     "title": "A la recherche du temps perdu",
     "author": "Marcel Proust",
