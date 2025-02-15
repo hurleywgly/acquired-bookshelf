@@ -20,10 +20,25 @@ interface Book {
 interface BookGridProps {
   books: Book[]
   className?: string
+  isLoading?: boolean
 }
 
-export default function BookGrid({ books, className = '' }: BookGridProps) {
+const LoadingSkeleton = () => (
+  <div className="flex gap-6 overflow-x-auto">
+    {[...Array(4)].map((_, i) => (
+      <div key={i} className="flex-none w-[240px] h-[350px] animate-pulse">
+        <div className="w-full h-full bg-gray-200 rounded-lg"></div>
+      </div>
+    ))}
+  </div>
+)
+
+export default function BookGrid({ books, className = '', isLoading = false }: BookGridProps) {
   const gridRef = useRef<HTMLDivElement>(null)
+
+  if (isLoading) {
+    return <LoadingSkeleton />
+  }
 
   return (
     <div className={`relative ${className}`}>
