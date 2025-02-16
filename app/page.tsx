@@ -1,5 +1,5 @@
 import { getBooks } from '@/lib/books'
-import ClientPage from './ClientPage'
+import ClientPage from './components/ClientPage'
 
 export const revalidate = 604800 // revalidate every 7 days
 
