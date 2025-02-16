@@ -56,6 +56,10 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
               </button>
             </div>
           )}
+          <p className="text-xl text-gray-600 mt-16">
+            Discover books used by Ben and David to research<br />
+            your favorite episodes of Acquired.
+          </p>
         </div>
       </main>
       <Footer />
