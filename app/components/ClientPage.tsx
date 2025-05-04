@@ -27,11 +27,11 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
   })
 
   return (
-    <div className="h-screen flex flex-col bg-gray-100">
+    <div className="min-h-screen flex flex-col bg-gray-100">
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <main className="flex-grow flex flex-col px-4 overflow-hidden">
-        <div className="flex flex-col justify-center h-full">
-          <h1 className="text-3xl md:text-6xl font-bold text-black text-center md:text-left">
+      <main className="flex-grow flex flex-col px-4 justify-center">
+        <div className="flex flex-col">
+          <h1 className="hidden show-heading-desktop text-3xl md:text-6xl font-bold text-black text-center md:text-left">
             ACQUIRED PODCAST BOOKS
           </h1>
           <CategoryNav 
@@ -56,8 +56,8 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
               </button>
             </div>
           )}
-          <p className="text-xl text-gray-600 mt-16">
-            Discover books used by Ben and David to research<br />
+          <p className="text-base sm:text-xl text-gray-600 mt-4 sm:mt-8 hide-para-small-height">
+            Discover books used by Ben and David to research
             your favorite episodes of Acquired.
           </p>
         </div>
