@@ -40,20 +40,34 @@ async function fetchWithRetry(url: string, retries = MAX_RETRIES): Promise<Respo
 }
 
 async function extractBookInfo(url: string): Promise<{ asin?: string; title?: string; author?: string }> {
+  // Clean URL first - remove Google redirect wrapper
+  let cleanUrl = url
+  if (url.includes('google.com/url?')) {
+    try {
+      const urlParams = new URLSearchParams(url.split('?')[1])
+      cleanUrl = urlParams.get('q') || urlParams.get('url') || url
+    } catch (error) {
+      console.error('Error cleaning Google redirect URL:', error)
+    }
+  }
+
   // Try to get ASIN from URL
-  const asinMatch = url.match(/\/dp\/([A-Z0-9]{10})/) || url.match(/\/([B][0-9A-Z]{9})/)
+  const asinMatch = cleanUrl.match(/\/dp\/([A-Z0-9]{10})/) || cleanUrl.match(/\/([B][0-9A-Z]{9})/)
   const asin = asinMatch?.[1]
   
   // Try to extract title from Amazon URL
   let title, author
   try {
-    const urlParts = url.split('/dp/')[0].split('/')
-    const lastPart = urlParts[urlParts.length - 1]
-    if (lastPart && lastPart !== 'amazon.com') {
-      title = lastPart
+    // Look for the title part in Amazon URLs (usually between domain and /dp/)
+    const titleMatch = cleanUrl.match(/amazon\.com\/([^\/]+)\/dp\//) || 
+                      cleanUrl.match(/amazon\.com\/([^\/\?]+)/)
+    
+    if (titleMatch && titleMatch[1] && !titleMatch[1].includes('gp')) {
+      title = titleMatch[1]
         .replace(/-/g, ' ')
         .replace(/ebook|kindle|edition|audiobook|hardcover|paperback/gi, '')
         .replace(/[^a-zA-Z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
         .trim()
     }
   } catch (error) {
@@ -61,6 +75,42 @@ async function extractBookInfo(url: string): Promise<{ asin?: string; title?: st
   }
   
   return { asin, title, author }
+}
+
+async function getAmazonBookCover(amazonUrl: string): Promise<string | null> {
+  try {
+    const { asin } = await extractBookInfo(amazonUrl)
+    if (!asin) return null
+
+    // Amazon book cover image URLs follow a predictable pattern
+    // Try different image sizes and formats
+    const imageUrls = [
+      `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.L.jpg`,  // Large
+      `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.M.jpg`,  // Medium
+      `https://m.media-amazon.com/images/P/${asin}.01.L.jpg`,               // Alternative CDN Large
+      `https://m.media-amazon.com/images/P/${asin}.01.M.jpg`,               // Alternative CDN Medium
+    ]
+
+    // Test each URL to see if the image exists
+    for (const imageUrl of imageUrls) {
+      try {
+        const response = await fetch(imageUrl, { method: 'HEAD' })
+        if (response.ok && response.headers.get('content-type')?.startsWith('image/')) {
+          console.log(`✅ Found Amazon cover: ${imageUrl}`)
+          return imageUrl
+        }
+      } catch (error) {
+        // Continue to next URL
+        continue
+      }
+    }
+
+    console.log(`⚠️ No Amazon cover found for ASIN: ${asin}`)
+    return null
+  } catch (error) {
+    console.error('Error getting Amazon book cover:', error)
+    return null
+  }
 }
 
 async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> {
@@ -125,12 +175,21 @@ async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> 
     }
 
     if (bookData) {
+      // Try to get Open Library cover first, then fallback to Amazon
+      let coverUrl = bookData.cover_i 
+        ? `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`
+        : undefined
+
+      // If no Open Library cover, try Amazon as fallback
+      if (!coverUrl) {
+        console.log('  📸 No Open Library cover found, trying Amazon...')
+        coverUrl = await getAmazonBookCover(amazonUrl)
+      }
+
       const metadata: BookMetadata = {
         title: bookData.title || 'Unknown Title',
         author: bookData.author_name?.[0] || 'Unknown Author',
-        coverUrl: bookData.cover_i 
-          ? `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`
-          : undefined,
+        coverUrl: coverUrl || '/covers/default-book.jpg',
         firstPublishYear: bookData.first_publish_year,
         isbn: bookData.isbn?.[0],
         olid: bookData.key?.replace('/works/', ''),
@@ -147,7 +206,29 @@ async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> 
       return metadata
     }
 
-    console.warn(`✗ No metadata found for ${amazonUrl}`)
+    // No Open Library data found, but try to create basic metadata with Amazon cover
+    console.warn(`✗ No Open Library metadata found for ${amazonUrl}`)
+    console.log('  📸 Attempting to get Amazon cover as fallback...')
+    
+    const bookInfo = await extractBookInfo(amazonUrl)
+    const amazonCover = await getAmazonBookCover(amazonUrl)
+    
+    if (amazonCover || bookInfo.title) {
+      const fallbackMetadata: BookMetadata = {
+        title: bookInfo.title || 'Unknown Title',
+        author: 'Unknown Author',
+        coverUrl: amazonCover || '/covers/default-book.jpg',
+        subjects: []
+      }
+      
+      console.log(`✓ Created fallback metadata: "${fallbackMetadata.title}"`)
+      if (amazonCover) {
+        console.log(`  📸 Using Amazon cover: ${amazonCover}`)
+      }
+      
+      return fallbackMetadata
+    }
+    
     return null
   } catch (error) {
     console.error('Error fetching book metadata:', error)
@@ -190,4 +271,4 @@ async function getBatchBookMetadata(amazonUrls: string[]): Promise<(BookMetadata
   return results
 }
 
-export { getBookMetadata, getBatchBookMetadata, type BookMetadata }
+export { getBookMetadata, getBatchBookMetadata, getAmazonBookCover, type BookMetadata }

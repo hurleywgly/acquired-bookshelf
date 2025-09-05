@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 import Header from './components/Header'
-import CategoryNav from './components/CategoryNav'
-import BookGrid from './components/BookGrid'
+import EpisodeTimeline from './components/EpisodeTimeline'
+import MasonryBookGallery from './components/MasonryBookGallery'
+import BookQuote from './components/BookQuote'
+import IntroModal from './components/IntroModal'
+import PodcastLinks from './components/PodcastLinks'
 import Footer from './components/Footer'
 import { Book } from '@/lib/data'
 
@@ -12,58 +15,92 @@ interface ClientPageProps {
 }
 
 export default function ClientPage({ initialBooks }: ClientPageProps) {
-  const [activeCategory, setActiveCategory] = useState('All Books')
+  const [activeEpisode, setActiveEpisode] = useState<string>()
   const [searchTerm, setSearchTerm] = useState('')
+  const [showIntroModal, setShowIntroModal] = useState(true)
 
+  // Filter books based on search term
   const filteredBooks = initialBooks.filter(book => {
-    const matchesCategory = activeCategory === 'All Books' || book.category === activeCategory
-    
     const searchTermLower = searchTerm.toLowerCase()
-    const matchesSearch = 
+    return (
       book.title.toLowerCase().includes(searchTermLower) ||
       book.author.toLowerCase().includes(searchTermLower) ||
       (book.episodeRef?.name.toLowerCase().includes(searchTermLower) ?? false)
-
-    return matchesCategory && matchesSearch
+    )
   })
 
+  const handleEpisodeClick = (episodeId: string) => {
+    setActiveEpisode(episodeId)
+  }
+
+  const handleGalleryScroll = (episodeId: string) => {
+    setActiveEpisode(episodeId)
+  }
+
   return (
-    <div className="h-screen flex flex-col bg-gray-100">
+    <div className="h-screen flex flex-col bg-gray-50">
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <main className="flex-grow flex flex-col px-4 overflow-hidden">
-        <div className="flex flex-col justify-center h-full">
-          <h1 className="text-3xl md:text-6xl font-bold text-black text-center md:text-left">
-            ACQUIRED PODCAST BOOKS
-          </h1>
-          <CategoryNav 
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
+      
+      <div className="flex-1 flex overflow-hidden">
+        {/* Episode Timeline Sidebar - Hidden on mobile */}
+        <div className="hidden lg:block">
+          <EpisodeTimeline 
+            activeEpisode={activeEpisode}
+            onEpisodeClick={handleEpisodeClick}
           />
+        </div>
+
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col">
+          {/* Header with Title and Quote */}
+          <div className="p-4 lg:p-6 bg-white border-b border-gray-200">
+            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 lg:gap-8">
+              <div className="flex-1">
+                <h1 className="text-2xl lg:text-4xl font-bold text-black mb-2">
+                  ACQUIRED Bookshelf
+                </h1>
+                <p className="text-gray-600 text-sm lg:text-base mb-4">
+                  This is a fan-made site of books researched by Ben & David for episodes of the Acquired Podcast
+                </p>
+                <PodcastLinks />
+              </div>
+              <div className="hidden lg:block flex-shrink-0">
+                <BookQuote />
+              </div>
+            </div>
+          </div>
+
+          {/* Book Gallery */}
           {filteredBooks.length > 0 ? (
-            <BookGrid books={filteredBooks} className="mt-4" />
+            <MasonryBookGallery 
+              books={filteredBooks}
+              activeEpisode={activeEpisode}
+              onScroll={handleGalleryScroll}
+            />
           ) : (
-            <div className="mt-8 text-center">
-              <p className="text-xl text-gray-600">
-                No books found for &quot;{searchTerm}&quot;{activeCategory !== 'All Books' ? ` in ${activeCategory}` : ''}.
-              </p>
-              <button 
-                onClick={() => {
-                  setSearchTerm('')
-                  setActiveCategory('All Books')
-                }}
-                className="mt-4 px-6 py-2 bg-[#5ebd9c] text-white rounded-full hover:bg-[#4ca98a] transition-colors"
-              >
-                Clear filters
-              </button>
+            <div className="flex-1 flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-xl text-gray-600 mb-4">
+                  No books found for &quot;{searchTerm}&quot;.
+                </p>
+                <button 
+                  onClick={() => setSearchTerm('')}
+                  className="px-6 py-2 bg-active-green text-white rounded-full hover:bg-active-green/80 transition-colors"
+                >
+                  Clear search
+                </button>
+              </div>
             </div>
           )}
-          <p className="text-xl text-gray-600 mt-16">
-            Discover books used by Ben and David to research<br />
-            your favorite episodes of Acquired.
-          </p>
         </div>
-      </main>
+      </div>
+
       <Footer />
+      
+      {/* Intro Modal */}
+      {showIntroModal && (
+        <IntroModal onClose={() => setShowIntroModal(false)} />
+      )}
     </div>
   )
 } 

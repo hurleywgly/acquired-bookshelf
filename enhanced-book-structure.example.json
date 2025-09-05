@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1788840232",
+    "title": "The Book of Rolex",
+    "author": "Jens Høy, Christian Frost",
+    "amazonUrl": "https://www.amazon.com/dp/1788840232",
+    "category": "Business",
+    "covers": {
+      "openLibrary": "https://covers.openlibrary.org/b/id/12345-L.jpg",
+      "amazon": "https://images-na.ssl-images-amazon.com/images/P/1788840232.01.L.jpg",
+      "local": "/covers/book-of-rolex.jpg",
+      "optimized": "https://covers.openlibrary.org/b/id/12345-L.jpg"
+    },
+    "metadata": {
+      "isbn": "1788840232",
+      "firstPublishYear": 2019,
+      "subjects": ["Business", "Luxury goods", "Watches"]
+    },
+    "episodeRef": {
+      "name": "Rolex",
+      "seasonNumber": 2025,
+      "episodeNumber": 2
+    },
+    "addedAt": "2025-01-15T10:00:00Z",
+    "source": "automated"
+  }
+]

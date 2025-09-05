@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'active-green': '#5CE8C5',
+        'hover-gray': '#C6C7C6',
       },
     },
   },

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1788840232",
+    "title": "The Book of Rolex",
+    "author": "Jens Høy, Christian Frost",
+    "coverUrl": "/covers/book-of-rolex.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1788840232",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Rolex",
+      "seasonNumber": 2025,
+      "episodeNumber": 2
+    }
+  },
+  {
+    "id": "3961715033",
+    "title": "The Watch Book Rolex",
+    "author": "Gisbert L. Brunner",
+    "coverUrl": "/covers/watch-book-rolex.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/3961715033",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Rolex",
+      "seasonNumber": 2025,
+      "episodeNumber": 2
+    }
+  },
+  {
+    "id": "0764300113",
+    "title": "The Best of Time: Rolex Wristwatches",
+    "author": "James M. Dowling, Jeffrey P. Hess",
+    "coverUrl": "/covers/best-of-time-rolex.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0764300113",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Rolex",
+      "seasonNumber": 2025,
+      "episodeNumber": 2
+    }
+  },
+  {
+    "id": "0764345974",
+    "title": "The Rolex Story",
+    "author": "Franz-Christoph Heel",
+    "coverUrl": "/covers/the-rolex-story.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0764345974",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Rolex",
+      "seasonNumber": 2025,
+      "episodeNumber": 2
+    }
+  },
+  {
+    "id": "1802797599",
+    "title": "Little Book of Rolex",
+    "author": "Josh Sims",
+    "coverUrl": "/covers/little-book-of-rolex.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1802797599",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Rolex",
+      "seasonNumber": 2025,
+      "episodeNumber": 2
+    }
+  }
+]

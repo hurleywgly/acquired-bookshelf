@@ -1,0 +1,12 @@
+{
+  "totalBooks": 158,
+  "uniqueEpisodes": 80,
+  "coverSources": {
+    "amazon": 155,
+    "openLibrary": 3,
+    "local": 32
+  },
+  "enhancedMetadata": 61,
+  "lastUpdated": "2025-06-21T05:17:16.569Z",
+  "migrationDate": "2025-06-21T05:17:16.569Z"
+}

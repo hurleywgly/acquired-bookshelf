@@ -1,31 +1,5 @@
 [
   {
-    "id": "1416596585",
-    "title": "In the plex",
-    "author": "Steven Levy",
-    "coverUrl": "https://covers.openlibrary.org/b/id/7010312-L.jpg",
-    "amazonUrl": "https://www.google.com/url?q=https://www.amazon.com/Plex-Google-Thinks-Works-Shapes/dp/1416596585&sa=D&source=editors&ust=1757052558563631&usg=AOvVaw3NqkujZnXzeyHuR3ZHNrlm",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Alphabet Inc.",
-      "seasonNumber": 2025,
-      "episodeNumber": 4
-    }
-  },
-  {
-    "id": "B0FHL3NVWK",
-    "title": "Unknown Title",
-    "author": "Unknown Author",
-    "coverUrl": "https://images-na.ssl-images-amazon.com/images/P/B0FHL3NVWK.01.L.jpg",
-    "amazonUrl": "https://www.google.com/url?q=https://www.amazon.com/gp/product/B0FHL3NVWK/&sa=D&source=editors&ust=1757052558579197&usg=AOvVaw2puDyoJsUnj0f1Hecdkcx_",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Alphabet Inc.",
-      "seasonNumber": 2025,
-      "episodeNumber": 4
-    }
-  },
-  {
     "id": "1788840232",
     "title": "The Book of Rolex",
     "author": "Jens Høy, Christian Frost",
@@ -975,6 +949,32 @@
     }
   },
   {
+    "id": "B000FC1HTG",
+    "title": "eBoys",
+    "author": "Randall E. Stross",
+    "coverUrl": "https://covers.openlibrary.org/b/id/605402-L.jpg",
+    "amazonUrl": "https://www.amazon.com/eBoys-Inside-Account-Venture-Capitalists-ebook/dp/B000FC1HTG",
+    "category": "Commerce électronique",
+    "episodeRef": {
+      "name": "SoftBank, Fortress and the Vision Fund",
+      "seasonNumber": 2,
+      "episodeNumber": 4
+    }
+  },
+  {
+    "id": "0875849385",
+    "title": "Done Deals",
+    "author": "Udayan Gupta",
+    "coverUrl": "https://covers.openlibrary.org/b/id/668203-L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0875849385",
+    "category": "Venture capital",
+    "episodeRef": {
+      "name": "Sequoia Capital (Part 1)",
+      "seasonNumber": 5,
+      "episodeNumber": 4
+    }
+  },
+  {
     "id": "B08TB1TP7H",
     "title": "Amazon Unbound",
     "author": "Brad Stone",
@@ -985,6 +985,19 @@
       "name": "Amazon Web Services",
       "seasonNumber": 11,
       "episodeNumber": 3
+    }
+  },
+  {
+    "id": "B00BWQW73E",
+    "title": "The Everything Store",
+    "author": "Brad Stone",
+    "coverUrl": "https://covers.openlibrary.org/b/id/7264584-L.jpg",
+    "amazonUrl": "https://www.amazon.com/Everything-Store-Jeff-Bezos-Amazon-ebook/dp/B00BWQW73E",
+    "category": "Amazon.com (Firm)",
+    "episodeRef": {
+      "name": "Jet",
+      "seasonNumber": 1,
+      "episodeNumber": 19
     }
   },
   {
@@ -1131,6 +1144,19 @@
     }
   },
   {
+    "id": "B07B2HS77M",
+    "title": "Who Is Michael Ovitz?",
+    "author": "Michael Ovitz",
+    "coverUrl": "/covers/who-is-michael.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/B07B2HS77M",
+    "category": "Biography",
+    "episodeRef": {
+      "name": "TSMC",
+      "seasonNumber": 9,
+      "episodeNumber": 3
+    }
+  },
+  {
     "id": "B08HY29VM2",
     "title": "Rabbits",
     "author": "Terry Miles",
@@ -1157,16 +1183,16 @@
     }
   },
   {
-    "id": "B07B2HS77M",
-    "title": "Who Is Michael Ovitz?",
-    "author": "Michael Ovitz",
-    "coverUrl": "/covers/who-is-michael.jpg",
-    "amazonUrl": "https://www.amazon.com/dp/B07B2HS77M",
-    "category": "Biography",
+    "id": "B01HZFB3X0",
+    "title": "The Upstarts",
+    "author": "Brad Stone",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10243221-L.jpg",
+    "amazonUrl": "https://www.amazon.com/Upstarts-Airbnb-Companies-Silicon-Changing-ebook/dp/B01HZFB3X0",
+    "category": "Bed and breakfast accommodations",
     "episodeRef": {
-      "name": "TSMC",
-      "seasonNumber": 9,
-      "episodeNumber": 3
+      "name": "The Uber - Didi Chuxing Merger",
+      "seasonNumber": 1,
+      "episodeNumber": 31
     }
   },
   {
@@ -1495,19 +1521,6 @@
     }
   },
   {
-    "id": "0875849385",
-    "title": "Done Deals",
-    "author": "Udayan Gupta",
-    "coverUrl": "https://covers.openlibrary.org/b/id/668203-L.jpg",
-    "amazonUrl": "https://www.amazon.com/dp/0875849385",
-    "category": "Venture capital",
-    "episodeRef": {
-      "name": "Sequoia Capital (Part 1)",
-      "seasonNumber": 5,
-      "episodeNumber": 4
-    }
-  },
-  {
     "id": "B06ZZ1YDTX",
     "title": "Troublemakers",
     "author": "Leslie Berlin",
@@ -1674,19 +1687,6 @@
       "name": "PowerPoint",
       "seasonNumber": 2,
       "episodeNumber": 7
-    }
-  },
-  {
-    "id": "B000FC1HTG",
-    "title": "eBoys",
-    "author": "Randall E. Stross",
-    "coverUrl": "https://covers.openlibrary.org/b/id/605402-L.jpg",
-    "amazonUrl": "https://www.amazon.com/eBoys-Inside-Account-Venture-Capitalists-ebook/dp/B000FC1HTG",
-    "category": "Commerce électronique",
-    "episodeRef": {
-      "name": "SoftBank, Fortress and the Vision Fund",
-      "seasonNumber": 2,
-      "episodeNumber": 4
     }
   },
   {
@@ -1898,19 +1898,6 @@
     }
   },
   {
-    "id": "B01HZFB3X0",
-    "title": "The Upstarts",
-    "author": "Brad Stone",
-    "coverUrl": "https://covers.openlibrary.org/b/id/10243221-L.jpg",
-    "amazonUrl": "https://www.amazon.com/Upstarts-Airbnb-Companies-Silicon-Changing-ebook/dp/B01HZFB3X0",
-    "category": "Bed and breakfast accommodations",
-    "episodeRef": {
-      "name": "The Uber - Didi Chuxing Merger",
-      "seasonNumber": 1,
-      "episodeNumber": 31
-    }
-  },
-  {
     "id": "B00ICN066A",
     "title": "Sapiens",
     "author": "Yuval Noah Harari",
@@ -2002,16 +1989,16 @@
     }
   },
   {
-    "id": "B00BWQW73E",
-    "title": "The Everything Store",
-    "author": "Brad Stone",
-    "coverUrl": "https://covers.openlibrary.org/b/id/7264584-L.jpg",
-    "amazonUrl": "https://www.amazon.com/Everything-Store-Jeff-Bezos-Amazon-ebook/dp/B00BWQW73E",
-    "category": "Amazon.com (Firm)",
+    "id": "B00L1TPCKW",
+    "title": "Business Adventures",
+    "author": "John Brooks",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10444248-L.jpg",
+    "amazonUrl": "https://www.amazon.com/Business-Adventures-Twelve-Classic-Street-ebook/dp/B00L1TPCKW",
+    "category": "Businesspeople",
     "episodeRef": {
-      "name": "Jet",
+      "name": "Virgin America",
       "seasonNumber": 1,
-      "episodeNumber": 19
+      "episodeNumber": 10
     }
   },
   {
@@ -2051,19 +2038,6 @@
       "name": "LinkedIn",
       "seasonNumber": 1,
       "episodeNumber": 14
-    }
-  },
-  {
-    "id": "B00L1TPCKW",
-    "title": "Business Adventures",
-    "author": "John Brooks",
-    "coverUrl": "https://covers.openlibrary.org/b/id/10444248-L.jpg",
-    "amazonUrl": "https://www.amazon.com/Business-Adventures-Twelve-Classic-Street-ebook/dp/B00L1TPCKW",
-    "category": "Businesspeople",
-    "episodeRef": {
-      "name": "Virgin America",
-      "seasonNumber": 1,
-      "episodeNumber": 10
     }
   },
   {

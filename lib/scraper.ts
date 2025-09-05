@@ -14,21 +14,32 @@ interface Episode {
   fetchedAt?: string
 }
 
-async function getAllEpisodes(): Promise<Episode[]> {
+async function getAllEpisodes(forceRefresh: boolean = false): Promise<Episode[]> {
   const cacheDir = path.join(process.cwd(), 'data')
   const cacheFile = path.join(cacheDir, 'episode-cache.json')
   
-  // Try to load from cache first
-  try {
-    const cacheData = await fs.readFile(cacheFile, 'utf-8')
-    const cached = JSON.parse(cacheData)
-    if (Array.isArray(cached) && cached.length > 0) {
-      console.log(`Loaded ${cached.length} episodes from cache`)
-      return cached
+  // Check cache unless forced refresh
+  if (!forceRefresh) {
+    try {
+      const cacheData = await fs.readFile(cacheFile, 'utf-8')
+      const cached = JSON.parse(cacheData)
+      if (Array.isArray(cached) && cached.length > 0) {
+        // Check if cache is stale (older than 6 hours)
+        const cacheAge = Date.now() - new Date(cached[0]?.fetchedAt || 0).getTime()
+        const sixHours = 6 * 60 * 60 * 1000
+        
+        if (cacheAge < sixHours) {
+          console.log(`Loaded ${cached.length} episodes from cache (${Math.round(cacheAge / (1000 * 60))} minutes old)`)
+          return cached
+        } else {
+          console.log('Cache is stale (>6 hours), refreshing...')
+        }
+      }
+    } catch (error) {
+      console.log('No cache found or invalid cache, fetching all episodes...')
     }
-    throw new Error('Invalid or empty cache')
-  } catch (error) {
-    console.log('No cache found or invalid cache, fetching all episodes...')
+  } else {
+    console.log('Force refresh requested, fetching all episodes...')
   }
 
   const allEpisodes: Episode[] = []
@@ -100,8 +111,8 @@ async function getEpisodesFromPage(url: string, pageNum: number, fetchedAt: stri
       
       if (isACQ2) return
 
-      // Parse season/episode from preview text
-      const seasonEpMatch = previewText.match(/Fall (\d{4}), Episode (\d+)|Season (\d+), Episode (\d+)/)
+      // Parse season/episode from preview text - handle seasonal patterns
+      const seasonEpMatch = previewText.match(/(?:Fall|Spring|Summer|Winter) (\d{4}), Episode (\d+)|Season (\d+), Episode (\d+)/)
       
       if (title && seasonEpMatch) {
         const seasonNumber = parseInt(seasonEpMatch[1] || seasonEpMatch[3])

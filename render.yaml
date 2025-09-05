@@ -1,0 +1,25 @@
+services:
+  # Main web application
+  - type: web
+    name: acquired-bookshelf
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: false
+    
+  # Optimized RSS scraper (primary)
+  - type: cron
+    name: optimized-scraper-weekly
+    runtime: node
+    schedule: "0 10 * * 1"  # Every Monday at 10 AM UTC
+    buildCommand: npm ci
+    startCommand: npm run optimized-scraper
+    envVars:
+      - key: NODE_ENV
+        value: production
+    repo: auto
+    autoDeploy: false
