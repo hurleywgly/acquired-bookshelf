@@ -294,7 +294,9 @@ class RSSMonitor {
 
       return items.map((item: RSSItem) => {
         // Create unique ID from GUID or link
-        const guid = item.guid?.['#text'] || item.guid || item.link
+        const guid = typeof item.guid === 'object' && item.guid !== null
+          ? item.guid['#text']
+          : (item.guid ?? item.link ?? '')
         const id = guid.split('/').pop() || `episode-${Date.now()}`
         
         return {
