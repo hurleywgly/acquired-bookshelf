@@ -183,7 +183,7 @@ async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> 
       // If no Open Library cover, try Amazon as fallback
       if (!coverUrl) {
         console.log('  📸 No Open Library cover found, trying Amazon...')
-        coverUrl = await getAmazonBookCover(amazonUrl)
+        coverUrl = await getAmazonBookCover(amazonUrl) ?? undefined
       }
 
       const metadata: BookMetadata = {
