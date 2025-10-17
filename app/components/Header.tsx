@@ -34,10 +34,10 @@ export default function Header({ searchTerm, setSearchTerm, showIntroModal }: He
       {/* Quote Section */}
       <div className="max-w-7xl mx-auto mt-6 mb-2">
         <blockquote className="text-gray-600 italic text-lg">
-          "Spend each day trying to be a little wiser than you were when you woke up."
+          &ldquo;Spend each day trying to be a little wiser than you were when you woke up.&rdquo;
         </blockquote>
         <div className="mt-2 text-sm text-gray-500">
-          <span className="font-medium">Charles T. Munger</span> - Poor Charlie's Almanack
+          <span className="font-medium">Charles T. Munger</span> &mdash; Poor Charlie&apos;s Almanack
         </div>
       </div>
     </header>

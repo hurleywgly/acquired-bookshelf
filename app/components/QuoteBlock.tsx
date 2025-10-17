@@ -9,7 +9,7 @@ export default function QuoteBlock({ quote }: QuoteBlockProps) {
     <div className="w-[270px] h-[320px] flex-shrink-0 flex flex-col justify-center p-[15px] bg-white">
       <div className="mt-2.5">
         <blockquote className="text-gray-800 italic text-xl font-light leading-[1.5]">
-          "{quote.text}"
+          &ldquo;{quote.text}&rdquo;
         </blockquote>
 
         <div className="flex flex-col gap-4 mt-8">

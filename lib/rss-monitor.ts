@@ -25,6 +25,14 @@ interface EpisodeProcessing {
   episodeType?: EpisodeType
 }
 
+interface RSSItem {
+  title?: string
+  link?: string
+  pubDate?: string
+  guid?: string | { '#text': string }
+  description?: string
+}
+
 enum EpisodeType {
   REGULAR = 'regular',        // Has sources doc
   INTERVIEW = 'interview',    // No sources doc
@@ -283,8 +291,8 @@ class RSSMonitor {
     try {
       const parsed = this.xmlParser.parse(xmlData)
       const items = parsed.rss?.channel?.item || []
-      
-      return items.map((item: any) => {
+
+      return items.map((item: RSSItem) => {
         // Create unique ID from GUID or link
         const guid = item.guid?.['#text'] || item.guid || item.link
         const id = guid.split('/').pop() || `episode-${Date.now()}`

@@ -1,15 +1,12 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
 
 interface BookTileProps {
-  id: string
   amazonUrl: string
   title: string
   author: string
   coverUrl: string
-  category: string
   episodeRef: {
     name: string
     seasonNumber: number
@@ -18,7 +15,7 @@ interface BookTileProps {
   size?: 'standard' | 'xl'
 }
 
-export default function BookTile({ id, amazonUrl, title, author, coverUrl, category, episodeRef, size = 'standard' }: BookTileProps) {
+export default function BookTile({ amazonUrl, title, author, coverUrl, episodeRef, size = 'standard' }: BookTileProps) {
   // Dynamic aspect ratio based on size - more pronounced difference
   const aspectClass = size === 'xl' ? 'aspect-[4/5]' : 'aspect-[2/3]'
 

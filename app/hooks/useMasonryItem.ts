@@ -41,8 +41,9 @@ export function useMasonryItem(rowUnit: number, rowGap: number) {
     const t = requestAnimationFrame(measure)
 
     // Recalculate after fonts load (can change heights)
-    if ((document as any).fonts?.ready) {
-      ;(document as any).fonts.ready.then(() => requestAnimationFrame(measure))
+    const docWithFonts = document as Document & { fonts?: { ready: Promise<void> } }
+    if (docWithFonts.fonts?.ready) {
+      docWithFonts.fonts.ready.then(() => requestAnimationFrame(measure))
     }
 
     const onResize = () => requestAnimationFrame(measure)

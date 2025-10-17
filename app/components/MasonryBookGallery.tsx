@@ -45,7 +45,6 @@ export default function MasonryBookGallery({ books, activeEpisode, onScroll }: M
 
           const container = containerRef.current
           const scrollTop = container.scrollTop
-          const containerHeight = container.clientHeight
           const scrollCenter = scrollTop + 100 // Fixed offset from top
 
           // Find the book that's currently visible near the top
