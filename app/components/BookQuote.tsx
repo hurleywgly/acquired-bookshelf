@@ -14,15 +14,15 @@ export default function BookQuote() {
       </div>
       
       <blockquote className="text-gray-800 text-base lg:text-lg italic mb-3 lg:mb-4 leading-relaxed">
-        "Spend each day trying to be a little wiser than you were when you woke up."
+        &ldquo;Spend each day trying to be a little wiser than you were when you woke up.&rdquo;
       </blockquote>
-      
+
       <div className="text-right">
         <cite className="text-gray-600 text-xs lg:text-sm font-medium not-italic">
           Charles T. Munger
         </cite>
         <div className="text-gray-500 text-xs mt-1">
-          Poor Charlie's Almanack
+          Poor Charlie&apos;s Almanack
         </div>
       </div>
     </div>

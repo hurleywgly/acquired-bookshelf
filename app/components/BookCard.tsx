@@ -2,6 +2,7 @@
 'use client'
 
 import { Book } from '@/lib/data'
+import Image from 'next/image'
 
 interface BookCardProps {
   book: Book
@@ -37,11 +38,12 @@ export default function BookCard({ book, size, episodeId }: BookCardProps) {
     >
       {/* Cover image - EXPLICIT HEIGHT 180px */}
       <div className={`relative ${imageHeight} bg-gray-100 overflow-hidden flex-shrink-0`}>
-        <img
+        <Image
           src={book.coverUrl}
           alt={book.title}
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 270px"
+          className="object-cover object-center"
         />
 
         {/* Episode badge overlay - top right */}
