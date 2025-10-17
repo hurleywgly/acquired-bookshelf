@@ -71,11 +71,11 @@ class BookCoverOptimizer {
     try {
       // For external URLs, do a HEAD request
       if (url.startsWith('http')) {
-        const response = await fetch(url, { 
+        const response = await fetch(url, {
           method: 'HEAD',
           cache: 'force-cache' // Cache the result
         })
-        return response.ok && response.headers.get('content-type')?.startsWith('image/')
+        return response.ok && (response.headers.get('content-type')?.startsWith('image/') ?? false)
       }
       
       // Local URLs are assumed to exist (Next.js will handle 404s)
