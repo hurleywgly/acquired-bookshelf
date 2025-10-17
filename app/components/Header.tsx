@@ -3,23 +3,42 @@ import { Search } from 'lucide-react'
 interface HeaderProps {
   searchTerm: string
   setSearchTerm: (term: string) => void
+  showIntroModal: () => void
 }
 
-export default function Header({ searchTerm, setSearchTerm }: HeaderProps) {
+export default function Header({ searchTerm, setSearchTerm, showIntroModal }: HeaderProps) {
   return (
-    <header className="flex flex-col sm:flex-row items-center justify-between p-3 lg:p-4 bg-black text-white gap-3 sm:gap-0">
-      <h2 className="text-lg lg:text-xl font-semibold flex items-center gap-4 text-[#33ffcc] tracking-wider mb-2 sm:mb-0">
-        ACQUIRED BOOKSHELF
-      </h2>
-      <div className="relative w-full sm:w-auto">
-        <input
-          type="text"
-          placeholder="Search books, authors, episodes..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full sm:w-[250px] lg:w-[300px] pl-10 pr-4 py-2 rounded-full border border-gray-600 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#5ebd9c] text-sm lg:text-base"
-        />
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+    <header className="bg-white border-b border-gray-200 p-4">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex-1 max-w-2xl">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search books, authors, episodes..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-active-green focus:border-transparent text-base"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+          </div>
+        </div>
+        
+        <button
+          onClick={showIntroModal}
+          className="ml-4 text-sm text-gray-600 hover:text-gray-900 font-medium"
+        >
+          What is this?
+        </button>
+      </div>
+      
+      {/* Quote Section */}
+      <div className="max-w-7xl mx-auto mt-6 mb-2">
+        <blockquote className="text-gray-600 italic text-lg">
+          "Spend each day trying to be a little wiser than you were when you woke up."
+        </blockquote>
+        <div className="mt-2 text-sm text-gray-500">
+          <span className="font-medium">Charles T. Munger</span> - Poor Charlie's Almanack
+        </div>
       </div>
     </header>
   )

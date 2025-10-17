@@ -3,15 +3,6 @@ import path from 'path'
 import { processBookData } from './processBooks'
 import { Book } from './data'
 
-const ACQUIRED_PODCAST: Book = {
-  id: "acquired-podcast",
-  amazonUrl: "https://acquired.fm",
-  title: "Acquired Podcast",
-  author: "Ben Gilbert and David Rosenthal",
-  coverUrl: "/images/acq-book-cover.jpg",
-  category: "Podcast",
-  episodeRef: null
-}
 
 // Add cache interface
 interface CacheEntry<T> {
@@ -35,7 +26,7 @@ export async function getBooks(): Promise<Book[]> {
     
     const booksArray = Array.isArray(booksData) ? booksData : [booksData]
     const processedBooks = processBookData(booksArray)
-    const books = [ACQUIRED_PODCAST, ...processedBooks]
+    const books = processedBooks
     
     // Update cache
     booksCache = {
@@ -46,6 +37,6 @@ export async function getBooks(): Promise<Book[]> {
     return books
   } catch (error) {
     console.error('Error loading books:', error)
-    return [ACQUIRED_PODCAST]
+    return []
   }
 } 

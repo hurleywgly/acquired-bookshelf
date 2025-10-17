@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "2025-4",
+    "name": "Alphabet Inc.",
+    "seasonNumber": 2025,
+    "episodeNumber": 4,
+    "date": "8/26/2025August 26, 2025",
+    "page": 1,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/alphabet-inc"
+  },
+  {
+    "id": "2025-3",
+    "name": "The Jamie Dimon Interview",
+    "seasonNumber": 2025,
+    "episodeNumber": 3,
+    "date": "7/16/2025July 16, 2025",
+    "page": 1,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-jamie-dimon-interview"
+  },
+  {
+    "id": "2025-2",
+    "name": "Google",
+    "seasonNumber": 2025,
+    "episodeNumber": 2,
+    "date": "6/29/2025June 29, 2025",
+    "page": 1,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/google"
+  },
+  {
+    "id": "2025-1",
+    "name": "The Steve Ballmer Interview",
+    "seasonNumber": 2025,
+    "episodeNumber": 1,
+    "date": "6/1/2025June 1, 2025",
+    "page": 1,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-steve-ballmer-interview"
+  },
+  {
+    "id": "2024-4",
+    "name": "Mars Inc. (the chocolate story)",
+    "seasonNumber": 2024,
+    "episodeNumber": 4,
+    "date": "12/15/2024December 15, 2024",
+    "page": 1,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/mars-inc-the-chocolate-story"
+  },
+  {
+    "id": "2024-3",
+    "name": "IKEA",
+    "seasonNumber": 2024,
+    "episodeNumber": 3,
+    "date": "11/17/2024November 17, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/ikea"
+  },
+  {
+    "id": "2024-2",
+    "name": "Meta",
+    "seasonNumber": 2024,
+    "episodeNumber": 2,
+    "date": "10/27/2024October 27, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/meta"
+  },
+  {
+    "id": "2024-1",
+    "name": "Acquired LIVE from Chase Center (with Daniel Ek, Emily Chang, Jensen Huang and Mark Zuckerberg)",
+    "seasonNumber": 2024,
+    "episodeNumber": 1,
+    "date": "9/29/2024September 29, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/acquired-live-from-chase-center-with-daniel-ek-emily-chang-jensen-huang-and-mark-zuckerberg"
+  },
+  {
+    "id": "14-6",
+    "name": "Microsoft Volume II",
+    "seasonNumber": 14,
+    "episodeNumber": 6,
+    "date": "7/21/2024July 21, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/microsoft-volume-ii"
+  },
+  {
+    "id": "14-5",
+    "name": "Starbucks (with Howard Schultz)",
+    "seasonNumber": 14,
+    "episodeNumber": 5,
+    "date": "6/3/2024June 3, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/starbucks-with-howard-schultz"
+  },
+  {
+    "id": "14-4",
+    "name": "Microsoft Volume I",
+    "seasonNumber": 14,
+    "episodeNumber": 4,
+    "date": "4/21/2024April 21, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/microsoft"
+  },
+  {
+    "id": "14-3",
+    "name": "Renaissance Technologies",
+    "seasonNumber": 14,
+    "episodeNumber": 3,
+    "date": "3/17/2024March 17, 2024",
+    "page": 2,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/renaissance-technologies"
+  },
+  {
+    "id": "14-2",
+    "name": "Hermès",
+    "seasonNumber": 14,
+    "episodeNumber": 2,
+    "date": "2/19/2024February 19, 2024",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/hermes"
+  },
+  {
+    "id": "14-1",
+    "name": "Novo Nordisk (Ozempic)",
+    "seasonNumber": 14,
+    "episodeNumber": 1,
+    "date": "1/21/2024January 21, 2024",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/novo-nordisk-ozempic"
+  },
+  {
+    "id": "13-5",
+    "name": "Holiday Special 2023",
+    "seasonNumber": 13,
+    "episodeNumber": 5,
+    "date": "12/17/2023December 17, 2023",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/holiday-special-2023"
+  },
+  {
+    "id": "13-4",
+    "name": "Visa",
+    "seasonNumber": 13,
+    "episodeNumber": 4,
+    "date": "11/26/2023November 26, 2023",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/visa"
+  },
+  {
+    "id": "13-3",
+    "name": "Nvidia Part III: The Dawn of the AI Era (2022-2023)",
+    "seasonNumber": 13,
+    "episodeNumber": 3,
+    "date": "9/5/2023September 5, 2023",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/nvidia-the-dawn-of-the-ai-era"
+  },
+  {
+    "id": "13-2",
+    "name": "Costco",
+    "seasonNumber": 13,
+    "episodeNumber": 2,
+    "date": "8/20/2023August 20, 2023",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/costco"
+  },
+  {
+    "id": "13-1",
+    "name": "Nike",
+    "seasonNumber": 13,
+    "episodeNumber": 1,
+    "date": "7/24/2023July 24, 2023",
+    "page": 3,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/nike"
+  },
+  {
+    "id": "12-6",
+    "name": "Porsche (with Doug DeMuro)",
+    "seasonNumber": 12,
+    "episodeNumber": 6,
+    "date": "6/26/2023June 26, 2023",
+    "page": 4,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/porsche-with-doug-demuro"
+  },
+  {
+    "id": "12-5",
+    "name": "Lockheed Martin",
+    "seasonNumber": 12,
+    "episodeNumber": 5,
+    "date": "5/29/2023May 29, 2023",
+    "page": 4,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/lockheed-martin"
+  },
+  {
+    "id": "12-4",
+    "name": "Nintendo: The Console Wars",
+    "seasonNumber": 12,
+    "episodeNumber": 4,
+    "date": "4/11/2023April 11, 2023",
+    "page": 4,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/nintendo-the-console-wars"
+  },
+  {
+    "id": "12-3",
+    "name": "Nintendo's Origins",
+    "seasonNumber": 12,
+    "episodeNumber": 3,
+    "date": "3/15/2023March 15, 2023",
+    "page": 4,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/nintendo"
+  },
+  {
+    "id": "12-2",
+    "name": "LVMH",
+    "seasonNumber": 12,
+    "episodeNumber": 2,
+    "date": "2/21/2023February 21, 2023",
+    "page": 5,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/lvmh"
+  },
+  {
+    "id": "12-1",
+    "name": "The NFL",
+    "seasonNumber": 12,
+    "episodeNumber": 1,
+    "date": "1/25/2023January 25, 2023",
+    "page": 5,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-nfl"
+  },
+  {
+    "id": "11-8",
+    "name": "Stratechery (with Ben Thompson)",
+    "seasonNumber": 11,
+    "episodeNumber": 8,
+    "date": "12/5/2022December 5, 2022",
+    "page": 5,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/stratechery-with-ben-thompson"
+  },
+  {
+    "id": "11-7",
+    "name": "Enron",
+    "seasonNumber": 11,
+    "episodeNumber": 7,
+    "date": "11/28/2022November 28, 2022",
+    "page": 5,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/enron"
+  },
+  {
+    "id": "11-6",
+    "name": "Qualcomm",
+    "seasonNumber": 11,
+    "episodeNumber": 6,
+    "date": "11/14/2022November 14, 2022",
+    "page": 5,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/qualcomm"
+  },
+  {
+    "id": "11-5",
+    "name": "Benchmark Part II: The Dinner",
+    "seasonNumber": 11,
+    "episodeNumber": 5,
+    "date": "10/17/2022October 17, 2022",
+    "page": 5,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/benchmark-part-ii-the-dinner"
+  },
+  {
+    "id": "11-4",
+    "name": "Benchmark Part I",
+    "seasonNumber": 11,
+    "episodeNumber": 4,
+    "date": "9/27/2022September 27, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/benchmark-capital"
+  },
+  {
+    "id": "11-3",
+    "name": "Amazon Web Services",
+    "seasonNumber": 11,
+    "episodeNumber": 3,
+    "date": "9/5/2022September 5, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/amazon-web-services"
+  },
+  {
+    "id": "11-2",
+    "name": "Amazon.com",
+    "seasonNumber": 11,
+    "episodeNumber": 2,
+    "date": "8/16/2022August 16, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/amazon-com"
+  },
+  {
+    "id": "11-1",
+    "name": "Walmart",
+    "seasonNumber": 11,
+    "episodeNumber": 1,
+    "date": "7/18/2022July 18, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/walmart"
+  },
+  {
+    "id": "10-8",
+    "name": "Arena Show Part II: Brooks Running (with CEO Jim Weber)",
+    "seasonNumber": 10,
+    "episodeNumber": 8,
+    "date": "5/15/2022May 15, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/arena-show-part-ii-brooks-running-with-ceo-jim-weber"
+  },
+  {
+    "id": "10-7",
+    "name": "Arena Show Part I: Idea Dinner + YC Continuity",
+    "seasonNumber": 10,
+    "episodeNumber": 7,
+    "date": "5/12/2022May 11, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/arena-show-part-i-idea-dinner-yc-continuity"
+  },
+  {
+    "id": "10-6",
+    "name": "Nvidia Part II: The Machine Learning Company (2006-2022)",
+    "seasonNumber": 10,
+    "episodeNumber": 6,
+    "date": "4/20/2022April 20, 2022",
+    "page": 6,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/nvidia-the-machine-learning-company-2006-2022"
+  },
+  {
+    "id": "10-5",
+    "name": "Nvidia Part I: The GPU Company (1993-2006)",
+    "seasonNumber": 10,
+    "episodeNumber": 5,
+    "date": "3/27/2022March 27, 2022",
+    "page": 7,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/nvidia-the-gpu-company-1993-2006"
+  },
+  {
+    "id": "10-4",
+    "name": "Altimeter (with Brad Gerstner)",
+    "seasonNumber": 10,
+    "episodeNumber": 4,
+    "date": "3/14/2022March 14, 2022",
+    "page": 7,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/altimeter-with-brad-gerstner"
+  },
+  {
+    "id": "10-3",
+    "name": "SONY",
+    "seasonNumber": 10,
+    "episodeNumber": 3,
+    "date": "3/7/2022March 7, 2022",
+    "page": 7,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/sony"
+  },
+  {
+    "id": "10-2",
+    "name": "Peloton",
+    "seasonNumber": 10,
+    "episodeNumber": 2,
+    "date": "2/10/2022February 10, 2022",
+    "page": 7,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/peloton"
+  },
+  {
+    "id": "10-1",
+    "name": "Taylor Swift (Acquired’s Version)",
+    "seasonNumber": 10,
+    "episodeNumber": 1,
+    "date": "1/21/2022January 23, 2022",
+    "page": 7,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/taylor-swift-acquireds-version"
+  },
+  {
+    "id": "9-8",
+    "name": "CAA (with Michael Ovitz)",
+    "seasonNumber": 9,
+    "episodeNumber": 8,
+    "date": "12/21/2021December 21, 2021",
+    "page": 8,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/caa-with-michael-ovitz"
+  },
+  {
+    "id": "9-7",
+    "name": "FTX (with Sam Bankman-Fried & Mario Gabriele)",
+    "seasonNumber": 9,
+    "episodeNumber": 7,
+    "date": "12/14/2021December 14, 2021",
+    "page": 8,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/ftx-with-sam-bankman-fried-mario-gabriele"
+  },
+  {
+    "id": "9-6",
+    "name": "Not Boring (with Packy McCormick)",
+    "seasonNumber": 9,
+    "episodeNumber": 6,
+    "date": "12/2/2021December 3, 2021",
+    "page": 8,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/not-boring-with-packy-mccormick"
+  },
+  {
+    "id": "9-4",
+    "name": "Standard Oil Part I",
+    "seasonNumber": 9,
+    "episodeNumber": 4,
+    "date": "9/21/2021September 21, 2021",
+    "page": 8,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/standard-oil-part-i"
+  },
+  {
+    "id": "9-3",
+    "name": "TSMC",
+    "seasonNumber": 9,
+    "episodeNumber": 3,
+    "date": "9/6/2021September 6, 2021",
+    "page": 9,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/tsmc"
+  },
+  {
+    "id": "9-2",
+    "name": "Andreessen Horowitz Part II",
+    "seasonNumber": 9,
+    "episodeNumber": 2,
+    "date": "8/9/2021August 9, 2021",
+    "page": 9,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/andreessen-horowitz-part-ii"
+  },
+  {
+    "id": "9-1",
+    "name": "Andreessen Horowitz Part I",
+    "seasonNumber": 9,
+    "episodeNumber": 1,
+    "date": "7/26/2021July 26, 2021",
+    "page": 9,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/andreessen-horowitz-part-i"
+  },
+  {
+    "id": "8-8",
+    "name": "Ethereum (with Packy McCormick)",
+    "seasonNumber": 8,
+    "episodeNumber": 8,
+    "date": "7/5/2021July 6, 2021",
+    "page": 9,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/ethereum"
+  },
+  {
+    "id": "8-7",
+    "name": "Berkshire Hathaway Part III",
+    "seasonNumber": 8,
+    "episodeNumber": 7,
+    "date": "6/6/2021June 6, 2021",
+    "page": 9,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/berkshire-hathaway-part-iii"
+  },
+  {
+    "id": "8-6",
+    "name": "Berkshire Hathaway Part II",
+    "seasonNumber": 8,
+    "episodeNumber": 6,
+    "date": "5/12/2021May 12, 2021",
+    "page": 9,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/berkshire-hathaway-part-ii"
+  },
+  {
+    "id": "8-5",
+    "name": "Berkshire Hathaway Part I",
+    "seasonNumber": 8,
+    "episodeNumber": 5,
+    "date": "4/20/2021April 20, 2021",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/berkshire-hathaway-part-i"
+  },
+  {
+    "id": "8-4",
+    "name": "Rec Room Part II (with CEO Nick Fajt)",
+    "seasonNumber": 8,
+    "episodeNumber": 4,
+    "date": "3/23/2021March 23, 2021",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/rec-room-part-ii-with-ceo-nick-fajt"
+  },
+  {
+    "id": "8-3",
+    "name": "Meituan",
+    "seasonNumber": 8,
+    "episodeNumber": 3,
+    "date": "3/10/2021March 10, 2021",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/meituan"
+  },
+  {
+    "id": "8-2",
+    "name": "The New York Times Company",
+    "seasonNumber": 8,
+    "episodeNumber": 2,
+    "date": "2/17/2021February 17, 2021",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-new-york-times-company"
+  },
+  {
+    "id": "8-1",
+    "name": "Bitcoin",
+    "seasonNumber": 8,
+    "episodeNumber": 1,
+    "date": "1/18/2021January 18, 2021",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/bitcoin"
+  },
+  {
+    "id": "7-8",
+    "name": "Airbnb",
+    "seasonNumber": 7,
+    "episodeNumber": 8,
+    "date": "12/10/2020December 10, 2020",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/airbnb"
+  },
+  {
+    "id": "7-7",
+    "name": "DoorDash",
+    "seasonNumber": 7,
+    "episodeNumber": 7,
+    "date": "12/9/2020December 9, 2020",
+    "page": 10,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/doordash"
+  },
+  {
+    "id": "7-6",
+    "name": "Virgin Galactic",
+    "seasonNumber": 7,
+    "episodeNumber": 6,
+    "date": "11/22/2020November 23, 2020",
+    "page": 11,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/virgin-galactic"
+  },
+  {
+    "id": "7-5",
+    "name": "Twitter (with Dick Costolo)",
+    "seasonNumber": 7,
+    "episodeNumber": 5,
+    "date": "10/28/2020October 28, 2020",
+    "page": 11,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/twitter-with-dick-costolo"
+  },
+  {
+    "id": "7-4",
+    "name": "The NBA",
+    "seasonNumber": 7,
+    "episodeNumber": 4,
+    "date": "9/30/2020September 30, 2020",
+    "page": 11,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-nba"
+  },
+  {
+    "id": "7-3",
+    "name": "Epic Games",
+    "seasonNumber": 7,
+    "episodeNumber": 3,
+    "date": "9/1/2020September 1, 2020",
+    "page": 11,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/epic-games"
+  },
+  {
+    "id": "7-2",
+    "name": "Eventbrite",
+    "seasonNumber": 7,
+    "episodeNumber": 2,
+    "date": "8/25/2020August 25, 2020",
+    "page": 11,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/eventbrite"
+  },
+  {
+    "id": "7-1",
+    "name": "Pinduoduo",
+    "seasonNumber": 7,
+    "episodeNumber": 1,
+    "date": "7/16/2020July 16, 2020",
+    "page": 12,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/pinduoduo"
+  },
+  {
+    "id": "6-8",
+    "name": "Oprah (Harpo Studios)",
+    "seasonNumber": 6,
+    "episodeNumber": 8,
+    "date": "6/25/2020June 25, 2020",
+    "page": 12,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/oprah-harpo-studios"
+  },
+  {
+    "id": "6-7",
+    "name": "SpaceX",
+    "seasonNumber": 6,
+    "episodeNumber": 7,
+    "date": "5/26/2020May 26, 2020",
+    "page": 12,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/spacex"
+  },
+  {
+    "id": "6-6",
+    "name": "Adapting Episode 3: Intel",
+    "seasonNumber": 6,
+    "episodeNumber": 6,
+    "date": "5/11/2020May 11, 2020",
+    "page": 12,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/adapting-episode-3-intel"
+  },
+  {
+    "id": "6-5",
+    "name": "Adapting Episode 2: Sequoia’s Black Swan Memo (with Roelof Botha)",
+    "seasonNumber": 6,
+    "episodeNumber": 5,
+    "date": "3/30/2020March 30, 2020",
+    "page": 12,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/sequoias-black-swan-memo"
+  },
+  {
+    "id": "6-4",
+    "name": "Adapting Episode 1: Canlis",
+    "seasonNumber": 6,
+    "episodeNumber": 4,
+    "date": "3/20/2020March 20, 2020",
+    "page": 12,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/canlis"
+  },
+  {
+    "id": "6-3",
+    "name": "The Best Acquisitions of All Time",
+    "seasonNumber": 6,
+    "episodeNumber": 3,
+    "date": "3/7/2020March 17, 2020",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/acquired-top-ten-the-best-acquisitions-of-all-time"
+  },
+  {
+    "id": "6-2",
+    "name": "Sequoia Capital Part II (with Doug Leone)",
+    "seasonNumber": 6,
+    "episodeNumber": 2,
+    "date": "2/17/2020February 17, 2020",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/sequoia-capital-part-ii-with-doug-leone"
+  },
+  {
+    "id": "6-1",
+    "name": "WhatsApp",
+    "seasonNumber": 6,
+    "episodeNumber": 1,
+    "date": "1/28/2020January 28, 2020",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/whatsapp"
+  },
+  {
+    "id": "5-10",
+    "name": "The Lean Startup and the Long-Term Stock Exchange (with Eric Ries)",
+    "seasonNumber": 5,
+    "episodeNumber": 10,
+    "date": "12/29/2019December 29, 2019",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-5-episode-10-the-lean-startup-and-the-long-term-stock-exchange-with-eric-ries"
+  },
+  {
+    "id": "5-9",
+    "name": "Convoy (with CEO Dan Lewis)",
+    "seasonNumber": 5,
+    "episodeNumber": 9,
+    "date": "12/19/2019December 19, 2019",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/convoy-with-ceo-dan-lewis"
+  },
+  {
+    "id": "5-8",
+    "name": "TikTok",
+    "seasonNumber": 5,
+    "episodeNumber": 8,
+    "date": "12/8/2019December 8, 2019",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/tiktok"
+  },
+  {
+    "id": "5-7",
+    "name": "Disney, Plus",
+    "seasonNumber": 5,
+    "episodeNumber": 7,
+    "date": "11/25/2019November 25, 2019",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/disney-plus"
+  },
+  {
+    "id": "5-6",
+    "name": "The WeWork “Acquisition” (with Dan Primack)",
+    "seasonNumber": 5,
+    "episodeNumber": 6,
+    "date": "10/24/2019October 24, 2019",
+    "page": 13,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-wework-acquisition-with-dan-primack"
+  },
+  {
+    "id": "5-5",
+    "name": "Atari (with Nolan Bushnell)",
+    "seasonNumber": 5,
+    "episodeNumber": 5,
+    "date": "10/15/2019October 15, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/atari-with-nolan-bushnell"
+  },
+  {
+    "id": "5-4",
+    "name": "Sequoia Capital (Part 1)",
+    "seasonNumber": 5,
+    "episodeNumber": 4,
+    "date": "9/26/2019September 26, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/sequoia-capital-part-1"
+  },
+  {
+    "id": "5-3",
+    "name": "Google Maps",
+    "seasonNumber": 5,
+    "episodeNumber": 3,
+    "date": "8/26/2019August 26, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/google-maps"
+  },
+  {
+    "id": "5-2",
+    "name": "The Shopify IPO",
+    "seasonNumber": 5,
+    "episodeNumber": 2,
+    "date": "8/6/2019August 6, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-shopify-ipo"
+  },
+  {
+    "id": "5-1",
+    "name": "Huawei",
+    "seasonNumber": 5,
+    "episodeNumber": 1,
+    "date": "7/22/2019July 22, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/huawei"
+  },
+  {
+    "id": "4-10",
+    "name": "Superhuman",
+    "seasonNumber": 4,
+    "episodeNumber": 10,
+    "date": "6/27/2019June 27, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/superhuman"
+  },
+  {
+    "id": "4-9",
+    "name": "The Slack DPO",
+    "seasonNumber": 4,
+    "episodeNumber": 9,
+    "date": "6/24/2019June 24, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-slack-dpo"
+  },
+  {
+    "id": "4-8",
+    "name": "The Zoom IPO (with Santi Subotovsky)",
+    "seasonNumber": 4,
+    "episodeNumber": 8,
+    "date": "6/18/2019June 18, 2019",
+    "page": 14,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-zoom-ipo-with-santi-subotovsky"
+  },
+  {
+    "id": "4-6",
+    "name": "The Uber IPO",
+    "seasonNumber": 4,
+    "episodeNumber": 6,
+    "date": "5/10/2019May 10, 2019",
+    "page": 15,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-uber-ipo"
+  },
+  {
+    "id": "4-5",
+    "name": "The Pinterest IPO",
+    "seasonNumber": 4,
+    "episodeNumber": 5,
+    "date": "4/23/2019April 23, 2019",
+    "page": 15,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/the-pinterest-ipo"
+  },
+  {
+    "id": "4-4",
+    "name": "The Lyft IPO",
+    "seasonNumber": 4,
+    "episodeNumber": 4,
+    "date": "3/30/2019March 30, 2019",
+    "page": 15,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-4-episode-4-the-lyft-ipo"
+  },
+  {
+    "id": "4-3",
+    "name": "Instagram Revisited (with Emily White)",
+    "seasonNumber": 4,
+    "episodeNumber": 3,
+    "date": "2/25/2019February 25, 2019",
+    "page": 15,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/instagram-revisited-with-emily-white"
+  },
+  {
+    "id": "4-2",
+    "name": "ARM & SoftBank",
+    "seasonNumber": 4,
+    "episodeNumber": 2,
+    "date": "2/3/2019February 3, 2019",
+    "page": 15,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/arm-softbank"
+  },
+  {
+    "id": "4-1",
+    "name": "ESPN",
+    "seasonNumber": 4,
+    "episodeNumber": 1,
+    "date": "1/20/2019January 20, 2019",
+    "page": 15,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-4-episode-1-espn"
+  },
+  {
+    "id": "3-10",
+    "name": "Tencent",
+    "seasonNumber": 3,
+    "episodeNumber": 10,
+    "date": "1/6/2019December 16, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-10-tencent"
+  },
+  {
+    "id": "3-9",
+    "name": "Netflix (Part 2)",
+    "seasonNumber": 3,
+    "episodeNumber": 9,
+    "date": "1/6/2019November 25, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-9nbspnetflix-part-2"
+  },
+  {
+    "id": "3-8",
+    "name": "Netflix (Part 1)",
+    "seasonNumber": 3,
+    "episodeNumber": 8,
+    "date": "1/6/2019November 11, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-8nbspnetflix-part-1"
+  },
+  {
+    "id": "3-7",
+    "name": "Venmo (SF live show with Andrew Kortina)",
+    "seasonNumber": 3,
+    "episodeNumber": 7,
+    "date": "1/6/2019October 29, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-7-venmo-sf-live-show-with-andrew-kortina"
+  },
+  {
+    "id": "3-6",
+    "name": "Behance (with Scott Belsky)",
+    "seasonNumber": 3,
+    "episodeNumber": 6,
+    "date": "1/6/2019October 1, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-6nbspbehance-with-scott-belsky"
+  },
+  {
+    "id": "3-5",
+    "name": "Alibaba",
+    "seasonNumber": 3,
+    "episodeNumber": 5,
+    "date": "1/6/2019September 23, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-5nbspalibaba"
+  },
+  {
+    "id": "3-4",
+    "name": "Recode (with Kara Swisher)",
+    "seasonNumber": 3,
+    "episodeNumber": 4,
+    "date": "1/6/2019September 10, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-4recode-with-kara-swisher"
+  },
+  {
+    "id": "3-3",
+    "name": "The Sonos IPO",
+    "seasonNumber": 3,
+    "episodeNumber": 3,
+    "date": "1/6/2019August 20, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-3the-sonos-ipo"
+  },
+  {
+    "id": "3-2",
+    "name": "The Xiaomi IPO",
+    "seasonNumber": 3,
+    "episodeNumber": 2,
+    "date": "1/6/2019August 5, 2018",
+    "page": 16,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-2the-xiaomi-ipo"
+  },
+  {
+    "id": "3-1",
+    "name": "Tesla",
+    "seasonNumber": 3,
+    "episodeNumber": 1,
+    "date": "1/6/2019July 16, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-3-episode-1tesla"
+  },
+  {
+    "id": "2-10",
+    "name": "The Rover-DogVacay Merger (with Rover CEO Aaron Easterly)",
+    "seasonNumber": 2,
+    "episodeNumber": 10,
+    "date": "1/6/2019June 17, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-10the-rover-dogvacay-merger-with-rover-ceo-aaron-easterly"
+  },
+  {
+    "id": "2-9",
+    "name": "GitHub",
+    "seasonNumber": 2,
+    "episodeNumber": 9,
+    "date": "1/6/2019June 5, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-9github"
+  },
+  {
+    "id": "2-8",
+    "name": "T-Mobile / Sprint",
+    "seasonNumber": 2,
+    "episodeNumber": 8,
+    "date": "1/6/2019May 21, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-8t-mobile-sprint"
+  },
+  {
+    "id": "2-7",
+    "name": "PowerPoint",
+    "seasonNumber": 2,
+    "episodeNumber": 7,
+    "date": "1/6/2019May 4, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-7powerpoint"
+  },
+  {
+    "id": "2-6",
+    "name": "Spotify's Direct Listing",
+    "seasonNumber": 2,
+    "episodeNumber": 6,
+    "date": "1/6/2019April 5, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-6spotifys-direct-listing"
+  },
+  {
+    "id": "2-5",
+    "name": "The Dropbox IPO",
+    "seasonNumber": 2,
+    "episodeNumber": 5,
+    "date": "1/6/2019March 25, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-5the-dropbox-ipo"
+  },
+  {
+    "id": "2-4",
+    "name": "SoftBank, Fortress and the Vision Fund",
+    "seasonNumber": 2,
+    "episodeNumber": 4,
+    "date": "1/6/2019March 22, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-4softbank-fortress-and-the-vision-fund"
+  },
+  {
+    "id": "2-3",
+    "name": "Nest",
+    "seasonNumber": 2,
+    "episodeNumber": 3,
+    "date": "1/6/2019February 19, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-3nest"
+  },
+  {
+    "id": "2-2",
+    "name": "Raising a Seed Round with Against Gravity CEO Nick Fajt",
+    "seasonNumber": 2,
+    "episodeNumber": 2,
+    "date": "1/6/2019February 6, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-2raising-a-seed-round-with-against-gravity-ceo-nick-fajt"
+  },
+  {
+    "id": "2-1",
+    "name": "Zappos (with Alfred Lin)",
+    "seasonNumber": 2,
+    "episodeNumber": 1,
+    "date": "1/6/2019January 22, 2018",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/season-2-episode-1zappos-with-alfred-lin"
+  },
+  {
+    "id": "1-51",
+    "name": "2017 Holiday Special",
+    "seasonNumber": 1,
+    "episodeNumber": 51,
+    "date": "1/6/2019December 18, 2017",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/ettzkg3lujvlpbh9hq397jrvip0dkx"
+  },
+  {
+    "id": "1-50",
+    "name": "Apple - Beats",
+    "seasonNumber": 1,
+    "episodeNumber": 50,
+    "date": "1/6/2019December 11, 2017",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-50-apple-beats"
+  },
+  {
+    "id": "1-49",
+    "name": "The Stitch Fix IPO",
+    "seasonNumber": 1,
+    "episodeNumber": 49,
+    "date": "1/6/2019December 4, 2017",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-49the-stitch-fix-ipo"
+  },
+  {
+    "id": "1-48",
+    "name": "Qualcomm - Broadcom",
+    "seasonNumber": 1,
+    "episodeNumber": 48,
+    "date": "1/6/2019November 20, 2017",
+    "page": 17,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-48qualcomm-broadcom"
+  },
+  {
+    "id": "1-47",
+    "name": "The Atlassian IPO",
+    "seasonNumber": 1,
+    "episodeNumber": 47,
+    "date": "1/6/2019November 6, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-47the-atlassian-ipo"
+  },
+  {
+    "id": "1-46",
+    "name": "Blue Bottle Coffee",
+    "seasonNumber": 1,
+    "episodeNumber": 46,
+    "date": "1/6/2019October 7, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-46blue-bottle-coffee"
+  },
+  {
+    "id": "1-45",
+    "name": "HTC, Google and the Future of Mobile",
+    "seasonNumber": 1,
+    "episodeNumber": 45,
+    "date": "1/6/2019September 21, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-45-htc-google-and-the-future-of-mobile"
+  },
+  {
+    "id": "1-44",
+    "name": "AOL - Time Warner (with the Internet History Podcast)",
+    "seasonNumber": 1,
+    "episodeNumber": 44,
+    "date": "1/6/2019September 17, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-44-aol-time-warner-with-the-internet-history-podcast"
+  },
+  {
+    "id": "1-43",
+    "name": "The Square IPO",
+    "seasonNumber": 1,
+    "episodeNumber": 43,
+    "date": "1/6/2019August 16, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-43-the-square-ipo"
+  },
+  {
+    "id": "1-42",
+    "name": "Opsware (with special guest Michel Feaster)",
+    "seasonNumber": 1,
+    "episodeNumber": 42,
+    "date": "1/6/2019August 4, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-42-opsware-with-special-guest-michel-feaster"
+  },
+  {
+    "id": "1-41",
+    "name": "Booking.com with Jetsetter & Room 77 CEO Drew Patterson",
+    "seasonNumber": 1,
+    "episodeNumber": 41,
+    "date": "1/6/2019July 25, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-41-bookingcom-with-jetsetter-room-77-ceo-drew-patterson"
+  },
+  {
+    "id": "1-40",
+    "name": "Activision Blizzard",
+    "seasonNumber": 1,
+    "episodeNumber": 40,
+    "date": "1/6/2019July 12, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-40-activision-blizzard"
+  },
+  {
+    "id": "1-39",
+    "name": "Whole Foods Market",
+    "seasonNumber": 1,
+    "episodeNumber": 39,
+    "date": "1/6/2019June 20, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-39-whole-foods-market"
+  },
+  {
+    "id": "1-38",
+    "name": "SoundJam (iTunes)",
+    "seasonNumber": 1,
+    "episodeNumber": 38,
+    "date": "1/6/2019May 31, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-38-soundjam-itunes"
+  },
+  {
+    "id": "1-37",
+    "name": "BAMTech, Disney and \"the Biggest Media Company You've Never Heard Of\"",
+    "seasonNumber": 1,
+    "episodeNumber": 37,
+    "date": "1/6/2019May 10, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-37-bamtech-disney-and-the-biggest-media-company-youve-never-heard-of"
+  },
+  {
+    "id": "1-36",
+    "name": "The LA Clippers",
+    "seasonNumber": 1,
+    "episodeNumber": 36,
+    "date": "1/6/2019April 23, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-36-the-la-clippers"
+  },
+  {
+    "id": "1-35",
+    "name": "Oculus",
+    "seasonNumber": 1,
+    "episodeNumber": 35,
+    "date": "1/6/2019April 11, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-35-oculus"
+  },
+  {
+    "id": "1-34",
+    "name": "Starbucks IPO with Dan Levitan",
+    "seasonNumber": 1,
+    "episodeNumber": 34,
+    "date": "1/6/2019April 3, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-34-starbucks-ipo-with-dan-levitan"
+  },
+  {
+    "id": "1-33",
+    "name": "Overture (with the Internet History Podcast!)",
+    "seasonNumber": 1,
+    "episodeNumber": 33,
+    "date": "1/6/2019March 13, 2017",
+    "page": 18,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-33-overture-with-the-internet-history-podcast"
+  },
+  {
+    "id": "1-32",
+    "name": "The Snap Inc. IPO",
+    "seasonNumber": 1,
+    "episodeNumber": 32,
+    "date": "1/6/2019March 4, 2017",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-32-the-snap-inc-ipo"
+  },
+  {
+    "id": "1-31",
+    "name": "The Uber - Didi Chuxing Merger with Brad Stone, author of The Upstarts & The Everything Store",
+    "seasonNumber": 1,
+    "episodeNumber": 31,
+    "date": "1/6/2019February 8, 2017",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-31-the-uber-didi-chuxing-merger-with-brad-stone-author-of-the-upstarts-the-everything-store"
+  },
+  {
+    "id": "1-30",
+    "name": "P.A. Semi + AuthenTec",
+    "seasonNumber": 1,
+    "episodeNumber": 30,
+    "date": "1/6/2019January 24, 2017",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-30-pa-semi-authentec"
+  },
+  {
+    "id": "1-29",
+    "name": "Special: 2016 Review and 2017 Predictions",
+    "seasonNumber": 1,
+    "episodeNumber": 29,
+    "date": "1/6/2019January 11, 2017",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-29-special2016-review-and-2017-predictions"
+  },
+  {
+    "id": "1-28",
+    "name": "The Amazon IPO with original Amazon Board Member Tom Alberg",
+    "seasonNumber": 1,
+    "episodeNumber": 28,
+    "date": "1/6/2019December 31, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-28-the-amazon-ipo-with-original-amazon-board-member-tom-alberg"
+  },
+  {
+    "id": "1-27",
+    "name": "Special: Conversation with Microsoft's Head of Strategic Investments Brian Schultz",
+    "seasonNumber": 1,
+    "episodeNumber": 27,
+    "date": "1/6/2019December 16, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-27-speciala-conversation-with-microsofts-head-of-strategic-investments-brian-schultz"
+  },
+  {
+    "id": "1-26",
+    "name": "Marvel",
+    "seasonNumber": 1,
+    "episodeNumber": 26,
+    "date": "1/6/2019December 5, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-25-marvel"
+  },
+  {
+    "id": "1-25",
+    "name": "The Facebook IPO",
+    "seasonNumber": 1,
+    "episodeNumber": 25,
+    "date": "1/6/2019November 11, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-25-the-facebook-ipo"
+  },
+  {
+    "id": "1-24",
+    "name": "Skype",
+    "seasonNumber": 1,
+    "episodeNumber": 24,
+    "date": "1/6/2019November 1, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-24-skype"
+  },
+  {
+    "id": "1-23",
+    "name": "NeXT (Live show at the GeekWire Summit)",
+    "seasonNumber": 1,
+    "episodeNumber": 23,
+    "date": "1/6/2019October 23, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-23-next-live-show-at-the-geekwire-summit"
+  },
+  {
+    "id": "1-22",
+    "name": "Zillow + Trulia with Zillow Group CFO Kathleen Philips",
+    "seasonNumber": 1,
+    "episodeNumber": 22,
+    "date": "1/6/2019October 13, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-22-zillow-trulia-with-zillow-group-cfo-kathleen-philips"
+  },
+  {
+    "id": "1-21",
+    "name": "Inside the M&A Press with Bloomberg's Alex Sherman",
+    "seasonNumber": 1,
+    "episodeNumber": 21,
+    "date": "1/6/2019September 27, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-21-inside-the-ma-press-with-bloombergs-alex-sherman"
+  },
+  {
+    "id": "1-20",
+    "name": "Android",
+    "seasonNumber": 1,
+    "episodeNumber": 20,
+    "date": "1/6/2019September 16, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-20-android"
+  },
+  {
+    "id": "1-19",
+    "name": "Jet",
+    "seasonNumber": 1,
+    "episodeNumber": 19,
+    "date": "1/6/2019August 29, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-19-jet"
+  },
+  {
+    "id": "1-18",
+    "name": "Special‚ An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
+    "seasonNumber": 1,
+    "episodeNumber": 18,
+    "date": "1/6/2019August 22, 2016",
+    "page": 19,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-18-specialan-acquirers-view-into-ma-with-taylor-barada-head-of-corp-dev-at-adobe"
+  },
+  {
+    "id": "1-17",
+    "name": "Waze",
+    "seasonNumber": 1,
+    "episodeNumber": 17,
+    "date": "1/6/2019August 3, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/acquired-episode-17-waze"
+  },
+  {
+    "id": "1-16",
+    "name": "Midroll + Stitcher (acquired by Scripps)",
+    "seasonNumber": 1,
+    "episodeNumber": 16,
+    "date": "1/6/2019July 12, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/acquired-episode-16-midroll-stitcher-acquired-by-scripps"
+  },
+  {
+    "id": "1-15",
+    "name": "ExactTarget (acquired by Salesforce) with Scott Dorsey",
+    "seasonNumber": 1,
+    "episodeNumber": 15,
+    "date": "1/6/2019July 5, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/acquired-episode-15-exacttarget-acquired-by-salesforce-with-scott-dorsey"
+  },
+  {
+    "id": "1-14",
+    "name": "LinkedIn",
+    "seasonNumber": 1,
+    "episodeNumber": 14,
+    "date": "1/6/2019June 16, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-14-linkedin"
+  },
+  {
+    "id": "1-13",
+    "name": "Push Pop Press (Facebook Instant Articles) with Todd Bishop",
+    "seasonNumber": 1,
+    "episodeNumber": 13,
+    "date": "1/6/2019June 5, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-13-push-pop-press-facebook-instant-articles-with-todd-bishop"
+  },
+  {
+    "id": "1-12",
+    "name": "Snapchat (?!)",
+    "seasonNumber": 1,
+    "episodeNumber": 12,
+    "date": "1/6/2019May 22, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-12-snapchat"
+  },
+  {
+    "id": "1-11",
+    "name": "PayPal",
+    "seasonNumber": 1,
+    "episodeNumber": 11,
+    "date": "1/6/2019May 8, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-11-paypal"
+  },
+  {
+    "id": "1-10",
+    "name": "Virgin America",
+    "seasonNumber": 1,
+    "episodeNumber": 10,
+    "date": "1/6/2019April 26, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-10-virgin-america"
+  },
+  {
+    "id": "1-9",
+    "name": "Writely (Google Docs)",
+    "seasonNumber": 1,
+    "episodeNumber": 9,
+    "date": "1/6/2019March 29, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-9-writely-google-docs"
+  },
+  {
+    "id": "1-8",
+    "name": "Acompli, Sunrise, and Wunderlist (w/ Kurt DelBene)",
+    "seasonNumber": 1,
+    "episodeNumber": 8,
+    "date": "1/6/2019February 29, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-8-acompli-sunrise-and-wunderlist"
+  },
+  {
+    "id": "1-7",
+    "name": "YouTube",
+    "seasonNumber": 1,
+    "episodeNumber": 7,
+    "date": "1/6/2019February 3, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-7-youtube"
+  },
+  {
+    "id": "1-6",
+    "name": "Lucasfilm",
+    "seasonNumber": 1,
+    "episodeNumber": 6,
+    "date": "1/6/2019January 19, 2016",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-6-lucasfilm"
+  },
+  {
+    "id": "1-5",
+    "name": "Siri",
+    "seasonNumber": 1,
+    "episodeNumber": 5,
+    "date": "1/6/2019December 14, 2015",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-5-siri"
+  },
+  {
+    "id": "1-4",
+    "name": "Bungie (with Xbox Co-Founder Ed Fries)",
+    "seasonNumber": 1,
+    "episodeNumber": 4,
+    "date": "1/6/2019November 29, 2015",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-4-bungie"
+  },
+  {
+    "id": "1-3",
+    "name": "Twitch",
+    "seasonNumber": 1,
+    "episodeNumber": 3,
+    "date": "1/6/2019November 15, 2015",
+    "page": 20,
+    "fetchedAt": "2025-09-05T05:08:54.847Z",
+    "sourceUrl": "https://www.acquired.fm/episodes/episode-3-twitch"
+  }
+]
