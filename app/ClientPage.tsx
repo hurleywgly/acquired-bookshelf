@@ -121,6 +121,8 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
           showIntroModal={() => setShowIntroModal(true)}
           activeEpisode={activeEpisode}
           onEpisodeClick={handleEpisodeClick}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
         />
 
         {/* Desktop Gray Header Bar - Fixed */}
@@ -149,7 +151,7 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
 
         {/* Scrollable Content */}
         <div id="shelfScroll" className="flex-1 overflow-y-auto min-h-0 p-4 md:p-8 lg:p-12">
-          <div className="pt-[70px] md:pt-[100px]">
+          <div className="pt-[130px] md:pt-[100px]">
             <ShelfGrid items={gridItems} />
           </div>
         </div>

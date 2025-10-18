@@ -6,7 +6,7 @@ interface QuoteBlockProps {
 
 export default function QuoteBlock({ quote }: QuoteBlockProps) {
   return (
-    <div className="w-[270px] h-[320px] flex-shrink-0 flex flex-col justify-center p-[15px] bg-white">
+    <div className="w-full md:w-[270px] h-[320px] flex-shrink-0 flex flex-col justify-center p-[15px] bg-white">
       <div className="mt-2.5">
         <blockquote className="text-gray-800 italic text-xl font-light leading-[1.5]">
           &ldquo;{quote.text}&rdquo;
