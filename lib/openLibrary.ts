@@ -1,3 +1,5 @@
+import * as cheerio from 'cheerio'
+
 // Rate limiting configuration
 const BATCH_SIZE = 10
 const DELAY_MS = 1000 // 1 second between requests
@@ -75,6 +77,82 @@ async function extractBookInfo(url: string): Promise<{ asin?: string; title?: st
   }
   
   return { asin, title, author }
+}
+
+async function scrapeAmazonMetadata(amazonUrl: string): Promise<{ title: string; author: string } | null> {
+  try {
+    // Filter out video products - they're not books
+    if (amazonUrl.includes('/gp/video/') || amazonUrl.includes('/Prime-Video/')) {
+      console.log('  ⚠️  Detected video product, skipping...')
+      return null
+    }
+
+    console.log(`  📥 Scraping Amazon page for metadata...`)
+
+    const response = await fetch(amazonUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+      }
+    })
+
+    if (!response.ok) {
+      console.log(`  ⚠️  Amazon returned ${response.status}`)
+      return null
+    }
+
+    const html = await response.text()
+    const $ = cheerio.load(html)
+
+    // Extract title - multiple selectors to try
+    let title = $('#productTitle').text().trim() ||
+                $('#ebooksProductTitle').text().trim() ||
+                $('span[id="productTitle"]').text().trim() ||
+                $('h1.product-title').text().trim() ||
+                $('meta[name="title"]').attr('content')?.trim() || ''
+
+    // Extract author - multiple selectors to try
+    let author = $('.author a').first().text().trim() ||
+                 $('#bylineInfo .author a').first().text().trim() ||
+                 $('span.author a').first().text().trim() ||
+                 $('.contributorNameID').first().text().trim() ||
+                 $('a[data-a-target="authorLink"]').first().text().trim() ||
+                 $('meta[name="author"]').attr('content')?.trim() || ''
+
+    // Clean up title (remove extra whitespace, newlines)
+    title = title.replace(/\s+/g, ' ').trim()
+
+    // Clean up author (remove "by", extra text)
+    author = author
+      .replace(/^by\s+/i, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+    // Validation
+    if (title.length > 200) {
+      title = title.substring(0, 200) + '...'
+    }
+    if (author.length > 100) {
+      author = author.substring(0, 100) + '...'
+    }
+
+    if (title && author) {
+      console.log(`  ✅ Scraped from Amazon: "${title}" by ${author}`)
+      return { title, author }
+    }
+
+    if (title) {
+      console.log(`  ⚠️  Found title but no author: "${title}"`)
+      return { title, author: 'Unknown Author' }
+    }
+
+    console.log(`  ⚠️  Could not extract metadata from Amazon page`)
+    return null
+  } catch (error) {
+    console.log(`  ❌ Amazon scraping failed:`, error)
+    return null
+  }
 }
 
 async function getAmazonBookCover(amazonUrl: string): Promise<string | null> {
@@ -206,29 +284,31 @@ async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> 
       return metadata
     }
 
-    // No Open Library data found, but try to create basic metadata with Amazon cover
+    // No Open Library data found - try scraping Amazon as fallback
     console.warn(`✗ No Open Library metadata found for ${amazonUrl}`)
-    console.log('  📸 Attempting to get Amazon cover as fallback...')
-    
-    const bookInfo = await extractBookInfo(amazonUrl)
+    console.log('  📸 Attempting Amazon scraping as fallback...')
+
+    // Try to scrape title and author from Amazon page
+    const amazonMetadata = await scrapeAmazonMetadata(amazonUrl)
     const amazonCover = await getAmazonBookCover(amazonUrl)
-    
-    if (amazonCover || bookInfo.title) {
+
+    if (amazonMetadata || amazonCover) {
       const fallbackMetadata: BookMetadata = {
-        title: bookInfo.title || 'Unknown Title',
-        author: 'Unknown Author',
+        title: amazonMetadata?.title || 'Unknown Title',
+        author: amazonMetadata?.author || 'Unknown Author',
         coverUrl: amazonCover || '/covers/default-book.jpg',
         subjects: []
       }
-      
-      console.log(`✓ Created fallback metadata: "${fallbackMetadata.title}"`)
+
+      console.log(`✓ Created fallback metadata: "${fallbackMetadata.title}" by ${fallbackMetadata.author}`)
       if (amazonCover) {
         console.log(`  📸 Using Amazon cover: ${amazonCover}`)
       }
-      
+
       return fallbackMetadata
     }
-    
+
+    console.error(`❌ FAILED: Could not get any metadata for ${amazonUrl}`)
     return null
   } catch (error) {
     console.error('Error fetching book metadata:', error)

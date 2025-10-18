@@ -25,6 +25,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.imgur.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pub-d21319a05b8646c1928e289444e77283.r2.dev',
       }
     ],
   },
