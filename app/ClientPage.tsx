@@ -14,8 +14,6 @@ interface ClientPageProps {
   initialBooks: Book[]
 }
 
-const SEEN_KEY = "acq:intro:seen"
-
 export default function ClientPage({ initialBooks }: ClientPageProps) {
   const [activeEpisode, setActiveEpisode] = useState<string>()
   const [searchTerm, setSearchTerm] = useState('')
@@ -37,12 +35,6 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Check for first visit and show modal
-  useEffect(() => {
-    if (!localStorage.getItem(SEEN_KEY)) {
-      setTimeout(() => setShowIntroModal(true), 300)
-    }
-  }, [])
 
   // Group books by episode
   useEffect(() => {
@@ -148,7 +140,7 @@ export default function ClientPage({ initialBooks }: ClientPageProps) {
 
             <button
               onClick={() => setShowIntroModal(true)}
-              className="text-sm text-gray-900 font-medium whitespace-nowrap bg-white hover:bg-gray-50 px-4 py-2 rounded-lg border border-gray-300 transition-colors"
+              className="text-sm text-gray-900 font-medium whitespace-nowrap bg-white hover:bg-gray-50 px-4 py-2 rounded-lg border border-gray-300 transition-colors focus:outline-none"
             >
               What is this?
             </button>
