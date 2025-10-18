@@ -45,8 +45,9 @@ export class R2Uploader {
         })
       )
       return true
-    } catch (error: any) {
-      if (error.name === 'NotFound' || error.$metadata?.httpStatusCode === 404) {
+    } catch (error: unknown) {
+      const err = error as { name?: string; $metadata?: { httpStatusCode?: number } }
+      if (err.name === 'NotFound' || err.$metadata?.httpStatusCode === 404) {
         return false
       }
       throw error
