@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react'
+import Image from 'next/image'
 import MobileMenu from './MobileMenu'
 import { Episode } from '@/lib/groupBooks'
 
@@ -16,11 +17,20 @@ export default function TopBar({ episodes, showIntroModal, activeEpisode, onEpis
     <header className="fixed top-0 left-0 right-0 bg-sidebar-bg border-b border-gray-400 z-50 md:hidden">
       <div className="p-4">
         <div className="flex items-center justify-between gap-4 mb-3">
-          <MobileMenu
-            episodes={episodes}
-            activeEpisode={activeEpisode}
-            onEpisodeClick={onEpisodeClick}
-          />
+          <div className="flex items-center gap-3">
+            <MobileMenu
+              episodes={episodes}
+              activeEpisode={activeEpisode}
+              onEpisodeClick={onEpisodeClick}
+            />
+            <Image
+              src="/acq-bookshelf-logo.svg"
+              alt="ACQUIRED Bookshelf"
+              width={164}
+              height={32}
+              className="max-w-[170px] h-auto"
+            />
+          </div>
 
           <button
             onClick={showIntroModal}
