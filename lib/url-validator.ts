@@ -248,7 +248,7 @@ class URLValidator {
     // Amazon validation
     if (hostname.includes('amazon.com')) {
       // Allow product pages, image URLs, etc.
-      return pathname.startsWith('/dp/') || 
+      return pathname.includes('/dp/') ||  // Changed from startsWith to includes
              pathname.startsWith('/gp/') ||
              pathname.startsWith('/images/') ||
              pathname.startsWith('/s?') ||

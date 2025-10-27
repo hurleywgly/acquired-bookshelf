@@ -77,8 +77,15 @@ class OptimizedScraper {
       // Phase 2: Process any ready episodes
       console.log('\n📋 Phase 2: Processing Ready Episodes')
       const readyEpisodes = await this.rssMonitor.getReadyEpisodes()
-      
-      const allEpisodesToProcess = [...newEpisodes, ...readyEpisodes]
+
+      // Deduplicate episodes by ID (new episodes take priority)
+      const episodeMap = new Map<string, EpisodeProcessing>()
+      for (const ep of [...newEpisodes, ...readyEpisodes]) {
+        if (!episodeMap.has(ep.episode.id)) {
+          episodeMap.set(ep.episode.id, ep)
+        }
+      }
+      const allEpisodesToProcess = Array.from(episodeMap.values())
       
       if (allEpisodesToProcess.length === 0) {
         console.log('✅ No episodes to process. Scraper complete.')
@@ -133,6 +140,10 @@ class OptimizedScraper {
             await this.discord.notifyUnknownMetadata(unknownForDiscord)
           }
         }
+
+        // Commit and push changes to git
+        const episodeTitles = [...new Set(allNewBooks.map(book => book.episodeRef.name))]
+        await this.gitCommitAndPush(episodeTitles)
       }
 
       console.log('✅ Optimized scraper completed successfully')
@@ -516,6 +527,75 @@ class OptimizedScraper {
     
     // Fallback to timestamp-based ID
     return Math.floor(Date.now() / 1000) % 10000
+  }
+
+  /**
+   * Commit and push changes to git
+   */
+  private async gitCommitAndPush(episodeTitles: string[]): Promise<void> {
+    try {
+      console.log('\n📤 Pushing changes to git...')
+
+      // Check if there are any changes to commit
+      const statusCheck = await import('child_process').then(cp =>
+        new Promise<string>((resolve, reject) => {
+          cp.exec('git status --porcelain public/data/books.json', (error, stdout) => {
+            if (error) reject(error)
+            else resolve(stdout.trim())
+          })
+        })
+      )
+
+      if (!statusCheck) {
+        console.log('  ℹ️  No changes to commit')
+        return
+      }
+
+      // Add the books.json file
+      await import('child_process').then(cp =>
+        new Promise<void>((resolve, reject) => {
+          cp.exec('git add public/data/books.json', (error) => {
+            if (error) reject(error)
+            else resolve()
+          })
+        })
+      )
+
+      // Create commit message
+      const episodeList = episodeTitles.join(', ')
+      const commitMessage = `chore: Add books from ${episodeList}\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>`
+
+      // Commit changes
+      await import('child_process').then(cp =>
+        new Promise<void>((resolve, reject) => {
+          cp.exec(`git commit -m "${commitMessage.replace(/"/g, '\\"')}"`, (error) => {
+            if (error) reject(error)
+            else resolve()
+          })
+        })
+      )
+
+      console.log('  ✅ Changes committed')
+
+      // Push to remote
+      await import('child_process').then(cp =>
+        new Promise<void>((resolve, reject) => {
+          cp.exec('git push', (error) => {
+            if (error) reject(error)
+            else resolve()
+          })
+        })
+      )
+
+      console.log('  ✅ Changes pushed to remote')
+      console.log('  🚀 Vercel will auto-deploy the changes')
+
+    } catch (error) {
+      console.error('  ⚠️  Git push failed:', error)
+      console.error('  ℹ️  Books have been added locally but not pushed to remote')
+      console.error('  ℹ️  Please push manually or check git credentials on Render')
+      // Don't throw - we still successfully added books locally
+    }
   }
 
   /**
