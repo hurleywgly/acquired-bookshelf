@@ -1,5 +1,50 @@
 [
   {
+    "id": "1400225434",
+    "title": "Becoming Trader Joe",
+    "author": "Joe Coulombe",
+    "coverUrl": "https://m.media-amazon.com/images/I/91FV-siymOL._SY522_.jpg",
+    "amazonUrl": "https://www.amazon.com/Becoming-Trader-Joe-Business-Still/dp/1400225434",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Trader Joe's",
+      "seasonNumber": 2025,
+      "episodeNumber": 11
+    },
+    "addedAt": "2025-10-27T07:23:50.117Z",
+    "source": "manual"
+  },
+  {
+    "id": "0979167337",
+    "title": "Build a Brand Like Trader Joe's",
+    "author": "Mark E Gardiner",
+    "coverUrl": "https://m.media-amazon.com/images/I/51JRhp+TQsL.jpg",
+    "amazonUrl": "https://www.amazon.com/Build-Brand-Like-Trader-Joes/dp/0979167337",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Trader Joe's",
+      "seasonNumber": 2025,
+      "episodeNumber": 11
+    },
+    "addedAt": "2025-10-27T07:23:50.776Z",
+    "source": "manual"
+  },
+  {
+    "id": "B083RZFYZC",
+    "title": "The Secret Life of Groceries",
+    "author": "Benjamin Lorr",
+    "coverUrl": "https://m.media-amazon.com/images/I/91EI8RpDdkL._SY522_.jpg",
+    "amazonUrl": "https://www.amazon.com/Secret-Life-Groceries-American-Supermarket-ebook/dp/B083RZFYZC",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Trader Joe's",
+      "seasonNumber": 2025,
+      "episodeNumber": 11
+    },
+    "addedAt": "2025-10-27T07:23:50.883Z",
+    "source": "manual"
+  },
+  {
     "id": "B0DR3873M9",
     "title": "Empire of AI",
     "author": "Karen Hao",
