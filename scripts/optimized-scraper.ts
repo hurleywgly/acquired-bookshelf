@@ -462,7 +462,12 @@ class OptimizedScraper {
           addedAt: new Date().toISOString(),
           source: 'automated'
         }
-        books.push(book)
+
+        if (this.validateBook(book)) {
+          books.push(book)
+        } else {
+          console.log(`  ⚠️  Skipping invalid book: "${book.title}" (${book.amazonUrl})`)
+        }
       }
     }
 
@@ -504,6 +509,23 @@ class OptimizedScraper {
 
     // Default category
     return 'Business'
+  }
+
+  /**
+   * Validate book data to prevent "ghost books"
+   */
+  private validateBook(book: Book): boolean {
+    // Filter out books with very short titles (likely parsing errors)
+    if (book.title.length < 3) return false
+
+    // Filter out "Unknown" titles/authors
+    if (book.title.includes('Unknown') || book.author.includes('Unknown')) return false
+
+    // Filter out specific problematic titles observed in logs
+    const blocklist = ['Dp', 'Coca-Cola'] // "Coca-Cola" is too generic, likely the brand link not a book
+    if (blocklist.includes(book.title)) return false
+
+    return true
   }
 
   /**
@@ -555,6 +577,17 @@ class OptimizedScraper {
       await import('child_process').then(cp =>
         new Promise<void>((resolve, reject) => {
           cp.exec('git add public/data/books.json', (error) => {
+            if (error) reject(error)
+            else resolve()
+          })
+        })
+        })
+      )
+
+      // Configure git identity for Render
+      await import('child_process').then(cp =>
+        new Promise<void>((resolve, reject) => {
+          cp.exec('git config user.email "bot@acquired-bookshelf.com" && git config user.name "Acquired Bookshelf Bot"', (error) => {
             if (error) reject(error)
             else resolve()
           })
