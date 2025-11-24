@@ -583,30 +583,29 @@ class OptimizedScraper {
         })
       )
 
-      // Configure git identity for Render
-      await import('child_process').then(cp =>
-        new Promise<void>((resolve, reject) => {
-          cp.exec('git config user.email "bot@acquired-bookshelf.com" && git config user.name "Acquired Bookshelf Bot"', (error) => {
-            if (error) reject(error)
-            else resolve()
-          })
-        })
-      )
-
-      // Configure remote with token if available
-      if (process.env.GITHUB_TOKEN) {
-        console.log('  🔑 Configuring git remote with token...')
-        const repoUrl = 'github.com/hurleywgly/acquired-bookshelf.git' // Hardcoded for now based on context, or could be dynamic
-        const remoteUrl = `https://oauth2:${process.env.GITHUB_TOKEN}@${repoUrl}`
-
+      // Setup SSH for git push
+      console.log('  🔑 Setting up SSH...')
+      try {
+        const path = await import('path'); // Import path dynamically
         await import('child_process').then(cp =>
           new Promise<void>((resolve, reject) => {
-            cp.exec(`git remote set-url origin ${remoteUrl}`, (error) => {
-              if (error) reject(error)
-              else resolve()
+            const scriptPath = path.join(process.cwd(), 'scripts', 'setup-ssh.sh')
+            // Ensure script is executable
+            cp.exec(`chmod +x ${scriptPath} && ${scriptPath}`, (error, stdout, stderr) => {
+              if (error) {
+                console.error('SSH setup failed:', stderr)
+                // Don't reject here, let it try anyway or fallback? 
+                // If SSH fails, push will likely fail, but let's log it.
+                reject(error)
+              } else {
+                console.log(stdout)
+                resolve()
+              }
             })
           })
         )
+      } catch (error) {
+        console.error('  ⚠️  SSH setup encountered an error, attempting to proceed anyway...')
       }
 
       // Create commit message
