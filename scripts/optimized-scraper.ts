@@ -68,12 +68,12 @@ class OptimizedScraper {
    */
   async run(): Promise<void> {
     console.log('🚀 Starting optimized scraper...')
-    
+
     try {
       // Phase 1: Check RSS for new episodes
       console.log('\n📡 Phase 1: RSS Monitoring')
       const newEpisodes = await this.rssMonitor.checkForNewEpisodes()
-      
+
       // Phase 2: Process any ready episodes
       console.log('\n📋 Phase 2: Processing Ready Episodes')
       const readyEpisodes = await this.rssMonitor.getReadyEpisodes()
@@ -86,7 +86,7 @@ class OptimizedScraper {
         }
       }
       const allEpisodesToProcess = Array.from(episodeMap.values())
-      
+
       if (allEpisodesToProcess.length === 0) {
         console.log('✅ No episodes to process. Scraper complete.')
         await this.discord?.notifyNoNewBooks()
@@ -94,13 +94,13 @@ class OptimizedScraper {
       }
 
       console.log(`\n📚 Processing ${allEpisodesToProcess.length} episodes...`)
-      
+
       // Phase 3: Process episodes and extract books
       const allNewBooks: Book[] = []
-      
+
       for (const episodeProcessing of allEpisodesToProcess) {
         const books = await this.processEpisode(episodeProcessing)
-        
+
         if (books.length > 0) {
           allNewBooks.push(...books)
           await this.rssMonitor.markEpisodeProcessed(episodeProcessing.episode.id)
@@ -164,7 +164,7 @@ class OptimizedScraper {
   private async processEpisode(episodeProcessing: EpisodeProcessing): Promise<Book[]> {
     const { episode } = episodeProcessing
     console.log(`\n📖 Processing: ${episode.title}`)
-    
+
     try {
       // Step 1: Get episode page URL from RSS link
       const episodeUrl = this.extractEpisodePageUrl(episode.link)
@@ -237,7 +237,7 @@ class OptimizedScraper {
   private async findGoogleDocLink(episodeUrl: string): Promise<string | null> {
     return pRetry(async () => {
       const response = await this.urlValidator.safeFetch(episodeUrl)
-      
+
       if (!response.ok) {
         throw new Error(`Failed to fetch episode page: ${response.status}`)
       }
@@ -357,7 +357,7 @@ class OptimizedScraper {
         if (href && href.includes('amazon.com')) {
           // Clean up the URL
           let cleanUrl = href
-          
+
           // Remove Google redirect wrapper
           if (href.includes('google.com/url?')) {
             try {
@@ -381,7 +381,7 @@ class OptimizedScraper {
 
       const uniqueLinks = [...new Set(amazonLinks)]
       console.log(`  📚 Extracted ${uniqueLinks.length} unique Amazon book links`)
-      
+
       if (uniqueLinks.length === 0) {
         throw new Error('No Amazon book links found in Google Doc')
       }
@@ -403,7 +403,7 @@ class OptimizedScraper {
   private async getBooksMetadata(amazonUrls: string[]): Promise<(BookMetadata | null)[]> {
     // Filter and validate URLs
     const validUrls = this.urlValidator.filterValidUrls(amazonUrls, true)
-    
+
     if (validUrls.length === 0) {
       console.log('  ❌ No valid Amazon URLs after validation')
       return []
@@ -491,19 +491,19 @@ class OptimizedScraper {
 
     // Business/Finance keywords
     if (subjects.some(s => /business|finance|economics|management|entrepreneurship|investing|money/i.test(s)) ||
-        title.includes('business') || title.includes('finance') || title.includes('economics')) {
+      title.includes('business') || title.includes('finance') || title.includes('economics')) {
       return 'Business'
     }
 
     // Technology keywords
     if (subjects.some(s => /technology|computer|software|programming|digital|internet/i.test(s)) ||
-        title.includes('tech') || title.includes('computer') || title.includes('digital')) {
+      title.includes('tech') || title.includes('computer') || title.includes('digital')) {
       return 'Technology'
     }
 
     // History keywords
     if (subjects.some(s => /history|historical|biography|memoir/i.test(s)) ||
-        title.includes('history') || title.includes('historical')) {
+      title.includes('history') || title.includes('historical')) {
       return 'History'
     }
 
@@ -546,7 +546,7 @@ class OptimizedScraper {
     if (episodeMatch) {
       return parseInt(episodeMatch[1])
     }
-    
+
     // Fallback to timestamp-based ID
     return Math.floor(Date.now() / 1000) % 10000
   }
@@ -580,7 +580,6 @@ class OptimizedScraper {
             if (error) reject(error)
             else resolve()
           })
-        })
         })
       )
 
