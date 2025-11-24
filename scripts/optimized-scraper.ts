@@ -593,6 +593,22 @@ class OptimizedScraper {
         })
       )
 
+      // Configure remote with token if available
+      if (process.env.GITHUB_TOKEN) {
+        console.log('  🔑 Configuring git remote with token...')
+        const repoUrl = 'github.com/hurleywgly/acquired-bookshelf.git' // Hardcoded for now based on context, or could be dynamic
+        const remoteUrl = `https://oauth2:${process.env.GITHUB_TOKEN}@${repoUrl}`
+
+        await import('child_process').then(cp =>
+          new Promise<void>((resolve, reject) => {
+            cp.exec(`git remote set-url origin ${remoteUrl}`, (error) => {
+              if (error) reject(error)
+              else resolve()
+            })
+          })
+        )
+      }
+
       // Create commit message
       const episodeList = episodeTitles.join(', ')
       const commitMessage = `chore: Add books from ${episodeList}\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>`
@@ -612,7 +628,7 @@ class OptimizedScraper {
       // Push to remote
       await import('child_process').then(cp =>
         new Promise<void>((resolve, reject) => {
-          cp.exec('git push', (error) => {
+          cp.exec('git push origin HEAD:main', (error) => {
             if (error) reject(error)
             else resolve()
           })
