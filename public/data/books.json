@@ -1,5 +1,35 @@
 [
   {
+    "id": "0465054684",
+    "title": "For God, country and Coca-Cola",
+    "author": "Mark Pendergrast",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0465054684.jpg",
+    "amazonUrl": "https://www.amazon.com/God-Country-Coca-Cola-Mark-Pendergrast/dp/0465054684",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Coca-Cola",
+      "seasonNumber": 2025,
+      "episodeNumber": 6686
+    },
+    "addedAt": "2025-11-24T06:44:46.594Z",
+    "source": "automated"
+  },
+  {
+    "id": "1504019857",
+    "title": "Secret formula",
+    "author": "Frederick Allen",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1504019857.jpg",
+    "amazonUrl": "https://www.amazon.com/Secret-Formula-Inside-Coca-Cola-Best-Known/dp/1504019857/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Coca-Cola",
+      "seasonNumber": 2025,
+      "episodeNumber": 6686
+    },
+    "addedAt": "2025-11-24T06:44:46.675Z",
+    "source": "automated"
+  },
+  {
     "id": "1400225434",
     "title": "Becoming Trader Joe",
     "author": "Joe Coulombe",
