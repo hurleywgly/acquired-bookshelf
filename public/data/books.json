@@ -1,5 +1,20 @@
 [
   {
+    "id": "B01AB7GU0A",
+    "title": "The Adventures of Tom Sawyer",
+    "author": "Mark Twain",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B01AB7GU0A.jpg",
+    "amazonUrl": "https://www.amazon.com/Concussion-Will-Smith/dp/B01AB7GU0A/ref=sr_1_1",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The NFL (2026 Update)",
+      "seasonNumber": 2026,
+      "episodeNumber": 4126
+    },
+    "addedAt": "2026-02-01T00:02:06.012Z",
+    "source": "automated"
+  },
+  {
     "id": "0465054684",
     "title": "For God, Country, and Coca-Cola",
     "author": "Mark Pendergrast",
