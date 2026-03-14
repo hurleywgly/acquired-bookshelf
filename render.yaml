@@ -11,15 +11,29 @@ services:
         value: production
     autoDeploy: false
     
-  # Optimized RSS scraper (primary)
+  # Optimized scraper (primary) - runs 1st and 15th of each month
   - type: cron
-    name: optimized-scraper-weekly
+    name: optimized-scraper-bimonthly
     runtime: node
-    schedule: "0 10 * * 1"  # Every Monday at 10 AM UTC
+    schedule: "0 10 1,15 * *"  # 1st and 15th of each month at 10 AM UTC
     buildCommand: npm ci
     startCommand: npm run optimized-scraper
     envVars:
       - key: NODE_ENV
         value: production
+      - key: SSH_PRIVATE_KEY
+        sync: false  # Base64-encoded ed25519 key for git push to GitHub
+      - key: R2_ACCOUNT_ID
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: R2_BUCKET_NAME
+        sync: false
+      - key: R2_PUBLIC_URL
+        sync: false
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
     repo: auto
     autoDeploy: false

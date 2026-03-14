@@ -1,17 +1,17 @@
 [
   {
-    "id": "B01AB7GU0A",
-    "title": "The Adventures of Tom Sawyer",
-    "author": "Mark Twain",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B01AB7GU0A.jpg",
-    "amazonUrl": "https://www.amazon.com/Concussion-Will-Smith/dp/B01AB7GU0A/ref=sr_1_1",
+    "id": "0063318628",
+    "title": "Formula",
+    "author": "Joshua Robinson",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0063318628.jpg",
+    "amazonUrl": "https://www.amazon.com/Formula-Rogues-Geniuses-Reengineered-Fastest-Growing/dp/0063318628",
     "category": "Business",
     "episodeRef": {
-      "name": "The NFL (2026 Update)",
+      "name": "Formula 1",
       "seasonNumber": 2026,
-      "episodeNumber": 4126
+      "episodeNumber": 1
     },
-    "addedAt": "2026-02-01T00:02:06.012Z",
+    "addedAt": "2026-03-06T22:02:01.351Z",
     "source": "automated"
   },
   {
@@ -299,6 +299,36 @@
     }
   },
   {
+    "id": "0670088730",
+    "title": "Not Out!",
+    "author": "Desh Gaurav Sekhri",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0670088730.jpg",
+    "amazonUrl": "https://www.amazon.com/Incredible-Story-Indian-Premier-League/dp/0670088730",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Indian Premier League Cricket",
+      "seasonNumber": 2025,
+      "episodeNumber": 3
+    },
+    "addedAt": "2026-03-06T22:02:18.177Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0DZL6W797",
+    "title": "The great robot race",
+    "author": "Joe Seamans",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0DZL6W797.jpg",
+    "amazonUrl": "https://www.amazon.com/Great-Robot-Race-Joseph-Seamans/dp/B0DZL6W797/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Google Part III: The AI Company",
+      "seasonNumber": 2025,
+      "episodeNumber": 1
+    },
+    "addedAt": "2026-03-06T22:02:31.615Z",
+    "source": "automated"
+  },
+  {
     "id": "0767904575",
     "title": "The Emperors of Chocolate: Inside the Secret World of Hershey and Mars",
     "author": "Joël Glenn Brenner",
@@ -336,6 +366,51 @@
       "seasonNumber": 2024,
       "episodeNumber": 4
     }
+  },
+  {
+    "id": "1616135603",
+    "title": "The Mars family",
+    "author": "Joanne Mattern",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1616135603.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1616135603",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Mars Inc. (the chocolate story)",
+      "seasonNumber": 2024,
+      "episodeNumber": 4
+    },
+    "addedAt": "2026-03-06T22:02:43.747Z",
+    "source": "automated"
+  },
+  {
+    "id": "1426214987",
+    "title": "Great moments in chocolate history",
+    "author": "Howard-Yana Shapiro",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1426214987.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1426214987",
+    "category": "History",
+    "episodeRef": {
+      "name": "Mars Inc. (the chocolate story)",
+      "seasonNumber": 2024,
+      "episodeNumber": 4
+    },
+    "addedAt": "2026-03-06T22:02:43.937Z",
+    "source": "automated"
+  },
+  {
+    "id": "1624034977",
+    "title": "Mars Family",
+    "author": "Joanne Mattern",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1624034977.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1624034977",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Mars Inc. (the chocolate story)",
+      "seasonNumber": 2024,
+      "episodeNumber": 4
+    },
+    "addedAt": "2026-03-06T22:02:44.198Z",
+    "source": "automated"
   },
   {
     "id": "B00E8C5WAY",

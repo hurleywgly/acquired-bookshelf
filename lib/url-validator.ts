@@ -5,6 +5,7 @@
 
 const ALLOWED_DOMAINS = [
   'www.acquired.fm',
+  'acquired.fm',
   'docs.google.com',
   'openlibrary.org',
   'amazon.com',

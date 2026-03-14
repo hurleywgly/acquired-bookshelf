@@ -113,17 +113,30 @@ async function getEpisodesFromPage(url: string, pageNum: number, fetchedAt: stri
 
       // Parse season/episode from preview text - handle seasonal patterns
       const seasonEpMatch = previewText.match(/(?:Fall|Spring|Summer|Winter) (\d{4}), Episode (\d+)|Season (\d+), Episode (\d+)/)
-      
-      if (title && seasonEpMatch) {
-        const seasonNumber = parseInt(seasonEpMatch[1] || seasonEpMatch[3])
-        const episodeNumber = parseInt(seasonEpMatch[2] || seasonEpMatch[4])
-        
+      const dateText = $(element).find('.thumbnail-date').text()
+
+      let seasonNumber: number | undefined
+      let episodeNumber: number | undefined
+
+      if (seasonEpMatch) {
+        seasonNumber = parseInt(seasonEpMatch[1] || seasonEpMatch[3])
+        episodeNumber = parseInt(seasonEpMatch[2] || seasonEpMatch[4])
+      } else if (previewText.toLowerCase().includes('special') && title) {
+        // Handle "Special" episodes - extract year from date, use episode 0
+        const yearMatch = dateText.match(/(\d{4})/)
+        if (yearMatch) {
+          seasonNumber = parseInt(yearMatch[1])
+          episodeNumber = 0
+        }
+      }
+
+      if (title && seasonNumber !== undefined && episodeNumber !== undefined) {
         const episode: Episode = {
           id: `${seasonNumber}-${episodeNumber}`,
           name: title,
           seasonNumber,
           episodeNumber,
-          date: $(element).find('.thumbnail-date').text(),
+          date: dateText,
           page: pageNum,
           fetchedAt
         }
