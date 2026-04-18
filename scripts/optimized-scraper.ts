@@ -16,6 +16,7 @@ import { getBatchBookMetadata, type BookMetadata } from '../lib/openLibrary.js'
 import { createR2UploaderFromEnv, type R2Uploader } from '../lib/r2-uploader.js'
 import { createDiscordNotifierFromEnv, type DiscordNotifier } from '../lib/discord-notifier.js'
 import { extractAmazonLinksFromEpisodePage, extractEpisodeTitle, parseSeasonEpisodeHint } from '../lib/episode-page-parser.js'
+import { toTitleCase, normalizeAuthor } from '../lib/title-case.js'
 import * as cheerio from 'cheerio'
 import * as fs from 'fs/promises'
 import * as path from 'path'
@@ -139,7 +140,9 @@ class OptimizedScraper {
           const booksForDiscord = allNewBooks.map(book => ({
             title: book.title,
             author: book.author,
-            episode: book.episodeRef.name
+            episode: book.episodeRef.name,
+            coverUrl: book.coverUrl,
+            amazonUrl: book.amazonUrl
           }))
           await this.discord.notifyBooksAdded(booksForDiscord)
 
@@ -329,8 +332,8 @@ class OptimizedScraper {
 
       const book: Book = {
         id: bookId,
-        title: metadata.title,
-        author: metadata.author,
+        title: toTitleCase(metadata.title),
+        author: normalizeAuthor(metadata.author),
         coverUrl,
         amazonUrl,
         category: this.categorizeBook(metadata),

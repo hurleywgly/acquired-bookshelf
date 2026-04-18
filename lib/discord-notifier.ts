@@ -11,13 +11,24 @@ interface DiscordEmbedField {
 
 interface DiscordEmbed {
   title: string
+  url?: string
   description?: string
   color: number
   fields?: DiscordEmbedField[]
+  thumbnail?: { url: string }
+  image?: { url: string }
   timestamp?: string
   footer?: {
     text: string
   }
+}
+
+export interface DiscordBookEntry {
+  title: string
+  author: string
+  episode: string
+  coverUrl?: string
+  amazonUrl?: string
 }
 
 interface DiscordWebhookPayload {
@@ -33,36 +44,61 @@ export class DiscordNotifier {
   }
 
   /**
-   * Send a notification about successfully added books
+   * Send a notification about successfully added books. Embeds include cover
+   * thumbnails and Amazon links inline so the state can be validated directly
+   * from Discord without opening the site.
    */
-  async notifyBooksAdded(books: Array<{ title: string; author: string; episode: string }>, episodeUrl?: string): Promise<void> {
-    const fields: DiscordEmbedField[] = books.map((book, index) => ({
-      name: `${index + 1}. ${book.title}`,
-      value: `**Author:** ${book.author}\n**Episode:** ${book.episode}`,
-      inline: false
-    }))
+  async notifyBooksAdded(books: DiscordBookEntry[], siteUrl?: string): Promise<void> {
+    if (books.length === 0) return
 
-    // Discord has a 25-field limit per embed
-    const maxFields = 25
+    const site = siteUrl || process.env.SITE_URL || 'https://acquired-bookshelf-git-main-hurleywglys-projects.vercel.app'
+
     const embeds: DiscordEmbed[] = []
 
-    for (let i = 0; i < fields.length; i += maxFields) {
-      const embedFields = fields.slice(i, i + maxFields)
-      const isFirstEmbed = i === 0
+    embeds.push({
+      title: `📚 ${books.length} new book${books.length > 1 ? 's' : ''} added`,
+      url: site,
+      description: `[View on the bookshelf →](${site})\n\nCover thumbnails below are what's stored — click through to validate.`,
+      color: 0x00ff00,
+      timestamp: new Date().toISOString(),
+      footer: { text: 'Acquired Bookshelf Scraper' }
+    })
+
+    const perBookEmbedLimit = 9
+    const booksWithEmbeds = books.slice(0, perBookEmbedLimit)
+
+    for (const book of booksWithEmbeds) {
+      const linkParts: string[] = []
+      if (book.amazonUrl) linkParts.push(`[Amazon](${book.amazonUrl})`)
+      if (book.coverUrl) linkParts.push(`[Cover](${book.coverUrl})`)
+      const description = [
+        `**${book.author}**`,
+        `Episode: ${book.episode}`,
+        linkParts.length > 0 ? linkParts.join(' · ') : undefined
+      ]
+        .filter(Boolean)
+        .join('\n')
 
       embeds.push({
-        title: isFirstEmbed ? '📚 New Books Added' : '📚 More Books...',
-        description: isFirstEmbed
-          ? `Successfully added ${books.length} book${books.length > 1 ? 's' : ''} to the collection${episodeUrl ? `\n\n🔗 [Episode Link](${episodeUrl})` : ''}`
-          : undefined,
-        color: 0x00ff00, // Green
-        fields: embedFields,
-        timestamp: isFirstEmbed ? new Date().toISOString() : undefined,
-        footer: isFirstEmbed ? { text: 'Acquired Bookshelf Scraper' } : undefined
+        title: book.title,
+        url: book.amazonUrl,
+        description,
+        color: 0x00ff00,
+        thumbnail: book.coverUrl ? { url: book.coverUrl } : undefined
       })
     }
 
-    await this.sendWebhook({ embeds })
+    if (books.length > perBookEmbedLimit) {
+      const overflow = books.slice(perBookEmbedLimit)
+      const lines = overflow.map(b => `• **${b.title}** — ${b.author}${b.amazonUrl ? ` ([Amazon](${b.amazonUrl}))` : ''}`)
+      embeds.push({
+        title: `+ ${overflow.length} more`,
+        description: lines.slice(0, 20).join('\n'),
+        color: 0x00ff00
+      })
+    }
+
+    await this.sendWebhook({ embeds: embeds.slice(0, 10) })
   }
 
   /**

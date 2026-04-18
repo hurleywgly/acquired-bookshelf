@@ -138,8 +138,9 @@ async function getEpisodesFromRSS(fetchedAt: string): Promise<Episode[]> {
     })
     const parsed = parser.parse(xml)
 
+    interface RSSItem { title?: string; link?: string; pubDate?: string }
     const rawItems = parsed?.rss?.channel?.item
-    const items: any[] = Array.isArray(rawItems) ? rawItems : rawItems ? [rawItems] : []
+    const items: RSSItem[] = Array.isArray(rawItems) ? rawItems : rawItems ? [rawItems] : []
 
     const episodes: Episode[] = []
     const seen = new Set<string>()
