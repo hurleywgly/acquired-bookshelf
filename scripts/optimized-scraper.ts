@@ -2,8 +2,10 @@
 
 /**
  * Optimized Acquired Podcast Scraper
- * Uses acquired.fm episode listing for reliable episode discovery,
- * then extracts books from Google Doc sources via Open Library metadata.
+ * Discovers episodes via acquired.fm sitemap (with listing fallback),
+ * extracts Amazon book links directly from each episode page's Links section,
+ * enriches metadata via Open Library, uploads covers to Cloudflare R2,
+ * and writes updated books.json.
  */
 
 import 'dotenv/config'
@@ -13,6 +15,7 @@ import { URLValidator } from '../lib/url-validator.js'
 import { getBatchBookMetadata, type BookMetadata } from '../lib/openLibrary.js'
 import { createR2UploaderFromEnv, type R2Uploader } from '../lib/r2-uploader.js'
 import { createDiscordNotifierFromEnv, type DiscordNotifier } from '../lib/discord-notifier.js'
+import { extractAmazonLinksFromEpisodePage, extractEpisodeTitle, parseSeasonEpisodeHint } from '../lib/episode-page-parser.js'
 import * as cheerio from 'cheerio'
 import * as fs from 'fs/promises'
 import * as path from 'path'
@@ -29,9 +32,21 @@ interface Book {
     name: string
     seasonNumber: number
     episodeNumber: number
+    slug?: string
   }
   addedAt: string
   source: 'automated'
+}
+
+const CANARY_EPISODE_URL = 'https://www.acquired.fm/episodes/ferrari'
+const MIN_CANARY_AMAZON_LINKS = 1
+
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 class OptimizedScraper {
@@ -41,69 +56,49 @@ class OptimizedScraper {
   private discord: DiscordNotifier | null
   private dataDir: string
   private booksFile: string
+  private gitPushEnabled: boolean
 
   constructor() {
     this.classifier = new EpisodeClassifier()
     this.urlValidator = new URLValidator()
 
-    // Initialize R2 uploader if credentials are available
     try {
       this.r2Uploader = createR2UploaderFromEnv()
       console.log('R2 uploader initialized')
-    } catch (error) {
+    } catch {
       console.log('R2 credentials not found, will use external URLs for covers')
       this.r2Uploader = null
     }
 
-    // Initialize Discord notifier if webhook URL is available
     this.discord = createDiscordNotifierFromEnv()
 
     this.dataDir = path.join(process.cwd(), 'public', 'data')
     this.booksFile = path.join(this.dataDir, 'books.json')
+    this.gitPushEnabled = process.env.GIT_PUSH !== 'false'
   }
 
-  /**
-   * Main scraper execution
-   */
   async run(): Promise<void> {
     console.log('Starting optimized scraper...')
 
     try {
-      // Phase 1: Get all episodes from acquired.fm
-      console.log('\nPhase 1: Fetching episodes from acquired.fm')
+      await this.runCanary()
+
+      console.log('\nPhase 1: Discovering episodes')
       const allEpisodes = await getAllEpisodes(true)
       console.log(`Found ${allEpisodes.length} total episodes`)
 
-      // Phase 2: Find unprocessed episodes newer than our latest
-      console.log('\nPhase 2: Finding new unprocessed episodes')
+      console.log('\nPhase 2: Finding unprocessed episodes')
       const existingBooks = await this.loadExistingBooks()
-
-      // Use composite key (name + season + episode) so duplicate episode names
-      // across seasons (e.g. "The NFL" in 2023 and 2026) are handled correctly
-      const processedEpisodeKeys = new Set(
-        existingBooks.map(book =>
-          `${book.episodeRef.name}|${book.episodeRef.seasonNumber}|${book.episodeRef.episodeNumber}`
-        )
-      )
-
-      // Find the most recent season we have books for, so we only look at
-      // episodes from that season onward (avoids processing hundreds of old episodes)
+      const processedSlugs = this.buildProcessedSlugSet(existingBooks)
       const latestSeason = existingBooks.reduce(
         (max, book) => Math.max(max, book.episodeRef.seasonNumber), 0
       )
-      // Go back one season to catch any we might have missed
       const minSeason = Math.max(latestSeason - 1, 0)
       console.log(`  Latest season with books: ${latestSeason}, processing from season ${minSeason}+`)
 
       const unprocessedEpisodes = allEpisodes.filter(episode => {
-        // Only look at recent episodes (current season and one prior)
-        if (episode.seasonNumber < minSeason) return false
-
-        const key = `${episode.name}|${episode.seasonNumber}|${episode.episodeNumber}`
-        if (processedEpisodeKeys.has(key)) return false
-
-        // Use episode classifier to skip interviews/specials (but NOT "special" episodes
-        // which are labeled differently on acquired.fm and may have sources)
+        if (episode.seasonNumber === undefined || episode.seasonNumber < minSeason) return false
+        if (processedSlugs.has(episode.slug)) return false
         const classification = this.classifier.classify(episode.name)
         if (classification.shouldSkip) {
           console.log(`  Skipping ${classification.type}: ${episode.name}`)
@@ -113,37 +108,33 @@ class OptimizedScraper {
       })
 
       if (unprocessedEpisodes.length === 0) {
-        console.log('No new episodes to process. Scraper complete.')
+        console.log('No new episodes to process.')
         await this.discord?.notifyNoNewBooks()
         return
       }
 
       console.log(`\nFound ${unprocessedEpisodes.length} unprocessed episodes:`)
       unprocessedEpisodes.forEach(ep => {
-        console.log(`  - ${ep.name} (S${ep.seasonNumber}E${ep.episodeNumber})`)
+        console.log(`  - ${ep.name} (S${ep.seasonNumber ?? '?'}E${ep.episodeNumber ?? '?'}) — ${ep.slug}`)
       })
 
-      // Phase 3: Process episodes and extract books
       console.log('\nPhase 3: Processing episodes')
       const allNewBooks: Book[] = []
 
       for (const episode of unprocessedEpisodes) {
         const books = await this.processEpisode(episode)
-
         if (books.length > 0) {
           allNewBooks.push(...books)
-          console.log(`Successfully processed: ${episode.name} (${books.length} books)`)
+          console.log(`  ✓ ${episode.name}: ${books.length} books`)
         } else {
-          console.log(`No books found for: ${episode.name}`)
+          console.log(`  – ${episode.name}: no books found`)
         }
       }
 
-      // Phase 4: Update database
       if (allNewBooks.length > 0) {
         await this.updateBooksDatabase(allNewBooks)
         console.log(`\nSuccessfully added ${allNewBooks.length} new books!`)
 
-        // Send Discord notification with book details
         if (this.discord) {
           const booksForDiscord = allNewBooks.map(book => ({
             title: book.title,
@@ -152,7 +143,6 @@ class OptimizedScraper {
           }))
           await this.discord.notifyBooksAdded(booksForDiscord)
 
-          // Check for unknown metadata and alert
           const unknownBooks = allNewBooks.filter(
             book => book.title.includes('Unknown') || book.author.includes('Unknown')
           )
@@ -167,9 +157,12 @@ class OptimizedScraper {
           }
         }
 
-        // Commit and push changes to git
         const episodeTitles = [...new Set(allNewBooks.map(book => book.episodeRef.name))]
-        await this.gitCommitAndPush(episodeTitles)
+        if (this.gitPushEnabled) {
+          await this.gitCommitAndPush(episodeTitles)
+        } else {
+          console.log('\n[dry-run] GIT_PUSH=false — skipping git commit and push')
+        }
       } else {
         console.log('\nNo new books found across all episodes.')
         await this.discord?.notifyNoNewBooks()
@@ -188,8 +181,36 @@ class OptimizedScraper {
   }
 
   /**
-   * Load existing books from database
+   * Canary: fetch a known-good episode page and confirm the Links selector still yields
+   * Amazon URLs. Prevents silent-empty-run when acquired.fm changes markup.
    */
+  private async runCanary(): Promise<void> {
+    console.log(`Canary: checking ${CANARY_EPISODE_URL}`)
+    try {
+      const response = await this.urlValidator.safeFetch(CANARY_EPISODE_URL)
+      if (!response.ok) {
+        throw new Error(`Canary fetch failed: HTTP ${response.status}`)
+      }
+      const html = await response.text()
+      const $ = cheerio.load(html)
+      const links = extractAmazonLinksFromEpisodePage($, this.urlValidator)
+      if (links.length < MIN_CANARY_AMAZON_LINKS) {
+        throw new Error(
+          `Canary selector drift: expected >= ${MIN_CANARY_AMAZON_LINKS} Amazon links on ferrari episode, got ${links.length}`
+        )
+      }
+      console.log(`  ✓ Canary OK (${links.length} Amazon links found on ferrari episode)`)
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error)
+      console.error(`  ✗ Canary failed: ${msg}`)
+      await this.discord?.notifyError(
+        msg,
+        'Canary pre-flight — selector drift detected, scraper halted before run. Check lib/episode-page-parser.ts.'
+      )
+      throw new Error(`Canary failed: ${msg}`)
+    }
+  }
+
   private async loadExistingBooks(): Promise<Book[]> {
     try {
       const data = await fs.readFile(this.booksFile, 'utf-8')
@@ -199,235 +220,88 @@ class OptimizedScraper {
     }
   }
 
-  /**
-   * Process a single episode to extract books
-   */
+  private buildProcessedSlugSet(books: Book[]): Set<string> {
+    const slugs = new Set<string>()
+    for (const book of books) {
+      if (book.episodeRef.slug) slugs.add(book.episodeRef.slug)
+      slugs.add(slugify(book.episodeRef.name))
+    }
+    return slugs
+  }
+
   private async processEpisode(episode: Episode): Promise<Book[]> {
-    console.log(`\nProcessing: ${episode.name} (S${episode.seasonNumber}E${episode.episodeNumber})`)
+    console.log(`\nProcessing: ${episode.name} (S${episode.seasonNumber ?? '?'}E${episode.episodeNumber ?? '?'})`)
 
     try {
-      if (!episode.sourceUrl) {
-        console.log('  No source URL for episode')
-        return []
+      const $ = await this.fetchEpisodePage(episode.sourceUrl)
+      if (!$) return []
+
+      const titleFromPage = extractEpisodeTitle($)
+      const refinedName = titleFromPage && titleFromPage.length > 1 ? titleFromPage : episode.name
+      if (titleFromPage && titleFromPage !== episode.name) {
+        console.log(`  Title from page: "${titleFromPage}" (was "${episode.name}")`)
       }
 
-      // Step 1: Find Google Doc link on episode page
-      const googleDocUrl = await this.findGoogleDocLink(episode.sourceUrl)
-      if (!googleDocUrl) {
-        console.log('  No Google Doc link found')
-        return []
-      }
+      const hint = parseSeasonEpisodeHint($)
+      const seasonNumber =
+        hint?.seasonNumber ??
+        episode.seasonNumber ??
+        (episode.lastmod ? new Date(episode.lastmod).getUTCFullYear() : new Date().getUTCFullYear())
+      const episodeNumber = hint?.episodeNumber ?? episode.episodeNumber ?? 0
 
-      console.log(`  Found Google Doc: ${googleDocUrl}`)
-
-      // Step 2: Extract Amazon links from Google Doc
-      const amazonLinks = await this.extractAmazonLinksFromGoogleDoc(googleDocUrl)
+      const amazonLinks = extractAmazonLinksFromEpisodePage($, this.urlValidator)
       if (amazonLinks.length === 0) {
-        console.log('  No Amazon book links found in Google Doc')
+        console.log('  No Amazon book links found under Links section')
         return []
       }
-
       console.log(`  Found ${amazonLinks.length} Amazon book links`)
 
-      // Step 3: Get book metadata
       const bookMetadata = await this.getBooksMetadata(amazonLinks)
-
-      // Step 4: Convert to Book objects (with R2 upload)
-      const books = await this.createBookObjects(bookMetadata, amazonLinks, episode)
-
-      return books
-
+      const refinedEpisode: Episode = {
+        ...episode,
+        name: refinedName,
+        seasonNumber,
+        episodeNumber
+      }
+      return this.createBookObjects(bookMetadata, amazonLinks, refinedEpisode)
     } catch (error) {
-      console.error(`  Error processing episode ${episode.name}:`, error)
+      console.error(`  Error processing ${episode.name}:`, error)
       return []
     }
   }
 
-  /**
-   * Find Google Doc link on episode page with retry logic
-   */
-  private async findGoogleDocLink(episodeUrl: string): Promise<string | null> {
-    return pRetry(async () => {
-      const response = await this.urlValidator.safeFetch(episodeUrl)
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch episode page: ${response.status}`)
-      }
-
-      const html = await response.text()
-      const $ = cheerio.load(html)
-
-      // Look for "Episode sources" text and find nearby Google Doc links
-      let googleDocUrl: string | null = null
-
-      $('a').each((_, element) => {
-        const href = $(element).attr('href')
-        const text = $(element).text().toLowerCase()
-
-        if (href && href.includes('docs.google.com')) {
-          // Check if this link is related to episode sources
-          const linkText = text
-          const parentText = $(element).parent().text().toLowerCase()
-          const nearbyText = $(element).closest('p, div').text().toLowerCase()
-
-          if (
-            linkText.includes('episode sources') ||
-            linkText.includes('sources') ||
-            parentText.includes('episode sources') ||
-            nearbyText.includes('episode sources')
-          ) {
-            googleDocUrl = href
-            return false // Break the loop
-          }
+  private async fetchEpisodePage(url: string): Promise<cheerio.CheerioAPI | null> {
+    try {
+      return await pRetry(async () => {
+        const response = await this.urlValidator.safeFetch(url)
+        if (!response.ok) {
+          throw new Error(`Episode page fetch failed: ${response.status}`)
+        }
+        const html = await response.text()
+        return cheerio.load(html)
+      }, {
+        retries: 2,
+        minTimeout: 1000,
+        maxTimeout: 5000,
+        onFailedAttempt: (err) => {
+          console.log(`  Attempt ${err.attemptNumber} failed: ${err.message}`)
         }
       })
-
-      // If no specific "Episode sources" link found, look for any Google Doc link
-      if (!googleDocUrl) {
-        $('a').each((_, element) => {
-          const href = $(element).attr('href')
-          if (href && href.includes('docs.google.com/document')) {
-            googleDocUrl = href
-            return false // Break the loop
-          }
-        })
-      }
-
-      if (!googleDocUrl) {
-        throw new Error('No Google Doc link found')
-      }
-
-      return googleDocUrl
-    }, {
-      retries: 2,
-      minTimeout: 1000,
-      maxTimeout: 5000,
-      onFailedAttempt: (error) => {
-        console.log(`  Attempt ${error.attemptNumber} failed: ${error.message}`)
-      }
-    })
+    } catch (error) {
+      console.error(`  Could not fetch episode page: ${error instanceof Error ? error.message : error}`)
+      return null
+    }
   }
 
-  /**
-   * Extract Amazon links from Google Doc with retry logic
-   */
-  private async extractAmazonLinksFromGoogleDoc(googleDocUrl: string): Promise<string[]> {
-    return pRetry(async () => {
-      // Validate Google Doc URL
-      const urlValidation = this.urlValidator.validateUrl(googleDocUrl)
-      if (!urlValidation.isValid) {
-        throw new Error(`Invalid Google Doc URL: ${urlValidation.error}`)
-      }
-
-      const sanitizedUrl = urlValidation.sanitizedUrl!
-
-      // Extract document ID
-      const docId = sanitizedUrl.match(/\/document\/d\/([a-zA-Z0-9-_]+)/)?.[1]
-      if (!docId) {
-        throw new Error('Could not extract document ID from URL')
-      }
-
-      // Try different export formats
-      const exportUrls = [
-        `https://docs.google.com/document/d/${docId}/export?format=html`,
-        `https://docs.google.com/document/d/${docId}/pub`,
-        sanitizedUrl.replace('/edit', '/export?format=html')
-      ]
-
-      let html = ''
-      let lastError: Error | null = null
-
-      for (const url of exportUrls) {
-        try {
-          console.log(`  Trying: ${url}`)
-          const validation = this.urlValidator.validateUrl(url)
-          if (!validation.isValid) continue
-
-          const response = await this.urlValidator.safeFetch(validation.sanitizedUrl!)
-          if (response.ok) {
-            html = await response.text()
-            console.log(`  Success with: ${url}`)
-            break
-          }
-        } catch (error) {
-          lastError = error as Error
-          console.log(`  Failed: ${url}`)
-          continue
-        }
-      }
-
-      if (!html) {
-        throw lastError || new Error('Could not fetch Google Doc content from any format')
-      }
-
-      // Parse HTML and extract Amazon links
-      const $ = cheerio.load(html)
-      const amazonLinks: string[] = []
-
-      $('a').each((_, element) => {
-        const href = $(element).attr('href')
-        if (href && href.includes('amazon.com')) {
-          // Clean up the URL
-          let cleanUrl = href
-
-          // Remove Google redirect wrapper
-          if (href.includes('google.com/url?')) {
-            try {
-              const urlParams = new URLSearchParams(href.split('?')[1])
-              cleanUrl = urlParams.get('q') || urlParams.get('url') || href
-            } catch (error) {
-              console.log('  Error cleaning Google redirect URL:', error)
-            }
-          }
-
-          // Validate that it's a book link
-          if (cleanUrl.includes('/dp/') || cleanUrl.match(/\/[B][0-9A-Z]{9}/)) {
-            // Validate the URL before adding
-            const validation = this.urlValidator.validateUrl(cleanUrl)
-            if (validation.isValid && validation.sanitizedUrl) {
-              amazonLinks.push(validation.sanitizedUrl)
-            }
-          }
-        }
-      })
-
-      const uniqueLinks = [...new Set(amazonLinks)]
-      console.log(`  Extracted ${uniqueLinks.length} unique Amazon book links`)
-
-      if (uniqueLinks.length === 0) {
-        throw new Error('No Amazon book links found in Google Doc')
-      }
-
-      return uniqueLinks
-    }, {
-      retries: 2,
-      minTimeout: 2000,
-      maxTimeout: 8000,
-      onFailedAttempt: (error) => {
-        console.log(`  Google Doc attempt ${error.attemptNumber} failed: ${error.message}`)
-      }
-    })
-  }
-
-  /**
-   * Get book metadata with validation
-   */
   private async getBooksMetadata(amazonUrls: string[]): Promise<(BookMetadata | null)[]> {
-    // Filter and validate URLs
     const validUrls = this.urlValidator.filterValidUrls(amazonUrls, true)
-
     if (validUrls.length === 0) {
       console.log('  No valid Amazon URLs after validation')
       return []
     }
-
-    // Get metadata using existing function
     return getBatchBookMetadata(validUrls)
   }
 
-  /**
-   * Create Book objects from metadata using real episode data
-   */
   private async createBookObjects(
     bookMetadata: (BookMetadata | null)[],
     amazonUrls: string[],
@@ -438,218 +312,138 @@ class OptimizedScraper {
     for (let i = 0; i < amazonUrls.length; i++) {
       const metadata = bookMetadata[i]
       const amazonUrl = amazonUrls[i]
+      if (!metadata) continue
 
-      if (metadata) {
-        const bookId = this.extractASIN(amazonUrl) || `automated-${Date.now()}-${i}`
-        let coverUrl = metadata.coverUrl || '/covers/default-book.jpg'
+      const bookId = this.extractASIN(amazonUrl) || `automated-${Date.now()}-${i}`
+      let coverUrl = metadata.coverUrl || '/covers/default-book.jpg'
 
-        // If R2 is available and we have a valid cover URL, upload to R2
-        if (this.r2Uploader && metadata.coverUrl && !metadata.coverUrl.startsWith('/')) {
-          console.log(`  Processing cover for: ${metadata.title}`)
-          const r2Url = await this.r2Uploader.downloadAndUpload(
-            metadata.coverUrl,
-            bookId,
-            true // Skip if already exists
-          )
-
-          if (r2Url) {
-            coverUrl = r2Url
-          } else {
-            console.log(`  R2 upload failed, using original URL: ${metadata.coverUrl}`)
-          }
-        }
-
-        const book: Book = {
-          id: bookId,
-          title: metadata.title,
-          author: metadata.author,
-          coverUrl: coverUrl,
-          amazonUrl: amazonUrl,
-          category: this.categorizeBook(metadata),
-          episodeRef: {
-            name: episode.name,
-            seasonNumber: episode.seasonNumber,
-            episodeNumber: episode.episodeNumber
-          },
-          addedAt: new Date().toISOString(),
-          source: 'automated'
-        }
-
-        if (this.validateBook(book)) {
-          books.push(book)
+      if (this.r2Uploader && metadata.coverUrl && !metadata.coverUrl.startsWith('/')) {
+        console.log(`  Processing cover for: ${metadata.title}`)
+        const r2Url = await this.r2Uploader.downloadAndUpload(metadata.coverUrl, bookId, true)
+        if (r2Url) {
+          coverUrl = r2Url
         } else {
-          console.log(`  Skipping invalid book: "${book.title}" (${book.amazonUrl})`)
+          console.log(`  R2 upload failed, using original URL: ${metadata.coverUrl}`)
         }
+      }
+
+      const book: Book = {
+        id: bookId,
+        title: metadata.title,
+        author: metadata.author,
+        coverUrl,
+        amazonUrl,
+        category: this.categorizeBook(metadata),
+        episodeRef: {
+          name: episode.name,
+          seasonNumber: episode.seasonNumber ?? new Date().getUTCFullYear(),
+          episodeNumber: episode.episodeNumber ?? 0,
+          slug: episode.slug
+        },
+        addedAt: new Date().toISOString(),
+        source: 'automated'
+      }
+
+      if (this.validateBook(book)) {
+        books.push(book)
+      } else {
+        console.log(`  Skipping invalid book: "${book.title}" (${book.amazonUrl})`)
       }
     }
 
     return books
   }
 
-  /**
-   * Extract ASIN from Amazon URL
-   */
   private extractASIN(amazonUrl: string): string | null {
     const asinMatch = amazonUrl.match(/\/dp\/([A-Z0-9]{10})/) || amazonUrl.match(/\/([B][0-9A-Z]{9})/)
     return asinMatch?.[1] || null
   }
 
-  /**
-   * Categorize book based on metadata
-   */
   private categorizeBook(metadata: BookMetadata): string {
     const subjects = metadata.subjects || []
     const title = metadata.title.toLowerCase()
 
-    // Business/Finance keywords
     if (subjects.some(s => /business|finance|economics|management|entrepreneurship|investing|money/i.test(s)) ||
       title.includes('business') || title.includes('finance') || title.includes('economics')) {
       return 'Business'
     }
-
-    // Technology keywords
     if (subjects.some(s => /technology|computer|software|programming|digital|internet/i.test(s)) ||
       title.includes('tech') || title.includes('computer') || title.includes('digital')) {
       return 'Technology'
     }
-
-    // History keywords
     if (subjects.some(s => /history|historical|biography|memoir/i.test(s)) ||
       title.includes('history') || title.includes('historical')) {
       return 'History'
     }
-
-    // Default category
     return 'Business'
   }
 
-  /**
-   * Validate book data to prevent "ghost books"
-   */
   private validateBook(book: Book): boolean {
-    // Filter out books with very short titles (likely parsing errors)
     if (book.title.length < 3) return false
-
-    // Filter out "Unknown" titles/authors
     if (book.title.includes('Unknown') || book.author.includes('Unknown')) return false
-
-    // Filter out specific problematic titles from bad Open Library matches
     const titleBlocklist = ['Dp', 'Coca-Cola', 'The Adventures of Tom Sawyer']
     if (titleBlocklist.includes(book.title)) return false
-
-    // Filter out known non-book ASINs (movies, videos, etc.)
-    const asinBlocklist = ['B01AB7GU0A'] // Concussion movie
+    const asinBlocklist = ['B01AB7GU0A']
     const asin = this.extractASIN(book.amazonUrl)
     if (asin && asinBlocklist.includes(asin)) return false
-
     return true
   }
 
-  /**
-   * Commit and push changes to git
-   */
   private async gitCommitAndPush(episodeTitles: string[]): Promise<void> {
     try {
       console.log('\nPushing changes to git...')
 
-      // Check if there are any changes to commit
-      const statusCheck = await import('child_process').then(cp =>
-        new Promise<string>((resolve, reject) => {
-          cp.exec('git status --porcelain public/data/books.json', (error, stdout) => {
-            if (error) reject(error)
+      const { exec } = await import('child_process')
+      const execAsync = (cmd: string): Promise<string> =>
+        new Promise((resolve, reject) => {
+          exec(cmd, (error, stdout, stderr) => {
+            if (error) reject(new Error(stderr || error.message))
             else resolve(stdout.trim())
           })
         })
-      )
 
-      if (!statusCheck) {
+      const status = await execAsync('git status --porcelain public/data/books.json')
+      if (!status) {
         console.log('  No changes to commit')
         return
       }
 
-      // Add the books.json file
-      await import('child_process').then(cp =>
-        new Promise<void>((resolve, reject) => {
-          cp.exec('git add public/data/books.json', (error) => {
-            if (error) reject(error)
-            else resolve()
-          })
-        })
-      )
+      await execAsync('git add public/data/books.json')
 
-      // Setup SSH for git push
       console.log('  Setting up SSH...')
       try {
-        const path = await import('path')
-        await import('child_process').then(cp =>
-          new Promise<void>((resolve, reject) => {
-            const scriptPath = path.join(process.cwd(), 'scripts', 'setup-ssh.sh')
-            cp.exec(`chmod +x ${scriptPath} && ${scriptPath}`, (error, stdout, stderr) => {
-              if (error) {
-                console.error('SSH setup failed:', stderr)
-                reject(error)
-              } else {
-                console.log(stdout)
-                resolve()
-              }
-            })
-          })
-        )
+        const pathMod = await import('path')
+        const scriptPath = pathMod.join(process.cwd(), 'scripts', 'setup-ssh.sh')
+        const sshOutput = await execAsync(`chmod +x ${scriptPath} && ${scriptPath}`)
+        if (sshOutput) console.log(sshOutput)
       } catch (error) {
-        console.error('  SSH setup encountered an error, attempting to proceed anyway...')
+        console.error('  SSH setup encountered an error, attempting to proceed anyway...', error)
       }
 
-      // Create commit message
       const episodeList = episodeTitles.join(', ')
       const commitMessage = `chore: Add books from ${episodeList}\n\nGenerated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>`
 
-      // Commit changes
-      await import('child_process').then(cp =>
-        new Promise<void>((resolve, reject) => {
-          cp.exec(`git commit -m "${commitMessage.replace(/"/g, '\\"')}"`, (error) => {
-            if (error) reject(error)
-            else resolve()
-          })
-        })
-      )
-
+      await execAsync(`git commit -m "${commitMessage.replace(/"/g, '\\"')}"`)
       console.log('  Changes committed')
 
-      // Push to remote
-      await import('child_process').then(cp =>
-        new Promise<void>((resolve, reject) => {
-          cp.exec('git push origin HEAD:main', (error) => {
-            if (error) reject(error)
-            else resolve()
-          })
-        })
-      )
-
-      console.log('  Changes pushed to remote')
-      console.log('  Vercel will auto-deploy the changes')
-
+      await execAsync('git push origin HEAD:main')
+      console.log('  Changes pushed to remote — Vercel will auto-deploy')
     } catch (error) {
       console.error('  Git push failed:', error)
-      console.error('  Books have been added locally but not pushed to remote')
-      console.error('  Please push manually or check git credentials on Render')
+      console.error('  Books added locally but not pushed. Check SSH + git credentials on Render.')
     }
   }
 
-  /**
-   * Update books database with new books
-   */
   private async updateBooksDatabase(newBooks: Book[]): Promise<void> {
     try {
-      // Read existing books
       let existingBooks: Book[] = []
       try {
         const existingData = await fs.readFile(this.booksFile, 'utf-8')
         existingBooks = JSON.parse(existingData)
-      } catch (error) {
+      } catch {
         console.log('No existing books file found, creating new one')
       }
 
-      // Filter out duplicates based on ID
       const existingIds = new Set(existingBooks.map(book => book.id))
       const uniqueNewBooks = newBooks.filter(book => !existingIds.has(book.id))
 
@@ -658,28 +452,21 @@ class OptimizedScraper {
         return
       }
 
-      // Combine and sort
       const allBooks = [...existingBooks, ...uniqueNewBooks]
       allBooks.sort((a, b) => {
-        // Sort by season (descending), then episode (descending)
         if (a.episodeRef.seasonNumber !== b.episodeRef.seasonNumber) {
           return b.episodeRef.seasonNumber - a.episodeRef.seasonNumber
         }
         return b.episodeRef.episodeNumber - a.episodeRef.episodeNumber
       })
 
-      // Ensure directory exists
       await fs.mkdir(this.dataDir, { recursive: true })
-
-      // Write updated data
       await fs.writeFile(this.booksFile, JSON.stringify(allBooks, null, 2))
       console.log(`Updated books.json with ${uniqueNewBooks.length} new books`)
 
-      // Log the new books
       uniqueNewBooks.forEach(book => {
         console.log(`  + "${book.title}" by ${book.author}`)
       })
-
     } catch (error) {
       console.error('Error updating books database:', error)
       throw error
@@ -687,7 +474,6 @@ class OptimizedScraper {
   }
 }
 
-// Run the scraper if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   const scraper = new OptimizedScraper()
   scraper.run().catch(error => {

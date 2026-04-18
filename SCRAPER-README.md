@@ -1,200 +1,162 @@
-# Acquired Bookshelf Weekly Scraper
+# Acquired Bookshelf Scraper
 
-This automated scraper system checks the Acquired podcast website for new episodes and extracts book recommendations from their Google Docs source documents.
+Bi-monthly automated scraper that discovers new Acquired podcast episodes, extracts Amazon book links from their Links sections, enriches metadata via Open Library, uploads covers to Cloudflare R2, commits to git, and notifies Discord.
 
-## 🚀 Features
+## Features
 
-- **Automated Episode Detection**: Monitors https://www.acquired.fm/episodes for new episodes
-- **Google Docs Integration**: Extracts Amazon book links from episode source documents
-- **Open Library API**: Fetches book metadata and cover images
-- **Weekly Scheduling**: Runs automatically every Monday via Render.com cron job
-- **Duplicate Prevention**: Avoids adding books that already exist in the database
-- **Smart Categorization**: Automatically categorizes books based on subjects and content
+- **Multi-source episode discovery**: Transistor RSS (primary) → acquired.fm sitemap → paginated listing (fallback chain).
+- **Direct Links-section extraction**: Parses `<h2>Links</h2>` + following `<ul><li><a>` on each episode page. No Google Docs indirection.
+- **Canary pre-flight**: Before every run, verifies that the Ferrari episode page still yields Amazon links. On selector drift, it halts and pages Discord — preventing silent empty runs.
+- **Open Library metadata**: Batch enrichment with Amazon-scrape fallback for titles, authors, subjects, covers.
+- **Cloudflare R2 cover storage**: Persistent hosting for book covers.
+- **Discord notifications**: Books added, unknown-metadata warnings, errors, and "no new episodes" heartbeats.
+- **Bi-monthly schedule**: `0 10 1,15 * *` UTC (1st and 15th of each month at 10 AM UTC).
+- **SSH-key git push**: Autonomous commit/push of `public/data/books.json` triggers Vercel rebuild.
 
-## 📁 File Structure
+## File Structure
 
 ```
+lib/
+├── scraper.ts                 # Episode discovery (RSS + sitemap + listing)
+├── episode-page-parser.ts     # Links-section extractor, title + season/episode hints
+├── url-validator.ts           # SSRF-safe URL allowlist + fetch
+├── openLibrary.ts             # Batch metadata via Open Library
+├── r2-uploader.ts             # Cloudflare R2 cover uploader
+├── discord-notifier.ts        # Discord webhook notifications
+└── episode-classifier.ts      # Skips interviews, ACQ2, specials
+
 scripts/
-├── weekly-scraper.ts      # Main scraper class and logic
-├── test-scraper.ts        # Test script for development
-└── deploy-scraper.js      # Render deployment script
+├── optimized-scraper.ts       # Primary cron entry point
+├── backfill-episodes.ts       # Manual escape hatch for specific URLs
+├── detect-gaps.ts             # Compares RSS to books.json (diagnostic)
+├── fix-unknown-books.ts       # Amazon-scrape retry for Unknown-metadata rows
+├── test-discord.ts            # Webhook smoke test
+└── setup-ssh.sh               # SSH key setup used by the Render cron
 
-render.yaml                # Render.com configuration
+render.yaml                    # Render.com cron + web service config
 ```
 
-## 🔧 Setup Instructions
-
-### 1. Local Development
+## Local Development
 
 ```bash
-# Install dependencies
 npm install
 
-# Test the scraper with IPL Cricket episode
-npm run test-scraper
+# Smoke test the Discord webhook
+npm run test-discord
 
-# Run the full weekly scraper
-npm run scraper
+# Diagnose missing-episode coverage against the RSS feed
+npm run detect-gaps
+
+# Run the scraper (set GIT_PUSH=false to skip the git commit + push)
+GIT_PUSH=false npm run optimized-scraper
+
+# Manually backfill specific episodes by URL (edit the list inside the script)
+npm run backfill-episodes
 ```
 
-### 2. Render.com Deployment
+### Environment Variables
 
-1. **Push to GitHub**: Ensure your code is in a GitHub repository
+| Variable | Required | Purpose |
+|---|---|---|
+| `DISCORD_WEBHOOK_URL` | optional | Notifications. Omit to disable Discord. |
+| `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET_NAME`, `R2_PUBLIC_URL` | optional | Cover uploads to Cloudflare R2. Omit to fall back to Amazon image URLs. |
+| `SSH_PRIVATE_KEY` | required on Render | Base64-encoded ed25519 key for `git push`. |
+| `GIT_PUSH` | optional | Set to `false` to run the scraper in dry-run mode (skip git commit and push). |
+| `NODE_ENV` | optional | Render sets this to `production`. |
 
-2. **Create Render Services**:
-   - **Web Service**: For the main Next.js application
-   - **Cron Job**: For the weekly scraper
+## How It Works
 
-3. **Configure the Cron Job**:
-   - **Repository**: Link to your GitHub repo
-   - **Build Command**: `npm ci`
-   - **Start Command**: `npm run scraper`
-   - **Schedule**: `0 10 * * 1` (Every Monday at 10 AM UTC)
+1. **Canary** — fetch `https://www.acquired.fm/episodes/ferrari`, confirm ≥ 1 Amazon link under the Links section. On failure, notify Discord and exit non-zero.
+2. **Discover episodes** — RSS feed yields `{ slug, title, pubDate, link }`; sitemap and paginated listing fill gaps for episodes not in RSS.
+3. **Assign season + episode numbers** — `seasonNumber = pubDate year`, `episodeNumber = ordinal within year (chronological)`. Maintains consistency with historical `books.json` shape.
+4. **Filter unprocessed** — skip episodes whose slug (or slugified name) is already present in `books.json`, skip anything the classifier flags as interview/ACQ2/special, skip episodes earlier than `latestSeason - 1`.
+5. **For each unprocessed episode** — fetch the page once, extract title (`<h1>`), season/episode hint (if present in text), and every Amazon `/dp/` URL under the Links section.
+6. **Enrich** — `getBatchBookMetadata()` hits Open Library with Amazon-scrape fallback. Cover URLs get uploaded to R2.
+7. **Validate + dedupe** — filter ghost books (Unknown, very short titles, ASIN blocklist), dedupe by ASIN.
+8. **Persist** — merge into `public/data/books.json`, sort by season desc + episode desc, write file.
+9. **Notify + commit + push** — Discord notification, SSH-key git commit + push to `main`.
 
-4. **Environment Variables** (if needed):
-   - `NODE_ENV=production`
-
-### 3. Alternative Deployment Options
-
-The `render.yaml` file provides Infrastructure as Code configuration. You can also:
-
-- Use Render's dashboard to create services manually
-- Deploy via Render CLI
-- Use GitHub Actions for more complex workflows
-
-## 🔍 How It Works
-
-### Episode Detection
-
-1. **Fetch Episode List**: Scrapes all episodes from acquired.fm/episodes
-2. **Cache Management**: Stores episode data locally to avoid redundant API calls
-3. **New Episode Detection**: Compares against last run timestamp
-4. **Source Document Discovery**: Finds Google Docs links on episode pages
-
-### Book Extraction
-
-1. **Google Doc Access**: Tries multiple export formats to access episode sources
-2. **Amazon Link Parsing**: Extracts amazon.com book URLs using regex patterns
-3. **ASIN Extraction**: Identifies Amazon Standard Identification Numbers
-4. **Metadata Enrichment**: Uses Open Library API for titles, authors, covers
-
-### Data Processing
-
-1. **Book Categorization**: Auto-categorizes as Business, Technology, or History
-2. **Duplicate Prevention**: Checks existing database before adding books
-3. **Data Structure**: Maintains consistent JSON format for frontend consumption
-4. **Cover Images**: Downloads high-quality covers from Open Library
-
-## 🧪 Testing
-
-### Test with Specific Episode
-
-```bash
-npm run test-scraper
-```
-
-This will test the scraper using the Indian Premier League Cricket episode.
-
-### Manual Testing Steps
-
-1. **Check Episode Page**: Verify the episode has a Google Docs "Episode sources" link
-2. **Inspect Google Doc**: Ensure the document contains Amazon book links
-3. **Validate Extraction**: Confirm links are properly formatted Amazon URLs
-4. **Test Metadata**: Check that Open Library returns book information
-
-## 📊 Data Flow
+## Data Flow
 
 ```
-acquired.fm/episodes → Episode List → New Episodes → Google Docs → Amazon Links → Open Library API → books.json
+RSS feed ─┐
+Sitemap ──┼─► Episode list (slug, pubDate) ─► Each episode page
+Listing ──┘                                        │
+                                                   ▼
+                                          <h2>Links</h2> → <ul><li><a> amazon/dp/...
+                                                   │
+                                                   ▼
+                                       Open Library + Amazon scrape
+                                                   │
+                                                   ▼
+                             R2 upload ─► books.json ─► git push ─► Vercel rebuild
+                                                   │
+                                                   ▼
+                                         Discord notification
 ```
 
-## 🔧 Configuration
+## Book Schema (`public/data/books.json`)
 
-### Scraper Settings
-
-- **Batch Size**: 10 books processed simultaneously
-- **Rate Limiting**: 1-second delay between API requests
-- **Retry Logic**: 3 attempts for failed requests
-- **Categories**: Business, Technology, History (auto-assigned)
-
-### Render Schedule
-
-- **Frequency**: Weekly (every Monday)
-- **Time**: 10:00 AM UTC
-- **Timezone**: UTC (adjust as needed)
-
-## 🚨 Troubleshooting
-
-### Common Issues
-
-1. **Google Docs Access Denied**
-   - Check if document is publicly accessible
-   - Try different export formats (HTML, pub)
-   - Verify document ID extraction
-
-2. **No Amazon Links Found**
-   - Inspect the Google Doc manually
-   - Check for redirect wrappers
-   - Verify Amazon URL patterns
-
-3. **Open Library API Failures**
-   - Rate limiting: Increase delays between requests
-   - No matches: Try different search terms
-   - Network issues: Implement exponential backoff
-
-4. **Render Deployment Issues**
-   - Check build logs for Node.js version compatibility
-   - Verify environment variables
-   - Review cron job syntax
-
-### Debug Mode
-
-Add logging to troubleshoot:
-
-```typescript
-console.log('Debug: Amazon URLs found:', amazonLinks)
-console.log('Debug: Metadata results:', metadata)
+```ts
+{
+  id: string,                    // ASIN
+  title: string,
+  author: string,
+  coverUrl: string,              // R2 URL or Amazon image fallback
+  amazonUrl: string,
+  category: 'Business' | 'Technology' | 'History',
+  episodeRef: {
+    name: string,
+    seasonNumber: number,        // pubDate year
+    episodeNumber: number,       // ordinal within year
+    slug?: string                // set on newly-scraped entries
+  },
+  addedAt: string,               // ISO 8601
+  source: 'automated' | 'backfill'
+}
 ```
 
-## 📈 Monitoring
+## Cron Schedule
 
-### Success Indicators
+`render.yaml` configures a Render cron:
 
-- New books added to `public/data/books.json`
-- Last run timestamp updated in `data/last-scraper-run.json`
-- No error logs in Render console
+```yaml
+schedule: "0 10 1,15 * *"        # 1st and 15th of each month at 10 AM UTC
+startCommand: npm run optimized-scraper
+```
 
-### Failure Indicators
+To change frequency, edit `render.yaml` and sync via `render deploy` or the Render dashboard.
 
-- Empty results despite new episodes
-- Repeated timeout errors
-- Missing book covers or metadata
+## Troubleshooting
 
-## 🔄 Maintenance
+### Canary fails on start
+The scraper halts if the Ferrari episode stops yielding Amazon URLs. Check:
 
-### Weekly Tasks
+1. Did `acquired.fm` change markup? Fetch the page, look for `<h2>Links</h2>` and following `<ul>`.
+2. If the markup moved, update the selector logic in `lib/episode-page-parser.ts::extractAmazonLinksFromEpisodePage`.
+3. If Ferrari was specifically changed, update `CANARY_EPISODE_URL` in `scripts/optimized-scraper.ts` to another stable episode.
 
-- Monitor Render logs for errors
-- Check for changes in Acquired website structure
-- Verify Google Docs accessibility
+### "No Amazon book links found" for episodes that should have them
+Most common cause: the episode page loads links via JavaScript after initial HTML. Inspect the raw HTML (`curl` the episode URL) to confirm the links are server-rendered. If not, the scraper will need a headless-browser fallback.
 
-### Monthly Tasks
+### Open Library returns Unknown Title / Unknown Author
+Expected for niche books. The scraper falls back to Amazon page scraping; if that also fails, the book is filtered out by `validateBook()` to prevent ghost entries. Run `npm run fix-unknown-books` to retry Amazon-scrape on existing unknowns.
 
-- Review book categorization accuracy
-- Update Open Library API integration if needed
-- Check for new Amazon URL patterns
+### Discord notifications missing
+Check `DISCORD_WEBHOOK_URL` is set in Render env vars. Run `npm run test-discord` locally to verify the webhook is live.
 
-## 🚀 Future Enhancements
+### Git push fails on Render
+The cron needs `SSH_PRIVATE_KEY` (base64-encoded ed25519) in env. `scripts/setup-ssh.sh` installs it at runtime. If pushes fail, check the deploy key on GitHub has write access.
 
-- **Email Notifications**: Alert when new books are added
-- **Manual Override**: Web interface for adding missed books
-- **Enhanced Categorization**: Machine learning for better book classification
-- **Multiple Sources**: Support for other podcast source formats
-- **Analytics**: Track scraper performance and success rates
+## Monitoring
 
-## 📝 Contributing
+- **Render dashboard** — cron run logs, exit codes, next run time.
+- **Discord channel** — books-added embeds, errors, canary failures.
+- **`public/data/books.json` git log** — history of automated commits (`chore: Add books from …`).
 
-1. Test changes locally with `npm run test-scraper`
-2. Ensure the scraper handles edge cases gracefully
-3. Update this README with any configuration changes
-4. Test deployment on Render staging environment before production
+## Contributing
+
+1. Reproduce the issue locally with `GIT_PUSH=false npm run optimized-scraper`.
+2. Target the minimal helper (`lib/episode-page-parser.ts`, `lib/scraper.ts`) — the entry point in `scripts/optimized-scraper.ts` should stay thin.
+3. Test against the canary (Ferrari) plus 1–2 other recent episodes.
+4. Update this README if selectors, env vars, or the flow change.

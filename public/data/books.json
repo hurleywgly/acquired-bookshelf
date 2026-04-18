@@ -1,5 +1,37 @@
 [
   {
+    "id": "1788404718",
+    "title": "Enzo",
+    "author": "Luca Del Monte",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1788404718.jpg",
+    "amazonUrl": "https://www.amazon.com/Enzo-Ferrari-Definitive-Biography/dp/1788404718",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Ferrari",
+      "seasonNumber": 2026,
+      "episodeNumber": 2,
+      "slug": "ferrari"
+    },
+    "addedAt": "2026-04-18T21:07:32.754Z",
+    "source": "automated"
+  },
+  {
+    "id": "0547336055",
+    "title": "Go like hell",
+    "author": "A. J. Baime",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0547336055.jpg",
+    "amazonUrl": "https://www.amazon.com/Go-Like-Hell-Ferrari-Battle/dp/0547336055",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Ferrari",
+      "seasonNumber": 2026,
+      "episodeNumber": 2,
+      "slug": "ferrari"
+    },
+    "addedAt": "2026-04-18T21:07:32.852Z",
+    "source": "automated"
+  },
+  {
     "id": "0063318628",
     "title": "Formula",
     "author": "Joshua Robinson",
@@ -219,6 +251,150 @@
     },
     "addedAt": "2025-10-18T07:10:16.650Z",
     "source": "backfill"
+  },
+  {
+    "id": "0393338096",
+    "title": "Home Game",
+    "author": "Michael Lewis",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0393338096.jpg",
+    "amazonUrl": "https://www.amazon.com/Home-Game-Accidental-Guide-Fatherhood/dp/0393338096",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.383Z",
+    "source": "automated"
+  },
+  {
+    "id": "0393324818",
+    "title": "Moneyball",
+    "author": "Michael Lewis",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0393324818.jpg",
+    "amazonUrl": "https://www.amazon.com/Moneyball-Art-Winning-Unfair-Game/dp/0393324818",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.470Z",
+    "source": "automated"
+  },
+  {
+    "id": "039333869X",
+    "title": "Liar's Poker",
+    "author": "Michael Lewis",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/039333869X.jpg",
+    "amazonUrl": "https://www.amazon.com/Liars-Poker-Norton-Paperback-Michael/dp/039333869X",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.608Z",
+    "source": "automated"
+  },
+  {
+    "id": "0393330478",
+    "title": "The Blind Side",
+    "author": "Michael Lewis",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0393330478.jpg",
+    "amazonUrl": "https://www.amazon.com/Blind-Side-Evolution-Game/dp/0393330478",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.700Z",
+    "source": "automated"
+  },
+  {
+    "id": "0393254593",
+    "title": "The undoing project",
+    "author": "Michael Lewis",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0393254593.jpg",
+    "amazonUrl": "https://www.amazon.com/Undoing-Project-Friendship-Changed-Minds/dp/0393254593",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.784Z",
+    "source": "automated"
+  },
+  {
+    "id": "0756404746",
+    "title": "The Name of the Wind",
+    "author": "Patrick Rothfuss",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0756404746.jpg",
+    "amazonUrl": "https://www.amazon.com/Name-Wind-Kingkiller-Chronicle/dp/0756404746",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.870Z",
+    "source": "automated"
+  },
+  {
+    "id": "1416599541",
+    "title": "Last man standing",
+    "author": "Duff McDonald",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1416599541.jpg",
+    "amazonUrl": "https://www.amazon.com/Last-Man-Standing-Ascent-JPMorgan/dp/1416599541",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:48.953Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0F5585V8M",
+    "title": "The Art Of Spending Money",
+    "author": "Morgan Housel",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0F5585V8M.jpg",
+    "amazonUrl": "https://www.amazon.com/Art-Spending-Money-Simple-Choices/dp/B0F5585V8M/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:49.092Z",
+    "source": "automated"
+  },
+  {
+    "id": "0679421904",
+    "title": "The Emperors of Chocolate",
+    "author": "Joël Glenn Brenner",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0679421904.jpg",
+    "amazonUrl": "https://www.amazon.com/Emperors-Chocolate-Inside-Secret-Hershey/dp/0679421904",
+    "category": "History",
+    "episodeRef": {
+      "name": "10 Years of Acquired (with Michael Lewis)",
+      "seasonNumber": 2025,
+      "episodeNumber": 4,
+      "slug": "10-years-of-acquired-with-michael-lewis"
+    },
+    "addedAt": "2026-04-18T21:07:49.197Z",
+    "source": "automated"
   },
   {
     "id": "1788840232",

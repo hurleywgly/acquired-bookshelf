@@ -9,8 +9,6 @@
     "start": "next start",
     "lint": "next lint",
     "generate-data": "node --loader ts-node/esm scripts/generate-data.ts",
-    "scraper": "tsx scripts/weekly-scraper.ts",
-    "test-scraper": "tsx scripts/test-scraper.ts",
     "optimized-scraper": "tsx scripts/optimized-scraper.ts",
     "backfill-episodes": "tsx scripts/backfill-episodes.ts",
     "detect-gaps": "tsx scripts/detect-gaps.ts",

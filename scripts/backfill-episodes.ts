@@ -9,6 +9,11 @@ import 'dotenv/config'
 import { URLValidator } from '../lib/url-validator.js'
 import { getBatchBookMetadata, type BookMetadata } from '../lib/openLibrary.js'
 import { createR2UploaderFromEnv, type R2Uploader } from '../lib/r2-uploader.js'
+import {
+  extractAmazonLinksFromEpisodePage,
+  extractEpisodeTitle,
+  parseSeasonEpisodeHint
+} from '../lib/episode-page-parser.js'
 import * as cheerio from 'cheerio'
 import * as fs from 'fs/promises'
 import * as path from 'path'
@@ -25,6 +30,7 @@ interface Book {
     name: string
     seasonNumber: number
     episodeNumber: number
+    slug?: string
   }
   addedAt: string
   source: 'automated' | 'backfill'
@@ -98,198 +104,62 @@ class EpisodeBackfill {
 
   private async processEpisode(episodeUrl: string): Promise<Book[]> {
     try {
-      // Step 1: Validate episode URL
       const urlValidation = this.urlValidator.validateUrl(episodeUrl)
       if (!urlValidation.isValid) {
         console.log(`  ❌ Invalid episode URL: ${urlValidation.error}`)
         return []
       }
 
-      // Step 2: Extract episode info from URL
-      const episodeInfo = this.extractEpisodeInfo(episodeUrl)
+      console.log(`  🔍 Fetching episode page...`)
+      const $ = await pRetry(async () => {
+        const response = await this.urlValidator.safeFetch(urlValidation.sanitizedUrl!)
+        if (!response.ok) throw new Error(`Episode page fetch failed: ${response.status}`)
+        const html = await response.text()
+        return cheerio.load(html)
+      }, { retries: 2, minTimeout: 1000, maxTimeout: 5000 })
 
-      // Step 3: Find Google Doc link on episode page
-      console.log(`  🔍 Searching for Google Doc link...`)
-      const googleDocUrl = await this.findGoogleDocLink(urlValidation.sanitizedUrl!)
-      if (!googleDocUrl) {
-        console.log('  ⚠️  No Google Doc link found')
-        return []
-      }
+      const episodeInfo = this.extractEpisodeInfo(episodeUrl, $)
 
-      console.log(`  📄 Found Google Doc`)
-
-      // Step 4: Extract Amazon links from Google Doc
-      console.log(`  📚 Extracting Amazon links...`)
-      const amazonLinks = await this.extractAmazonLinksFromGoogleDoc(googleDocUrl)
+      console.log(`  📚 Extracting Amazon links from Links section...`)
+      const amazonLinks = extractAmazonLinksFromEpisodePage($, this.urlValidator)
       if (amazonLinks.length === 0) {
         console.log('  ⚠️  No Amazon book links found')
         return []
       }
-
       console.log(`  🔗 Found ${amazonLinks.length} Amazon links`)
 
-      // Step 5: Get book metadata
       console.log(`  📖 Fetching book metadata...`)
       const bookMetadata = await this.getBooksMetadata(amazonLinks)
 
-      // Step 6: Create books with R2 upload
       console.log(`  💾 Creating book records...`)
-      const books = await this.createBookObjects(bookMetadata, amazonLinks, episodeInfo)
-
-      return books
+      return this.createBookObjects(bookMetadata, amazonLinks, episodeInfo)
     } catch (error) {
       console.error(`  ❌ Error:`, error)
       return []
     }
   }
 
-  private extractEpisodeInfo(url: string): { name: string; seasonNumber: number; episodeNumber: number } {
-    // Extract episode name from URL
-    const slug = url.split('/episodes/')[1] || 'unknown'
-    const name = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  private extractEpisodeInfo(
+    url: string,
+    $?: cheerio.CheerioAPI
+  ): { name: string; seasonNumber: number; episodeNumber: number; slug: string } {
+    const slug = (url.split('/episodes/')[1] || 'unknown').split(/[/?#]/)[0]
+    let name = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 
-    // Use current year as season
-    const seasonNumber = new Date().getFullYear()
+    let seasonNumber = new Date().getFullYear()
+    let episodeNumber = 0
 
-    // Generate episode number from timestamp
-    const episodeNumber = Math.floor(Date.now() / 1000) % 10000
-
-    return { name, seasonNumber, episodeNumber }
-  }
-
-  private async findGoogleDocLink(episodeUrl: string): Promise<string | null> {
-    return pRetry(async () => {
-      const response = await this.urlValidator.safeFetch(episodeUrl)
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch episode page: ${response.status}`)
+    if ($) {
+      const pageTitle = extractEpisodeTitle($)
+      if (pageTitle && pageTitle.length > 1) name = pageTitle
+      const hint = parseSeasonEpisodeHint($)
+      if (hint) {
+        seasonNumber = hint.seasonNumber
+        episodeNumber = hint.episodeNumber
       }
+    }
 
-      const html = await response.text()
-      const $ = cheerio.load(html)
-
-      let googleDocUrl: string | null = null
-
-      $('a').each((_, element) => {
-        const href = $(element).attr('href')
-        const text = $(element).text().toLowerCase()
-
-        if (href && href.includes('docs.google.com')) {
-          const linkText = text
-          const parentText = $(element).parent().text().toLowerCase()
-          const nearbyText = $(element).closest('p, div').text().toLowerCase()
-
-          if (
-            linkText.includes('episode sources') ||
-            linkText.includes('sources') ||
-            parentText.includes('episode sources') ||
-            nearbyText.includes('episode sources')
-          ) {
-            googleDocUrl = href
-            return false
-          }
-        }
-      })
-
-      if (!googleDocUrl) {
-        $('a').each((_, element) => {
-          const href = $(element).attr('href')
-          if (href && href.includes('docs.google.com/document')) {
-            googleDocUrl = href
-            return false
-          }
-        })
-      }
-
-      if (!googleDocUrl) {
-        throw new Error('No Google Doc link found')
-      }
-
-      return googleDocUrl
-    }, {
-      retries: 2,
-      minTimeout: 1000,
-      maxTimeout: 5000,
-    })
-  }
-
-  private async extractAmazonLinksFromGoogleDoc(googleDocUrl: string): Promise<string[]> {
-    return pRetry(async () => {
-      const urlValidation = this.urlValidator.validateUrl(googleDocUrl)
-      if (!urlValidation.isValid) {
-        throw new Error(`Invalid Google Doc URL: ${urlValidation.error}`)
-      }
-
-      const sanitizedUrl = urlValidation.sanitizedUrl!
-      const docId = sanitizedUrl.match(/\/document\/d\/([a-zA-Z0-9-_]+)/)?.[1]
-      if (!docId) {
-        throw new Error('Could not extract document ID')
-      }
-
-      const exportUrls = [
-        `https://docs.google.com/document/d/${docId}/export?format=html`,
-        `https://docs.google.com/document/d/${docId}/pub`,
-        sanitizedUrl.replace('/edit', '/export?format=html')
-      ]
-
-      let html = ''
-      for (const url of exportUrls) {
-        try {
-          const validation = this.urlValidator.validateUrl(url)
-          if (!validation.isValid) continue
-
-          const response = await this.urlValidator.safeFetch(validation.sanitizedUrl!)
-          if (response.ok) {
-            html = await response.text()
-            break
-          }
-        } catch (error) {
-          continue
-        }
-      }
-
-      if (!html) {
-        throw new Error('Could not fetch Google Doc content')
-      }
-
-      const $ = cheerio.load(html)
-      const amazonLinks: string[] = []
-
-      $('a').each((_, element) => {
-        const href = $(element).attr('href')
-        if (href && href.includes('amazon.com')) {
-          let cleanUrl = href
-
-          if (href.includes('google.com/url?')) {
-            try {
-              const urlParams = new URLSearchParams(href.split('?')[1])
-              cleanUrl = urlParams.get('q') || urlParams.get('url') || href
-            } catch (error) {
-              // Ignore
-            }
-          }
-
-          if (cleanUrl.includes('/dp/') || cleanUrl.match(/\/[B][0-9A-Z]{9}/)) {
-            const validation = this.urlValidator.validateUrl(cleanUrl)
-            if (validation.isValid && validation.sanitizedUrl) {
-              amazonLinks.push(validation.sanitizedUrl)
-            }
-          }
-        }
-      })
-
-      const uniqueLinks = [...new Set(amazonLinks)]
-
-      if (uniqueLinks.length === 0) {
-        throw new Error('No Amazon book links found')
-      }
-
-      return uniqueLinks
-    }, {
-      retries: 2,
-      minTimeout: 2000,
-      maxTimeout: 8000,
-    })
+    return { name, seasonNumber, episodeNumber, slug }
   }
 
   private async getBooksMetadata(amazonUrls: string[]): Promise<(BookMetadata | null)[]> {
@@ -305,7 +175,7 @@ class EpisodeBackfill {
   private async createBookObjects(
     bookMetadata: (BookMetadata | null)[],
     amazonUrls: string[],
-    episodeInfo: { name: string; seasonNumber: number; episodeNumber: number }
+    episodeInfo: { name: string; seasonNumber: number; episodeNumber: number; slug: string }
   ): Promise<Book[]> {
     const books: Book[] = []
 
@@ -338,7 +208,12 @@ class EpisodeBackfill {
           coverUrl: coverUrl,
           amazonUrl: amazonUrl,
           category: this.categorizeBook(metadata),
-          episodeRef: episodeInfo,
+          episodeRef: {
+            name: episodeInfo.name,
+            seasonNumber: episodeInfo.seasonNumber,
+            episodeNumber: episodeInfo.episodeNumber,
+            slug: episodeInfo.slug
+          },
           addedAt: new Date().toISOString(),
           source: 'backfill'
         }

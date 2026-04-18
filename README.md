@@ -77,7 +77,16 @@ The project uses Next.js 15 with TypeScript and modern React patterns:
 
 ## Scraper Integration
 
-See [SCRAPER-README.md](./SCRAPER-README.md) for details on the automated book collection system that powers the data.
+A bi-monthly Render cron job (`0 10 1,15 * *` UTC) runs `scripts/optimized-scraper.ts`, which:
+
+1. **Discovers episodes** via the Transistor RSS feed, falling back to `acquired.fm/sitemap.xml` and the paginated episode listing.
+2. **Runs a canary pre-flight** against a known-good episode (Ferrari) — if the Links-section selector stops yielding Amazon URLs, the scraper halts and posts a Discord alert instead of silently producing empty runs.
+3. **Extracts Amazon book links directly** from each episode page's `<h2>Links</h2>` section (no intermediate Google Docs fetch).
+4. **Enriches metadata** via Open Library and uploads covers to Cloudflare R2.
+5. **Commits** `public/data/books.json` over SSH and triggers a Vercel rebuild.
+6. **Notifies Discord** with added books, unknown-metadata warnings, and errors.
+
+See [SCRAPER-README.md](./SCRAPER-README.md) for operation details.
 
 ## Deployment
 
