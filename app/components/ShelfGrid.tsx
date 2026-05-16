@@ -66,6 +66,7 @@ const buildGridColumns = (columnCount: number) => {
 
 export default function ShelfGrid({ items }: ShelfGridProps) {
   const columnCount = useColumnCount()
+  let bookIndex = -1
 
   return (
     <div
@@ -95,12 +96,15 @@ export default function ShelfGrid({ items }: ShelfGridProps) {
           )
         }
 
+        bookIndex += 1
+
         return (
           <BookCard
             key={item.book.id}
             book={item.book}
             size={size}
             episodeId={item.episodeId}
+            priority={bookIndex < columnCount * 2}
           />
         )
       })}

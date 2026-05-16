@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
+  outputFileTracingRoot: process.cwd(),
   images: {
-    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [96, 128, 180, 256, 270, 320, 384],
     remotePatterns: [
       {
         protocol: 'https',
@@ -33,6 +37,28 @@ const nextConfig = {
       }
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/covers/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
 }
 
-module.exports = nextConfig
+export default nextConfig

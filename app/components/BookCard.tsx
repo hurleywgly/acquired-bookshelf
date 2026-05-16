@@ -8,9 +8,13 @@ interface BookCardProps {
   book: Book
   size: 'sm' | 'lg'
   episodeId?: string
+  priority?: boolean
 }
 
-export default function BookCard({ book, size, episodeId }: BookCardProps) {
+const COVER_BLUR_DATA_URL =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDE4MCAyNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZyI+PHJlY3QgZmlsbD0iI2U1ZTVlMiIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIyNDAiLz48cmVjdCB4PSIyMCIgeT0iMjIiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTk2IiByeD0iNiIgZmlsbD0iI2QwZDFjYyIvPjxwYXRoIGQ9Ik0zNiAxODhoMTA4IiBzdHJva2U9IiNiN2I4YjIiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0zNiAyMDZoODQiIHN0cm9rZT0iI2I3YjhiMiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4='
+
+export default function BookCard({ book, size, episodeId, priority = false }: BookCardProps) {
   const isBig = size === 'lg'
 
   // ALL tiles are 320px tall - same height for small and large
@@ -35,6 +39,10 @@ export default function BookCard({ book, size, episodeId }: BookCardProps) {
       data-book-card
       data-episode-id={episodeId}
       className={`${baseClasses} ${sizeClasses}`}
+      style={{
+        contentVisibility: 'auto',
+        containIntrinsicSize: isBig ? '270px 320px' : '180px 320px',
+      }}
     >
       {/* Cover image - EXPLICIT HEIGHT 180px */}
       <div className={`relative ${imageHeight} bg-gray-100 overflow-hidden flex-shrink-0`}>
@@ -42,8 +50,11 @@ export default function BookCard({ book, size, episodeId }: BookCardProps) {
           src={book.coverUrl}
           alt={book.title}
           fill
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 270px"
+          sizes={isBig ? '270px' : '180px'}
           className="object-cover object-center"
+          placeholder="blur"
+          blurDataURL={COVER_BLUR_DATA_URL}
+          {...(priority ? { priority: true } : { loading: 'lazy' as const })}
         />
 
         {/* Episode badge overlay - top right */}
