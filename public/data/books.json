@@ -1,5 +1,37 @@
 [
   {
+    "id": "1119404304",
+    "title": "Stay the Course",
+    "author": "John C. Bogle",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1119404304.jpg",
+    "amazonUrl": "https://www.amazon.com/Stay-Course-Story-Vanguard-Revolution/dp/1119404304/ref=tmm_hrd_swatch_0",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Vanguard",
+      "seasonNumber": 2026,
+      "episodeNumber": 3,
+      "slug": "vanguard"
+    },
+    "addedAt": "2026-06-01T00:02:56.393Z",
+    "source": "automated"
+  },
+  {
+    "id": "1637740719",
+    "title": "Bogle Effect",
+    "author": "Eric Balchunas",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1637740719.jpg",
+    "amazonUrl": "https://www.amazon.com/Bogle-Effect-Vanguard-Investors-Trillions/dp/1637740719",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Vanguard",
+      "seasonNumber": 2026,
+      "episodeNumber": 3,
+      "slug": "vanguard"
+    },
+    "addedAt": "2026-06-01T00:02:57.073Z",
+    "source": "automated"
+  },
+  {
     "id": "1788404718",
     "title": "Enzo",
     "author": "Luca Del Monte",
