@@ -1,5 +1,85 @@
 [
   {
+    "id": "0679757473",
+    "title": "Walt Disney",
+    "author": "Neal Gabler",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0679757473.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0679757473",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Walt Disney Company",
+      "seasonNumber": 2026,
+      "episodeNumber": 4,
+      "slug": "the-walt-disney-company"
+    },
+    "addedAt": "2026-07-01T00:01:31.902Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0CC6GR3RC",
+    "title": "The Animated Man",
+    "author": "Michael Barrier",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0CC6GR3RC.jpg",
+    "amazonUrl": "https://www.amazon.com/Animated-Man-Life-Walt-Disney/dp/B0CC6GR3RC/ref=sr_1_1?crid=OIDN1P8VBXTI&dib=eyJ2IjoiMSJ9.DPMoEVRdu438orADD3yQ-A.OHOe2NkygEZA2uzUlcbQvB2UuSpAWKl9i3aPRBO1rn4&dib_tag=se&keywords=the+animated+man&qid=1781707085&s=audible&sprefix=the+animated+m%2Caudible%2C158&sr=1-1",
+    "category": "History",
+    "episodeRef": {
+      "name": "The Walt Disney Company",
+      "seasonNumber": 2026,
+      "episodeNumber": 4,
+      "slug": "the-walt-disney-company"
+    },
+    "addedAt": "2026-07-01T00:01:33.796Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0F8WB99WT",
+    "title": "Walt Disney : An American Original",
+    "author": "Bob Thomas",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0F8WB99WT.jpg",
+    "amazonUrl": "https://www.amazon.com/Walt-Disney-American-Original-Commemorative/dp/B0F8WB99WT/ref=sr_1_1?crid=14LOWNO6UN7W7&dib=eyJ2IjoiMSJ9.UPz9ok04Z5NWX6IoTDnrlSvsu4kZgA-dz9Rw4z1KIuu51irXkaXMDKK2epFTzjSTQFuJWaepKNVuqc64tXmUmJ3Ae1kzPm_m-TbI1hjVvRl4tRgb1u2-tFhfjaTp8qscBGKwaUgoWZkyb6cADdWZy01OkfJNa7KJgee9QMp0roZShi4MN0P2uW0aXbfczjXh2sXDdiNAPzhqQQ0D4G-40Vckzw5E6QgC7cEsJtWhalk.AGi7WBaCt1WhJHRQNF_jWS7y9QWuHXV-nwddYqqbtv0&dib_tag=se&keywords=walt+disney+an+american+original+book&qid=1781707028&sprefix=walt+disney+an+american+%2Caps%2C164&sr=8-1",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Walt Disney Company",
+      "seasonNumber": 2026,
+      "episodeNumber": 4,
+      "slug": "the-walt-disney-company"
+    },
+    "addedAt": "2026-07-01T00:01:34.512Z",
+    "source": "automated"
+  },
+  {
+    "id": "0786862009",
+    "title": "Building a Company",
+    "author": "Thomas, Bob",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0786862009.jpg",
+    "amazonUrl": "https://www.amazon.com/Building-Company-Creation-Entertainment-Empires/dp/0786862009",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Walt Disney Company",
+      "seasonNumber": 2026,
+      "episodeNumber": 4,
+      "slug": "the-walt-disney-company"
+    },
+    "addedAt": "2026-07-01T00:01:35.302Z",
+    "source": "automated"
+  },
+  {
+    "id": "1566631580",
+    "title": "The Disney Version",
+    "author": "Richard Schickel",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1566631580.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1566631580",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Walt Disney Company",
+      "seasonNumber": 2026,
+      "episodeNumber": 4,
+      "slug": "the-walt-disney-company"
+    },
+    "addedAt": "2026-07-01T00:01:35.919Z",
+    "source": "automated"
+  },
+  {
     "id": "1119404304",
     "title": "Stay the Course",
     "author": "John C. Bogle",
