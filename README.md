@@ -1,5 +1,12 @@
 # Acquired Bookshelf
 
+## September 2026 responsive refresh
+
+The current interface uses a container-responsive shelf with full covers, green category accents, and a whitespace quote. The episode rail collapses into a selector below 1100px. Search matches individual books across title, author, category, and episode, and combines with episode filtering. Podcast icons remain visible in the sticky header.
+
+Primary files: `app/ClientPage.tsx`, `app/bookshelf.css`, and `app/lib/shelfSearch.ts`. Run `npm test -- --runInBand app/lib/__tests__/shelfSearch.test.ts` and `npm run build` to validate. The older layout notes below describe the previous implementation.
+
+
 A curated collection of books mentioned on the Acquired podcast, presented in an interactive masonry grid layout with synchronized episode navigation.
 
 ## Features
