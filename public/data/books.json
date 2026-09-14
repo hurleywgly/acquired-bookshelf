@@ -1,117 +1,5 @@
 [
   {
-    "id": "B08FHBV4ZX",
-    "title": "Project Hail Mary",
-    "author": "Andy Weir",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B08FHBV4ZX.jpg",
-    "amazonUrl": "https://www.amazon.com/Project-Hail-Mary-Andy-Weir-ebook/dp/B08FHBV4ZX",
-    "category": "Business",
-    "episodeRef": {
-      "name": "The Browser (with Brendan Eich, Chief Architect of Netscape + Mozilla and CEO of Brave)",
-      "seasonNumber": 2026,
-      "episodeNumber": 125,
-      "slug": "the-browser-with-brendan-eich-chief-architect-of-netscape-mozilla-and-ceo-of-brave"
-    },
-    "addedAt": "2026-09-01T00:05:12.459Z",
-    "source": "automated"
-  },
-  {
-    "id": "B003062GEE",
-    "title": "Open",
-    "author": "Andre Agassi",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B003062GEE.jpg",
-    "amazonUrl": "https://www.amazon.com/Open-Andre-Agassi-ebook/dp/B003062GEE/",
-    "category": "History",
-    "episodeRef": {
-      "name": "The Browser (with Brendan Eich, Chief Architect of Netscape + Mozilla and CEO of Brave)",
-      "seasonNumber": 2026,
-      "episodeNumber": 125,
-      "slug": "the-browser-with-brendan-eich-chief-architect-of-netscape-mozilla-and-ceo-of-brave"
-    },
-    "addedAt": "2026-09-01T00:05:12.552Z",
-    "source": "automated"
-  },
-  {
-    "id": "0674218663",
-    "title": "Dynamic Economics",
-    "author": "Burton H. Klein",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0674218663.jpg",
-    "amazonUrl": "https://www.amazon.com/Dynamic-Economics-Burton-H-Klein/dp/0674218663",
-    "category": "Business",
-    "episodeRef": {
-      "name": "The Browser (with Brendan Eich, Chief Architect of Netscape + Mozilla and CEO of Brave)",
-      "seasonNumber": 2026,
-      "episodeNumber": 125,
-      "slug": "the-browser-with-brendan-eich-chief-architect-of-netscape-mozilla-and-ceo-of-brave"
-    },
-    "addedAt": "2026-09-01T00:05:12.736Z",
-    "source": "automated"
-  },
-  {
-    "id": "B07PZ2B85Y",
-    "title": "Changing London",
-    "author": "David Robinson",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B07PZ2B85Y.jpg",
-    "amazonUrl": "https://www.amazon.com/dp/B07PZ2B85Y/",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Super Pumped (with Brian Koppelman and Joseph Gordon-Levitt)",
-      "seasonNumber": 2026,
-      "episodeNumber": 122,
-      "slug": "super-pumped-with-brian-koppelman-and-joseph-gordon-levitt"
-    },
-    "addedAt": "2026-09-01T00:05:07.879Z",
-    "source": "automated"
-  },
-  {
-    "id": "1982132612",
-    "title": "Amazon Unbound",
-    "author": "Brad Stone",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1982132612.jpg",
-    "amazonUrl": "https://www.amazon.com/Amazon-Unbound-Invention-Global-Empire/dp/1982132612/",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Special: Amazon Unbound (with Brad Stone)",
-      "seasonNumber": 2026,
-      "episodeNumber": 113,
-      "slug": "special-amazon-unbound-with-brad-stone"
-    },
-    "addedAt": "2026-09-01T00:04:57.719Z",
-    "source": "automated"
-  },
-  {
-    "id": "0231203047",
-    "title": "Expectations Investing",
-    "author": "Michael J. Mauboussin",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0231203047.jpg",
-    "amazonUrl": "https://www.amazon.com/Expectations-Investing-Reading-Returns-Heilbrunn/dp/0231203047/",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Michael Mauboussin Master Class — Moats, Skill, Luck, Decision Making and a Whole Lot More",
-      "seasonNumber": 2026,
-      "episodeNumber": 77,
-      "slug": "michael-mauboussin-master-class-moats-skill-luck-decision-making-and-a-whole-lot-more"
-    },
-    "addedAt": "2026-09-01T00:04:26.266Z",
-    "source": "automated"
-  },
-  {
-    "id": "1422184234",
-    "title": "The Success Equation",
-    "author": "Michael J. Mauboussin",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1422184234.jpg",
-    "amazonUrl": "https://www.amazon.com/The-Success-Equation-Untangling-Investing/dp/1422184234/",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Michael Mauboussin Master Class — Moats, Skill, Luck, Decision Making and a Whole Lot More",
-      "seasonNumber": 2026,
-      "episodeNumber": 77,
-      "slug": "michael-mauboussin-master-class-moats-skill-luck-decision-making-and-a-whole-lot-more"
-    },
-    "addedAt": "2026-09-01T00:04:26.355Z",
-    "source": "automated"
-  },
-  {
     "id": "0679757473",
     "title": "Walt Disney",
     "author": "Neal Gabler",
@@ -122,7 +10,8 @@
       "name": "The Walt Disney Company",
       "seasonNumber": 2026,
       "episodeNumber": 4,
-      "slug": "the-walt-disney-company"
+      "slug": "the-walt-disney-company",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-07-01T00:01:31.902Z",
     "source": "automated"
@@ -138,7 +27,8 @@
       "name": "The Walt Disney Company",
       "seasonNumber": 2026,
       "episodeNumber": 4,
-      "slug": "the-walt-disney-company"
+      "slug": "the-walt-disney-company",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-07-01T00:01:33.796Z",
     "source": "automated"
@@ -154,7 +44,8 @@
       "name": "The Walt Disney Company",
       "seasonNumber": 2026,
       "episodeNumber": 4,
-      "slug": "the-walt-disney-company"
+      "slug": "the-walt-disney-company",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-07-01T00:01:34.512Z",
     "source": "automated"
@@ -170,7 +61,8 @@
       "name": "The Walt Disney Company",
       "seasonNumber": 2026,
       "episodeNumber": 4,
-      "slug": "the-walt-disney-company"
+      "slug": "the-walt-disney-company",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-07-01T00:01:35.302Z",
     "source": "automated"
@@ -186,7 +78,8 @@
       "name": "The Walt Disney Company",
       "seasonNumber": 2026,
       "episodeNumber": 4,
-      "slug": "the-walt-disney-company"
+      "slug": "the-walt-disney-company",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-07-01T00:01:35.919Z",
     "source": "automated"
@@ -195,32 +88,34 @@
     "id": "1119404304",
     "title": "Stay the Course",
     "author": "John C. Bogle",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1119404304.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10092137-L.jpg",
     "amazonUrl": "https://www.amazon.com/Stay-Course-Story-Vanguard-Revolution/dp/1119404304/ref=tmm_hrd_swatch_0",
     "category": "Business",
     "episodeRef": {
       "name": "Vanguard",
       "seasonNumber": 2026,
       "episodeNumber": 3,
-      "slug": "vanguard"
+      "slug": "vanguard",
+      "seasonName": "Spring 2026"
     },
-    "addedAt": "2026-06-01T00:02:56.393Z",
+    "addedAt": "2026-05-25T16:31:40.262Z",
     "source": "automated"
   },
   {
     "id": "1637740719",
     "title": "Bogle Effect",
     "author": "Eric Balchunas",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1637740719.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12406218-L.jpg",
     "amazonUrl": "https://www.amazon.com/Bogle-Effect-Vanguard-Investors-Trillions/dp/1637740719",
     "category": "Business",
     "episodeRef": {
       "name": "Vanguard",
       "seasonNumber": 2026,
       "episodeNumber": 3,
-      "slug": "vanguard"
+      "slug": "vanguard",
+      "seasonName": "Spring 2026"
     },
-    "addedAt": "2026-06-01T00:02:57.073Z",
+    "addedAt": "2026-05-25T16:31:40.262Z",
     "source": "automated"
   },
   {
@@ -234,7 +129,8 @@
       "name": "Ferrari",
       "seasonNumber": 2026,
       "episodeNumber": 2,
-      "slug": "ferrari"
+      "slug": "ferrari",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-04-18T21:07:32.754Z",
     "source": "automated"
@@ -250,9 +146,78 @@
       "name": "Ferrari",
       "seasonNumber": 2026,
       "episodeNumber": 2,
-      "slug": "ferrari"
+      "slug": "ferrari",
+      "seasonName": "Spring 2026"
     },
     "addedAt": "2026-04-18T21:07:32.852Z",
+    "source": "automated"
+  },
+  {
+    "id": "0812933788",
+    "title": "Built from Scratch",
+    "author": "Bernie Marcus",
+    "coverUrl": "https://covers.openlibrary.org/b/id/605373-L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0812933788",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Home Depot",
+      "seasonNumber": 2026,
+      "episodeNumber": 2,
+      "slug": "home-depot",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:49.455Z",
+    "source": "automated"
+  },
+  {
+    "id": "0063259923",
+    "title": "Kick up Some Dust: Lessons on Thinking Big, Giving Back, and Doing It Yourself",
+    "author": "Bernie Marcus",
+    "coverUrl": "https://images-na.ssl-images-amazon.com/images/P/0063259923.01.L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0063259923",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Home Depot",
+      "seasonNumber": 2026,
+      "episodeNumber": 2,
+      "slug": "home-depot",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:49.457Z",
+    "source": "automated"
+  },
+  {
+    "id": "073521624X",
+    "title": "I Love Capitalism!",
+    "author": "Kenneth G. Langone",
+    "coverUrl": "https://images-na.ssl-images-amazon.com/images/P/073521624X.01.L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/073521624X",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Home Depot",
+      "seasonNumber": 2026,
+      "episodeNumber": 2,
+      "slug": "home-depot",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:49.457Z",
+    "source": "automated"
+  },
+  {
+    "id": "0062974920",
+    "title": "Good Company",
+    "author": "Arthur M. Blank",
+    "coverUrl": "https://images-na.ssl-images-amazon.com/images/P/0062974920.01.L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0062974920",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Home Depot",
+      "seasonNumber": 2026,
+      "episodeNumber": 2,
+      "slug": "home-depot",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:49.457Z",
     "source": "automated"
   },
   {
@@ -265,9 +230,62 @@
     "episodeRef": {
       "name": "Formula 1",
       "seasonNumber": 2026,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "seasonName": "Spring 2026",
+      "slug": "formula-1"
     },
     "addedAt": "2026-03-06T22:02:01.351Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0DHQRMZZN",
+    "title": "After Disney: Toil, Trouble, and the Transformation of America's Favorite Media Company",
+    "author": "Neil O'Brien",
+    "coverUrl": "https://images-na.ssl-images-amazon.com/images/P/B0DHQRMZZN.01.L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/B0DHQRMZZN",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Disney: The Renaissance and the Empire",
+      "seasonNumber": 2026,
+      "episodeNumber": 1,
+      "slug": "disney-the-renaissance-and-the-empire",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:51.110Z",
+    "source": "automated"
+  },
+  {
+    "id": "0743267095",
+    "title": "DisneyWar",
+    "author": "James B. Stewart",
+    "coverUrl": "https://covers.openlibrary.org/b/id/474540-L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/0743267095",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Disney: The Renaissance and the Empire",
+      "seasonNumber": 2026,
+      "episodeNumber": 1,
+      "slug": "disney-the-renaissance-and-the-empire",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:51.110Z",
+    "source": "automated"
+  },
+  {
+    "id": "B01C7ZODVC",
+    "title": "Work in Progress",
+    "author": "Michael Eisner",
+    "coverUrl": "https://images-na.ssl-images-amazon.com/images/P/B01C7ZODVC.01.L.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/B01C7ZODVC",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Disney: The Renaissance and the Empire",
+      "seasonNumber": 2026,
+      "episodeNumber": 1,
+      "slug": "disney-the-renaissance-and-the-empire",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-09-14T06:35:51.110Z",
     "source": "automated"
   },
   {
@@ -280,7 +298,8 @@
     "episodeRef": {
       "name": "Coca-Cola",
       "seasonNumber": 2025,
-      "episodeNumber": 12
+      "episodeNumber": 12,
+      "slug": "coca-cola"
     },
     "addedAt": "2025-11-24T06:44:46.594Z",
     "source": "automated"
@@ -295,7 +314,8 @@
     "episodeRef": {
       "name": "Coca-Cola",
       "seasonNumber": 2025,
-      "episodeNumber": 12
+      "episodeNumber": 12,
+      "slug": "coca-cola"
     },
     "addedAt": "2025-11-24T06:44:46.675Z",
     "source": "automated"
@@ -310,7 +330,8 @@
     "episodeRef": {
       "name": "Trader Joe's",
       "seasonNumber": 2025,
-      "episodeNumber": 11
+      "episodeNumber": 11,
+      "slug": "trader-joes"
     },
     "addedAt": "2025-10-27T07:23:50.117Z",
     "source": "manual"
@@ -325,7 +346,8 @@
     "episodeRef": {
       "name": "Trader Joe's",
       "seasonNumber": 2025,
-      "episodeNumber": 11
+      "episodeNumber": 11,
+      "slug": "trader-joes"
     },
     "addedAt": "2025-10-27T07:23:50.776Z",
     "source": "manual"
@@ -340,7 +362,8 @@
     "episodeRef": {
       "name": "Trader Joe's",
       "seasonNumber": 2025,
-      "episodeNumber": 11
+      "episodeNumber": 11,
+      "slug": "trader-joes"
     },
     "addedAt": "2025-10-27T07:23:50.883Z",
     "source": "manual"
@@ -355,7 +378,8 @@
     "episodeRef": {
       "name": "Google: The AI Company",
       "seasonNumber": 2025,
-      "episodeNumber": 10
+      "episodeNumber": 10,
+      "slug": "google-the-ai-company"
     },
     "addedAt": "2025-10-18T07:10:25.366Z",
     "source": "backfill"
@@ -370,7 +394,8 @@
     "episodeRef": {
       "name": "Google: The AI Company",
       "seasonNumber": 2025,
-      "episodeNumber": 10
+      "episodeNumber": 10,
+      "slug": "google-the-ai-company"
     },
     "addedAt": "2025-10-18T07:10:26.167Z",
     "source": "backfill"
@@ -385,7 +410,8 @@
     "episodeRef": {
       "name": "Google: The AI Company",
       "seasonNumber": 2025,
-      "episodeNumber": 10
+      "episodeNumber": 10,
+      "slug": "google-the-ai-company"
     },
     "addedAt": "2025-10-18T07:10:27.002Z",
     "source": "backfill"
@@ -607,7 +633,7 @@
   {
     "id": "0679421904",
     "title": "The Emperors of Chocolate",
-    "author": "Joël Glenn Brenner",
+    "author": "Jo\u00ebl Glenn Brenner",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0679421904.jpg",
     "amazonUrl": "https://www.amazon.com/Emperors-Chocolate-Inside-Secret-Hershey/dp/0679421904",
     "category": "History",
@@ -621,16 +647,34 @@
     "source": "automated"
   },
   {
+    "id": "0670088730",
+    "title": "Not Out!",
+    "author": "Desh Gaurav Sekhri",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0670088730.jpg",
+    "amazonUrl": "https://www.amazon.com/Incredible-Story-Indian-Premier-League/dp/0670088730",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Indian Premier League Cricket",
+      "seasonNumber": 2025,
+      "episodeNumber": 3,
+      "slug": "indian-premier-league-cricket"
+    },
+    "addedAt": "2026-03-06T22:02:18.177Z",
+    "source": "automated"
+  },
+  {
     "id": "1788840232",
     "title": "The Book of Rolex",
-    "author": "Jens Høy, Christian Frost",
+    "author": "Jens H\u00f8y, Christian Frost",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1788840232.jpg",
     "amazonUrl": "https://www.amazon.com/dp/1788840232",
     "category": "Business",
     "episodeRef": {
       "name": "Rolex",
       "seasonNumber": 2025,
-      "episodeNumber": 3
+      "episodeNumber": 2,
+      "seasonName": "Spring 2025",
+      "slug": "rolex"
     }
   },
   {
@@ -643,7 +687,9 @@
     "episodeRef": {
       "name": "Rolex",
       "seasonNumber": 2025,
-      "episodeNumber": 3
+      "episodeNumber": 2,
+      "seasonName": "Spring 2025",
+      "slug": "rolex"
     }
   },
   {
@@ -656,7 +702,9 @@
     "episodeRef": {
       "name": "Rolex",
       "seasonNumber": 2025,
-      "episodeNumber": 3
+      "episodeNumber": 2,
+      "seasonName": "Spring 2025",
+      "slug": "rolex"
     }
   },
   {
@@ -669,7 +717,9 @@
     "episodeRef": {
       "name": "Rolex",
       "seasonNumber": 2025,
-      "episodeNumber": 3
+      "episodeNumber": 2,
+      "seasonName": "Spring 2025",
+      "slug": "rolex"
     }
   },
   {
@@ -682,7 +732,9 @@
     "episodeRef": {
       "name": "Rolex",
       "seasonNumber": 2025,
-      "episodeNumber": 3
+      "episodeNumber": 2,
+      "seasonName": "Spring 2025",
+      "slug": "rolex"
     }
   },
   {
@@ -695,23 +747,10 @@
     "episodeRef": {
       "name": "Rolex",
       "seasonNumber": 2025,
-      "episodeNumber": 3
+      "episodeNumber": 2,
+      "seasonName": "Spring 2025",
+      "slug": "rolex"
     }
-  },
-  {
-    "id": "0670088730",
-    "title": "Not Out!",
-    "author": "Desh Gaurav Sekhri",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0670088730.jpg",
-    "amazonUrl": "https://www.amazon.com/Incredible-Story-Indian-Premier-League/dp/0670088730",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Indian Premier League Cricket",
-      "seasonNumber": 2025,
-      "episodeNumber": 3
-    },
-    "addedAt": "2026-03-06T22:02:18.177Z",
-    "source": "automated"
   },
   {
     "id": "B0DZL6W797",
@@ -723,7 +762,8 @@
     "episodeRef": {
       "name": "Google Part III: The AI Company",
       "seasonNumber": 2025,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "google-the-ai-company"
     },
     "addedAt": "2026-03-06T22:02:31.615Z",
     "source": "automated"
@@ -731,14 +771,15 @@
   {
     "id": "0767904575",
     "title": "The Emperors of Chocolate: Inside the Secret World of Hershey and Mars",
-    "author": "Joël Glenn Brenner",
+    "author": "Jo\u00ebl Glenn Brenner",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0767904575.jpg",
     "amazonUrl": "https://www.amazon.com/dp/0767904575",
     "category": "Business",
     "episodeRef": {
       "name": "Mars Inc.",
       "seasonNumber": 2024,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "mars-inc-the-chocolate-story"
     }
   },
   {
@@ -751,7 +792,8 @@
     "episodeRef": {
       "name": "Mars Inc.",
       "seasonNumber": 2024,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "mars-inc-the-chocolate-story"
     }
   },
   {
@@ -764,7 +806,8 @@
     "episodeRef": {
       "name": "Mars Inc.",
       "seasonNumber": 2024,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "mars-inc-the-chocolate-story"
     }
   },
   {
@@ -777,7 +820,8 @@
     "episodeRef": {
       "name": "Mars Inc. (the chocolate story)",
       "seasonNumber": 2024,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "mars-inc-the-chocolate-story"
     },
     "addedAt": "2026-03-06T22:02:43.747Z",
     "source": "automated"
@@ -792,7 +836,8 @@
     "episodeRef": {
       "name": "Mars Inc. (the chocolate story)",
       "seasonNumber": 2024,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "mars-inc-the-chocolate-story"
     },
     "addedAt": "2026-03-06T22:02:43.937Z",
     "source": "automated"
@@ -807,7 +852,8 @@
     "episodeRef": {
       "name": "Mars Inc. (the chocolate story)",
       "seasonNumber": 2024,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "mars-inc-the-chocolate-story"
     },
     "addedAt": "2026-03-06T22:02:44.198Z",
     "source": "automated"
@@ -822,7 +868,8 @@
     "episodeRef": {
       "name": "IKEA",
       "seasonNumber": 2024,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "ikea"
     }
   },
   {
@@ -835,7 +882,8 @@
     "episodeRef": {
       "name": "IKEA",
       "seasonNumber": 2024,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "ikea"
     }
   },
   {
@@ -848,12 +896,13 @@
     "episodeRef": {
       "name": "IKEA",
       "seasonNumber": 2024,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "ikea"
     }
   },
   {
     "id": "1783341726",
-    "title": "Ikea: How to Become the World’s Richest Man",
+    "title": "Ikea: How to Become the World\u2019s Richest Man",
     "author": "Johan Stenbo",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1783341726.jpg",
     "amazonUrl": "https://www.amazon.com/dp/1783341726",
@@ -861,7 +910,8 @@
     "episodeRef": {
       "name": "IKEA",
       "seasonNumber": 2024,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "ikea"
     }
   },
   {
@@ -874,7 +924,8 @@
     "episodeRef": {
       "name": "Meta",
       "seasonNumber": 2024,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "meta"
     }
   },
   {
@@ -887,7 +938,8 @@
     "episodeRef": {
       "name": "Microsoft Volume II",
       "seasonNumber": 14,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "microsoft-volume-ii"
     }
   },
   {
@@ -900,7 +952,8 @@
     "episodeRef": {
       "name": "Microsoft Volume II",
       "seasonNumber": 14,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "microsoft-volume-ii"
     }
   },
   {
@@ -913,7 +966,8 @@
     "episodeRef": {
       "name": "Microsoft Volume II",
       "seasonNumber": 14,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "microsoft-volume-ii"
     }
   },
   {
@@ -926,7 +980,8 @@
     "episodeRef": {
       "name": "Microsoft Volume II",
       "seasonNumber": 14,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "microsoft-volume-ii"
     }
   },
   {
@@ -939,7 +994,8 @@
     "episodeRef": {
       "name": "Microsoft Volume II",
       "seasonNumber": 14,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "microsoft-volume-ii"
     }
   },
   {
@@ -952,7 +1008,8 @@
     "episodeRef": {
       "name": "Microsoft Volume II",
       "seasonNumber": 14,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "microsoft-volume-ii"
     }
   },
   {
@@ -965,7 +1022,8 @@
     "episodeRef": {
       "name": "Microsoft Volume I",
       "seasonNumber": 14,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "microsoft"
     }
   },
   {
@@ -978,7 +1036,8 @@
     "episodeRef": {
       "name": "Microsoft Volume I",
       "seasonNumber": 14,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "microsoft"
     }
   },
   {
@@ -991,7 +1050,8 @@
     "episodeRef": {
       "name": "Microsoft Volume I",
       "seasonNumber": 14,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "microsoft"
     }
   },
   {
@@ -1004,7 +1064,8 @@
     "episodeRef": {
       "name": "Microsoft Volume I",
       "seasonNumber": 14,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "microsoft"
     }
   },
   {
@@ -1017,7 +1078,8 @@
     "episodeRef": {
       "name": "Microsoft Volume I",
       "seasonNumber": 14,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "microsoft"
     }
   },
   {
@@ -1030,7 +1092,8 @@
     "episodeRef": {
       "name": "Microsoft Volume I",
       "seasonNumber": 14,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "microsoft"
     }
   },
   {
@@ -1043,7 +1106,8 @@
     "episodeRef": {
       "name": "Renaissance Technologies",
       "seasonNumber": 14,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "renaissance-technologies"
     }
   },
   {
@@ -1056,20 +1120,22 @@
     "episodeRef": {
       "name": "Renaissance Technologies",
       "seasonNumber": 14,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "renaissance-technologies"
     }
   },
   {
     "id": "180279011X",
-    "title": "Little Book of Hermès",
+    "title": "Little Book of Herm\u00e8s",
     "author": "Karen Homer",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/180279011X.jpg",
     "amazonUrl": "https://www.amazon.com/Little-Book-Herm%C3%A8s-Iconic-Fashion/dp/180279011X",
     "category": "Business",
     "episodeRef": {
-      "name": "Hermès",
+      "name": "Herm\u00e8s",
       "seasonNumber": 14,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "hermes"
     }
   },
   {
@@ -1080,9 +1146,10 @@
     "amazonUrl": "https://www.amazon.com/Score-Takes-Care-Itself-Philosophy/dp/1591843472",
     "category": "Leadership",
     "episodeRef": {
-      "name": "Hermès",
+      "name": "Herm\u00e8s",
       "seasonNumber": 14,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "hermes"
     }
   },
   {
@@ -1095,7 +1162,8 @@
     "episodeRef": {
       "name": "Novo Nordisk (Ozempic)",
       "seasonNumber": 14,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "novo-nordisk-ozempic"
     }
   },
   {
@@ -1108,7 +1176,8 @@
     "episodeRef": {
       "name": "Novo Nordisk (Ozempic)",
       "seasonNumber": 14,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "novo-nordisk-ozempic"
     }
   },
   {
@@ -1121,7 +1190,8 @@
     "episodeRef": {
       "name": "Holiday Special 2023",
       "seasonNumber": 13,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "holiday-special-2023"
     }
   },
   {
@@ -1134,7 +1204,8 @@
     "episodeRef": {
       "name": "Holiday Special 2023",
       "seasonNumber": 13,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "holiday-special-2023"
     }
   },
   {
@@ -1147,7 +1218,8 @@
     "episodeRef": {
       "name": "Holiday Special 2023",
       "seasonNumber": 13,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "holiday-special-2023"
     }
   },
   {
@@ -1160,7 +1232,8 @@
     "episodeRef": {
       "name": "Holiday Special 2023",
       "seasonNumber": 13,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "holiday-special-2023"
     }
   },
   {
@@ -1173,7 +1246,8 @@
     "episodeRef": {
       "name": "Visa",
       "seasonNumber": 13,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "visa"
     }
   },
   {
@@ -1186,7 +1260,8 @@
     "episodeRef": {
       "name": "Visa",
       "seasonNumber": 13,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "visa"
     }
   },
   {
@@ -1199,7 +1274,8 @@
     "episodeRef": {
       "name": "Visa",
       "seasonNumber": 13,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "visa"
     }
   },
   {
@@ -1212,7 +1288,8 @@
     "episodeRef": {
       "name": "Visa",
       "seasonNumber": 13,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "visa"
     }
   },
   {
@@ -1225,7 +1302,8 @@
     "episodeRef": {
       "name": "Visa",
       "seasonNumber": 13,
-      "episodeNumber": 4
+      "episodeNumber": 4,
+      "slug": "visa"
     }
   },
   {
@@ -1238,7 +1316,8 @@
     "episodeRef": {
       "name": "Costco",
       "seasonNumber": 13,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "costco"
     }
   },
   {
@@ -1251,7 +1330,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1264,7 +1344,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1277,7 +1358,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1290,7 +1372,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1303,7 +1386,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1316,7 +1400,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1329,7 +1414,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1342,7 +1428,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1355,7 +1442,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1368,7 +1456,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1381,7 +1470,8 @@
     "episodeRef": {
       "name": "Nike",
       "seasonNumber": 13,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "nike"
     }
   },
   {
@@ -1407,7 +1497,8 @@
     "episodeRef": {
       "name": "Lockheed Martin",
       "seasonNumber": 12,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "lockheed-martin"
     }
   },
   {
@@ -1420,7 +1511,8 @@
     "episodeRef": {
       "name": "Lockheed Martin",
       "seasonNumber": 12,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "lockheed-martin"
     }
   },
   {
@@ -1433,7 +1525,8 @@
     "episodeRef": {
       "name": "Lockheed Martin",
       "seasonNumber": 12,
-      "episodeNumber": 5
+      "episodeNumber": 5,
+      "slug": "lockheed-martin"
     }
   },
   {
@@ -1446,7 +1539,8 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
@@ -1459,7 +1553,8 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
@@ -1472,7 +1567,8 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
@@ -1485,7 +1581,8 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
@@ -1498,7 +1595,8 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
@@ -1511,7 +1609,8 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
@@ -1524,20 +1623,22 @@
     "episodeRef": {
       "name": "Nintendo's Origins",
       "seasonNumber": 12,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "nintendo"
     }
   },
   {
     "id": "0747512027",
     "title": "The Taste of Luxury",
-    "author": "Nadège Forestier",
+    "author": "Nad\u00e8ge Forestier",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0747512027.jpg",
     "amazonUrl": "https://www.amazon.com/Taste-Luxury-Bernard-Arnault-Moet-Hennessy/dp/0747512027",
-    "category": "Louis Vuitton Moët-Hennessy (Firm)",
+    "category": "Louis Vuitton Mo\u00ebt-Hennessy (Firm)",
     "episodeRef": {
       "name": "LVMH",
       "seasonNumber": 12,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "lvmh"
     }
   },
   {
@@ -1550,20 +1651,22 @@
     "episodeRef": {
       "name": "LVMH",
       "seasonNumber": 12,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "lvmh"
     }
   },
   {
     "id": "B008YUEDFG",
     "title": "The Luxury Strategy",
-    "author": "Jean-Noël Kapferer",
+    "author": "Jean-No\u00ebl Kapferer",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B008YUEDFG.jpg",
     "amazonUrl": "https://www.amazon.com/Luxury-Strategy-Break-Marketing-Brands-ebook/dp/B008YUEDFG",
     "category": "Product management",
     "episodeRef": {
       "name": "LVMH",
       "seasonNumber": 12,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "lvmh"
     }
   },
   {
@@ -1576,7 +1679,8 @@
     "episodeRef": {
       "name": "The NFL",
       "seasonNumber": 12,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "the-nfl"
     }
   },
   {
@@ -1589,7 +1693,8 @@
     "episodeRef": {
       "name": "The NFL",
       "seasonNumber": 12,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "the-nfl"
     }
   },
   {
@@ -1602,7 +1707,8 @@
     "episodeRef": {
       "name": "The NFL",
       "seasonNumber": 12,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "the-nfl"
     }
   },
   {
@@ -1615,7 +1721,8 @@
     "episodeRef": {
       "name": "Enron",
       "seasonNumber": 11,
-      "episodeNumber": 7
+      "episodeNumber": 7,
+      "slug": "enron"
     }
   },
   {
@@ -1628,7 +1735,8 @@
     "episodeRef": {
       "name": "Qualcomm",
       "seasonNumber": 11,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "qualcomm"
     }
   },
   {
@@ -1641,7 +1749,8 @@
     "episodeRef": {
       "name": "Qualcomm",
       "seasonNumber": 11,
-      "episodeNumber": 6
+      "episodeNumber": 6,
+      "slug": "qualcomm"
     }
   },
   {
@@ -1654,7 +1763,8 @@
     "episodeRef": {
       "name": "Amazon Web Services",
       "seasonNumber": 11,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "amazon-web-services"
     }
   },
   {
@@ -1663,11 +1773,12 @@
     "author": "Ursula K. Le Guin",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B00YBA7PGW.jpg",
     "amazonUrl": "https://www.amazon.com/Left-Hand-Darkness-Science-Fiction-ebook/dp/B00YBA7PGW",
-    "category": "Ciencia-ficción",
+    "category": "Ciencia-ficci\u00f3n",
     "episodeRef": {
       "name": "Amazon.com",
       "seasonNumber": 11,
-      "episodeNumber": 2
+      "episodeNumber": 2,
+      "slug": "amazon-com"
     }
   },
   {
@@ -1680,7 +1791,8 @@
     "episodeRef": {
       "name": "Walmart",
       "seasonNumber": 11,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "walmart"
     }
   },
   {
@@ -1693,7 +1805,8 @@
     "episodeRef": {
       "name": "Walmart",
       "seasonNumber": 11,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "walmart"
     }
   },
   {
@@ -1706,7 +1819,8 @@
     "episodeRef": {
       "name": "Walmart",
       "seasonNumber": 11,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "walmart"
     }
   },
   {
@@ -1719,7 +1833,8 @@
     "episodeRef": {
       "name": "Walmart",
       "seasonNumber": 11,
-      "episodeNumber": 1
+      "episodeNumber": 1,
+      "slug": "walmart"
     }
   },
   {
@@ -1754,7 +1869,7 @@
     "author": "John Nathan",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0618126945.jpg",
     "amazonUrl": "https://www.amazon.com/Sony-Private-Life-John-Nathan/dp/0618126945",
-    "category": "Sonī Kabushiki Kaisha",
+    "category": "Son\u012b Kabushiki Kaisha",
     "episodeRef": {
       "name": "SONY",
       "seasonNumber": 10,
@@ -1782,7 +1897,7 @@
     "amazonUrl": "https://www.amazon.com/Taylor-Swift-Loves-Global-Sensation/dp/1912587556",
     "category": "Music history",
     "episodeRef": {
-      "name": "Taylor Swift (Acquired’s Version)",
+      "name": "Taylor Swift (Acquired\u2019s Version)",
       "seasonNumber": 10,
       "episodeNumber": 1
     }
@@ -1795,7 +1910,7 @@
     "amazonUrl": "https://www.amazon.com/Need-Know-About-Music-Business/dp/1501122185",
     "category": "Music trade",
     "episodeRef": {
-      "name": "Taylor Swift (Acquired’s Version)",
+      "name": "Taylor Swift (Acquired\u2019s Version)",
       "seasonNumber": 10,
       "episodeNumber": 1
     }
@@ -1812,22 +1927,6 @@
       "seasonNumber": 9,
       "episodeNumber": 6
     }
-  },
-  {
-    "id": "automated-1788221105670-0",
-    "title": "Titan: The Life of John D. Rockefeller, Sr.",
-    "author": "Ron Chernow",
-    "coverUrl": "/covers/default-book.jpg",
-    "amazonUrl": "https://www.amazon.com/gp/product/1400077303/",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Standard Oil Part II",
-      "seasonNumber": 9,
-      "episodeNumber": 5,
-      "slug": "standard-oil-part-ii"
-    },
-    "addedAt": "2026-09-01T00:05:05.670Z",
-    "source": "automated"
   },
   {
     "id": "book-84",
@@ -1852,7 +1951,8 @@
     "episodeRef": {
       "name": "TSMC",
       "seasonNumber": 9,
-      "episodeNumber": 3
+      "episodeNumber": 3,
+      "slug": "tsmc"
     }
   },
   {
@@ -1866,14 +1966,14 @@
       "name": "TSMC (Remastered)",
       "seasonNumber": 9,
       "episodeNumber": 3,
-      "slug": "tsmc-remastered"
+      "slug": "tsmc"
     },
     "addedAt": "2026-04-18T21:34:10.828Z",
     "source": "automated"
   },
   {
     "id": "110196703X",
-    "title": "Childhood’s End",
+    "title": "Childhood\u2019s End",
     "author": "Arthur C. Clarke",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/110196703X.jpg",
     "amazonUrl": "https://www.amazon.com/Childhoods-End-Arthur-C-Clarke/dp/110196703X",
@@ -1935,22 +2035,6 @@
       "seasonNumber": 8,
       "episodeNumber": 8
     }
-  },
-  {
-    "id": "B000APF21M",
-    "title": "Arthur C Clarke",
-    "author": "Fred Clarke",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B000APF21M.jpg",
-    "amazonUrl": "https://www.amazon.com/Arthur-C-Clarke/e/B000APF21M",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Ethereum (with Packy McCormick)",
-      "seasonNumber": 8,
-      "episodeNumber": 8,
-      "slug": "ethereum"
-    },
-    "addedAt": "2026-09-01T00:04:23.740Z",
-    "source": "automated"
   },
   {
     "id": "0857199129",
@@ -2278,22 +2362,6 @@
     }
   },
   {
-    "id": "B018BZ3SCM",
-    "title": "The Story of the Committee of 300",
-    "author": "John Coleman",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B018BZ3SCM.jpg",
-    "amazonUrl": "https://www.amazon.com/The-Expanse-Season-1/dp/B018BZ3SCM",
-    "category": "Business",
-    "episodeRef": {
-      "name": "The Slack DPO",
-      "seasonNumber": 4,
-      "episodeNumber": 9,
-      "slug": "the-slack-dpo"
-    },
-    "addedAt": "2026-09-01T00:05:16.145Z",
-    "source": "automated"
-  },
-  {
     "id": "B077RHYC4G",
     "title": "Boom Town",
     "author": "Sam Anderson",
@@ -2416,7 +2484,7 @@
     "author": "Randall E. Stross",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B000FC1HTG.jpg",
     "amazonUrl": "https://www.amazon.com/eBoys-Inside-Account-Venture-Capitalists-ebook/dp/B000FC1HTG",
-    "category": "Commerce électronique",
+    "category": "Commerce \u00e9lectronique",
     "episodeRef": {
       "name": "SoftBank, Fortress and the Vision Fund",
       "seasonNumber": 2,
@@ -2593,22 +2661,6 @@
     }
   },
   {
-    "id": "B01J24C0TI",
-    "title": "American Film",
-    "author": "American Film Institute",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B01J24C0TI.jpg",
-    "amazonUrl": "https://www.amazon.com/Amazon-MW46WB-Introducing-Echo-Show/dp/B01J24C0TI",
-    "category": "Business",
-    "episodeRef": {
-      "name": "SoundJam (iTunes)",
-      "seasonNumber": 1,
-      "episodeNumber": 38,
-      "slug": "episode-38-soundjam-itunes"
-    },
-    "addedAt": "2026-09-01T00:04:15.521Z",
-    "source": "automated"
-  },
-  {
     "id": "B01L7NJNVU",
     "title": "Just Around Midnight: Rock and Roll and the Racial Imagination",
     "author": "Jack Hamilton",
@@ -2646,22 +2698,6 @@
       "seasonNumber": 1,
       "episodeNumber": 32
     }
-  },
-  {
-    "id": "B009XH5V6Y",
-    "title": "The Art of War",
-    "author": "孙武 (sun Tzu)",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B009XH5V6Y.jpg",
-    "amazonUrl": "https://www.amazon.com/Art-War-Sun-Tzu-ebook/dp/B009XH5V6Y",
-    "category": "Business",
-    "episodeRef": {
-      "name": "The Snap Inc. IPO",
-      "seasonNumber": 1,
-      "episodeNumber": 32,
-      "slug": "episode-32-the-snap-inc-ipo"
-    },
-    "addedAt": "2026-09-01T00:04:09.073Z",
-    "source": "automated"
   },
   {
     "id": "B01HZFB3X0",
@@ -2755,22 +2791,6 @@
     }
   },
   {
-    "id": "B0176M1A44",
-    "title": "Shoe Dog",
-    "author": "Phil Knight",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0176M1A44.jpg",
-    "amazonUrl": "https://www.amazon.com/Shoe-Dog-Memoir-Creator-Nike-ebook/dp/B0176M1A44/",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Zillow + Trulia with Zillow Group CFO Kathleen Philips",
-      "seasonNumber": 1,
-      "episodeNumber": 22,
-      "slug": "episode-22-zillow-trulia-with-zillow-group-cfo-kathleen-philips"
-    },
-    "addedAt": "2026-09-01T00:03:52.416Z",
-    "source": "automated"
-  },
-  {
     "id": "B015CKNWJI",
     "title": "Algorithms to Live By",
     "author": "Brian Christian",
@@ -2804,42 +2824,10 @@
     "amazonUrl": "https://www.amazon.com/Mindset-Psychology-Success-Carol-Dweck-ebook/dp/B000FCKPHG",
     "category": "Belief and doubt",
     "episodeRef": {
-      "name": "Special‚ An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
+      "name": "Special\u201a An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
       "seasonNumber": 1,
       "episodeNumber": 18
     }
-  },
-  {
-    "id": "B0176M1A44",
-    "title": "Shoe Dog",
-    "author": "Phil Knight",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0176M1A44.jpg",
-    "amazonUrl": "https://www.amazon.com/Shoe-Dog-Memoir-Creator-Nike-ebook/dp/B0176M1A44/ref=sr_1_1",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Special‚ An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
-      "seasonNumber": 1,
-      "episodeNumber": 18,
-      "slug": "special-an-acquirers-view-into-ma-with-taylor-barada-head-of-corp-dev-at-adobe"
-    },
-    "addedAt": "2026-09-01T00:02:51.357Z",
-    "source": "automated"
-  },
-  {
-    "id": "B00XIYGCDO",
-    "title": "Originals",
-    "author": "Adam M. Grant",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B00XIYGCDO.jpg",
-    "amazonUrl": "https://www.amazon.com/Originals-How-Non-Conformists-Move-World-ebook/dp/B00XIYGCDO/ref=sr_1_1",
-    "category": "Business",
-    "episodeRef": {
-      "name": "Special‚ An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
-      "seasonNumber": 1,
-      "episodeNumber": 18,
-      "slug": "special-an-acquirers-view-into-ma-with-taylor-barada-head-of-corp-dev-at-adobe"
-    },
-    "addedAt": "2026-09-01T00:02:51.470Z",
-    "source": "automated"
   },
   {
     "id": "B002G54Y04",
@@ -2866,22 +2854,6 @@
       "seasonNumber": 1,
       "episodeNumber": 14
     }
-  },
-  {
-    "id": "B0083DJWGO",
-    "title": "Antifragile: Things That Gain from Disorder (incerto Book 3)",
-    "author": "Nassim Nicholas Taleb",
-    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0083DJWGO.jpg",
-    "amazonUrl": "http://www.amazon.com/Antifragile-Things-That-Disorder-Incerto-ebook/dp/B0083DJWGO",
-    "category": "Business",
-    "episodeRef": {
-      "name": "PayPal",
-      "seasonNumber": 1,
-      "episodeNumber": 11,
-      "slug": "episode-11-paypal"
-    },
-    "addedAt": "2026-09-01T00:03:42.682Z",
-    "source": "automated"
   },
   {
     "id": "B00L1TPCKW",

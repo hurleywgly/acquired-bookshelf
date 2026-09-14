@@ -1,4 +1,5 @@
 import { Book } from './data'
+import { episodeKey } from './shelfSearch'
 
 export interface Quote {
   text: string
@@ -9,6 +10,7 @@ export interface Quote {
 export interface Episode {
   id: string
   name: string
+  seasonName?: string
   seasonNumber: number
   episodeNumber: number
   books: Book[]
@@ -21,12 +23,13 @@ export function groupBooksByEpisode(books: Book[]): Episode[] {
   // Group books by episode
   books.forEach(book => {
     if (book.episodeRef) {
-      const episodeId = `${book.episodeRef.seasonNumber}-${book.episodeRef.episodeNumber}`
+      const episodeId = episodeKey(book)
       
       if (!episodeMap.has(episodeId)) {
         episodeMap.set(episodeId, {
           id: episodeId,
           name: book.episodeRef.name,
+          seasonName: book.episodeRef.seasonName,
           seasonNumber: book.episodeRef.seasonNumber,
           episodeNumber: book.episodeRef.episodeNumber,
           books: []
@@ -42,6 +45,9 @@ export function groupBooksByEpisode(books: Book[]): Episode[] {
     if (a.seasonNumber !== b.seasonNumber) {
       return b.seasonNumber - a.seasonNumber // Newer seasons first
     }
+    const seasonRank = (name?: string) => name?.startsWith('Fall') ? 3 : name?.startsWith('Summer') ? 2 : name?.startsWith('Spring') ? 1 : 0
+    const seasonalOrder = seasonRank(b.seasonName) - seasonRank(a.seasonName)
+    if (a.seasonName && b.seasonName && seasonalOrder) return seasonalOrder
     return b.episodeNumber - a.episodeNumber // Newer episodes first
   })
 

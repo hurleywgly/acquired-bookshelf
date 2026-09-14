@@ -86,10 +86,10 @@ The project uses Next.js 15 with TypeScript and modern React patterns:
 
 A bi-monthly Render cron job (`0 10 1,15 * *` UTC) runs `scripts/optimized-scraper.ts`, which:
 
-1. **Discovers episodes** via the Transistor RSS feed, falling back to `acquired.fm/sitemap.xml` and the paginated episode listing.
+1. **Discovers episodes** via the canonical Transistor RSS feed. Sitemap modification dates are never used as release dates or episode numbers.
 2. **Runs a canary pre-flight** against a known-good episode (Ferrari) — if the Links-section selector stops yielding Amazon URLs, the scraper halts and posts a Discord alert instead of silently producing empty runs.
-3. **Extracts Amazon book links directly** from each episode page's `<h2>Links</h2>` section (no intermediate Google Docs fetch).
-4. **Enriches metadata** via Open Library and uploads covers to Cloudflare R2.
+3. **Extracts Amazon book links directly** from each episode page's Links section and explicit Sources panel, excluding Carve Outs and unrelated page content.
+4. **Enriches metadata** using exact ISBN/title matches or reviewed ASIN overrides, then uploads covers to Cloudflare R2. Unresolved metadata halts the run before catalog writes. Duplicate ASINs and editions are rejected within each batch.
 5. **Commits** `public/data/books.json` over SSH and triggers a Vercel rebuild.
 6. **Notifies Discord** with added books, unknown-metadata warnings, and errors.
 

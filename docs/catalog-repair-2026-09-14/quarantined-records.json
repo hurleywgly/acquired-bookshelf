@@ -1,0 +1,258 @@
+[
+  {
+    "id": "B08FHBV4ZX",
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B08FHBV4ZX.jpg",
+    "amazonUrl": "https://www.amazon.com/Project-Hail-Mary-Andy-Weir-ebook/dp/B08FHBV4ZX",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Browser (with Brendan Eich, Chief Architect of Netscape + Mozilla and CEO of Brave)",
+      "seasonNumber": 2026,
+      "episodeNumber": 125,
+      "slug": "the-browser-with-brendan-eich-chief-architect-of-netscape-mozilla-and-ceo-of-brave"
+    },
+    "addedAt": "2026-09-01T00:05:12.459Z",
+    "source": "automated"
+  },
+  {
+    "id": "B003062GEE",
+    "title": "Open",
+    "author": "Andre Agassi",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B003062GEE.jpg",
+    "amazonUrl": "https://www.amazon.com/Open-Andre-Agassi-ebook/dp/B003062GEE/",
+    "category": "History",
+    "episodeRef": {
+      "name": "The Browser (with Brendan Eich, Chief Architect of Netscape + Mozilla and CEO of Brave)",
+      "seasonNumber": 2026,
+      "episodeNumber": 125,
+      "slug": "the-browser-with-brendan-eich-chief-architect-of-netscape-mozilla-and-ceo-of-brave"
+    },
+    "addedAt": "2026-09-01T00:05:12.552Z",
+    "source": "automated"
+  },
+  {
+    "id": "0674218663",
+    "title": "Dynamic Economics",
+    "author": "Burton H. Klein",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0674218663.jpg",
+    "amazonUrl": "https://www.amazon.com/Dynamic-Economics-Burton-H-Klein/dp/0674218663",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Browser (with Brendan Eich, Chief Architect of Netscape + Mozilla and CEO of Brave)",
+      "seasonNumber": 2026,
+      "episodeNumber": 125,
+      "slug": "the-browser-with-brendan-eich-chief-architect-of-netscape-mozilla-and-ceo-of-brave"
+    },
+    "addedAt": "2026-09-01T00:05:12.736Z",
+    "source": "automated"
+  },
+  {
+    "id": "B07PZ2B85Y",
+    "title": "Changing London",
+    "author": "David Robinson",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B07PZ2B85Y.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/B07PZ2B85Y/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Super Pumped (with Brian Koppelman and Joseph Gordon-Levitt)",
+      "seasonNumber": 2026,
+      "episodeNumber": 122,
+      "slug": "super-pumped-with-brian-koppelman-and-joseph-gordon-levitt"
+    },
+    "addedAt": "2026-09-01T00:05:07.879Z",
+    "source": "automated"
+  },
+  {
+    "id": "1982132612",
+    "title": "Amazon Unbound",
+    "author": "Brad Stone",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1982132612.jpg",
+    "amazonUrl": "https://www.amazon.com/Amazon-Unbound-Invention-Global-Empire/dp/1982132612/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Special: Amazon Unbound (with Brad Stone)",
+      "seasonNumber": 2026,
+      "episodeNumber": 113,
+      "slug": "special-amazon-unbound-with-brad-stone"
+    },
+    "addedAt": "2026-09-01T00:04:57.719Z",
+    "source": "automated"
+  },
+  {
+    "id": "0231203047",
+    "title": "Expectations Investing",
+    "author": "Michael J. Mauboussin",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0231203047.jpg",
+    "amazonUrl": "https://www.amazon.com/Expectations-Investing-Reading-Returns-Heilbrunn/dp/0231203047/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Michael Mauboussin Master Class \u2014 Moats, Skill, Luck, Decision Making and a Whole Lot More",
+      "seasonNumber": 2026,
+      "episodeNumber": 77,
+      "slug": "michael-mauboussin-master-class-moats-skill-luck-decision-making-and-a-whole-lot-more"
+    },
+    "addedAt": "2026-09-01T00:04:26.266Z",
+    "source": "automated"
+  },
+  {
+    "id": "1422184234",
+    "title": "The Success Equation",
+    "author": "Michael J. Mauboussin",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1422184234.jpg",
+    "amazonUrl": "https://www.amazon.com/The-Success-Equation-Untangling-Investing/dp/1422184234/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Michael Mauboussin Master Class \u2014 Moats, Skill, Luck, Decision Making and a Whole Lot More",
+      "seasonNumber": 2026,
+      "episodeNumber": 77,
+      "slug": "michael-mauboussin-master-class-moats-skill-luck-decision-making-and-a-whole-lot-more"
+    },
+    "addedAt": "2026-09-01T00:04:26.355Z",
+    "source": "automated"
+  },
+  {
+    "id": "automated-1788221105670-0",
+    "title": "Titan: The Life of John D. Rockefeller, Sr.",
+    "author": "Ron Chernow",
+    "coverUrl": "/covers/default-book.jpg",
+    "amazonUrl": "https://www.amazon.com/gp/product/1400077303/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Standard Oil Part II",
+      "seasonNumber": 9,
+      "episodeNumber": 5,
+      "slug": "standard-oil-part-ii"
+    },
+    "addedAt": "2026-09-01T00:05:05.670Z",
+    "source": "automated"
+  },
+  {
+    "id": "B000APF21M",
+    "title": "Arthur C Clarke",
+    "author": "Fred Clarke",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B000APF21M.jpg",
+    "amazonUrl": "https://www.amazon.com/Arthur-C-Clarke/e/B000APF21M",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Ethereum (with Packy McCormick)",
+      "seasonNumber": 8,
+      "episodeNumber": 8,
+      "slug": "ethereum"
+    },
+    "addedAt": "2026-09-01T00:04:23.740Z",
+    "source": "automated"
+  },
+  {
+    "id": "B018BZ3SCM",
+    "title": "The Story of the Committee of 300",
+    "author": "John Coleman",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B018BZ3SCM.jpg",
+    "amazonUrl": "https://www.amazon.com/The-Expanse-Season-1/dp/B018BZ3SCM",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Slack DPO",
+      "seasonNumber": 4,
+      "episodeNumber": 9,
+      "slug": "the-slack-dpo"
+    },
+    "addedAt": "2026-09-01T00:05:16.145Z",
+    "source": "automated"
+  },
+  {
+    "id": "B01J24C0TI",
+    "title": "American Film",
+    "author": "American Film Institute",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B01J24C0TI.jpg",
+    "amazonUrl": "https://www.amazon.com/Amazon-MW46WB-Introducing-Echo-Show/dp/B01J24C0TI",
+    "category": "Business",
+    "episodeRef": {
+      "name": "SoundJam (iTunes)",
+      "seasonNumber": 1,
+      "episodeNumber": 38,
+      "slug": "episode-38-soundjam-itunes"
+    },
+    "addedAt": "2026-09-01T00:04:15.521Z",
+    "source": "automated"
+  },
+  {
+    "id": "B009XH5V6Y",
+    "title": "The Art of War",
+    "author": "\u5b59\u6b66 (sun Tzu)",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B009XH5V6Y.jpg",
+    "amazonUrl": "https://www.amazon.com/Art-War-Sun-Tzu-ebook/dp/B009XH5V6Y",
+    "category": "Business",
+    "episodeRef": {
+      "name": "The Snap Inc. IPO",
+      "seasonNumber": 1,
+      "episodeNumber": 32,
+      "slug": "episode-32-the-snap-inc-ipo"
+    },
+    "addedAt": "2026-09-01T00:04:09.073Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0176M1A44",
+    "title": "Shoe Dog",
+    "author": "Phil Knight",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0176M1A44.jpg",
+    "amazonUrl": "https://www.amazon.com/Shoe-Dog-Memoir-Creator-Nike-ebook/dp/B0176M1A44/",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Zillow + Trulia with Zillow Group CFO Kathleen Philips",
+      "seasonNumber": 1,
+      "episodeNumber": 22,
+      "slug": "episode-22-zillow-trulia-with-zillow-group-cfo-kathleen-philips"
+    },
+    "addedAt": "2026-09-01T00:03:52.416Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0176M1A44",
+    "title": "Shoe Dog",
+    "author": "Phil Knight",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0176M1A44.jpg",
+    "amazonUrl": "https://www.amazon.com/Shoe-Dog-Memoir-Creator-Nike-ebook/dp/B0176M1A44/ref=sr_1_1",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Special\u201a An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
+      "seasonNumber": 1,
+      "episodeNumber": 18,
+      "slug": "special-an-acquirers-view-into-ma-with-taylor-barada-head-of-corp-dev-at-adobe"
+    },
+    "addedAt": "2026-09-01T00:02:51.357Z",
+    "source": "automated"
+  },
+  {
+    "id": "B00XIYGCDO",
+    "title": "Originals",
+    "author": "Adam M. Grant",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B00XIYGCDO.jpg",
+    "amazonUrl": "https://www.amazon.com/Originals-How-Non-Conformists-Move-World-ebook/dp/B00XIYGCDO/ref=sr_1_1",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Special\u201a An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
+      "seasonNumber": 1,
+      "episodeNumber": 18,
+      "slug": "special-an-acquirers-view-into-ma-with-taylor-barada-head-of-corp-dev-at-adobe"
+    },
+    "addedAt": "2026-09-01T00:02:51.470Z",
+    "source": "automated"
+  },
+  {
+    "id": "B0083DJWGO",
+    "title": "Antifragile: Things That Gain from Disorder (incerto Book 3)",
+    "author": "Nassim Nicholas Taleb",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B0083DJWGO.jpg",
+    "amazonUrl": "http://www.amazon.com/Antifragile-Things-That-Disorder-Incerto-ebook/dp/B0083DJWGO",
+    "category": "Business",
+    "episodeRef": {
+      "name": "PayPal",
+      "seasonNumber": 1,
+      "episodeNumber": 11,
+      "slug": "episode-11-paypal"
+    },
+    "addedAt": "2026-09-01T00:03:42.682Z",
+    "source": "automated"
+  }
+]

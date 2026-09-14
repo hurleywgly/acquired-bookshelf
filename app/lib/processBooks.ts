@@ -9,6 +9,8 @@ export interface Book {
   coverUrl: string;
   episodeRef: {
     name: string;
+    seasonName?: string;
+    slug?: string;
     seasonNumber: number;
     episodeNumber: number;
   } | null;

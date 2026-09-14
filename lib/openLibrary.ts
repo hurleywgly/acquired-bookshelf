@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio'
+import { bookMetadataOverrides } from './book-metadata-overrides'
 
 // Rate limiting configuration
 const BATCH_SIZE = 10
@@ -21,7 +22,7 @@ function sleep(ms: number) {
 
 async function fetchWithRetry(url: string, retries = MAX_RETRIES): Promise<Response> {
   try {
-    const response = await fetch(url)
+    const response = await fetch(url, { signal: AbortSignal.timeout(15000) })
     
     if (response?.status === 429) { // Too Many Requests
       if (retries > 0) {
@@ -54,7 +55,7 @@ async function extractBookInfo(url: string): Promise<{ asin?: string; title?: st
   }
 
   // Try to get ASIN from URL
-  const asinMatch = cleanUrl.match(/\/dp\/([A-Z0-9]{10})/) || cleanUrl.match(/\/([B][0-9A-Z]{9})/)
+  const asinMatch = cleanUrl.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i) || cleanUrl.match(/\/([B][0-9A-Z]{9})/)
   const asin = asinMatch?.[1]
   
   // Try to extract title from Amazon URL
@@ -64,7 +65,7 @@ async function extractBookInfo(url: string): Promise<{ asin?: string; title?: st
     const titleMatch = cleanUrl.match(/amazon\.com\/([^\/]+)\/dp\//) || 
                       cleanUrl.match(/amazon\.com\/([^\/\?]+)/)
     
-    if (titleMatch && titleMatch[1] && !titleMatch[1].includes('gp')) {
+    if (titleMatch && titleMatch[1] && !['gp', 'dp'].includes(titleMatch[1].toLowerCase())) {
       title = titleMatch[1]
         .replace(/-/g, ' ')
         .replace(/ebook|kindle|edition|audiobook|hardcover|paperback/gi, '')
@@ -194,11 +195,14 @@ async function getAmazonBookCover(amazonUrl: string): Promise<string | null> {
 async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> {
   try {
     const { asin, title } = await extractBookInfo(amazonUrl)
+    const reviewed = asin ? bookMetadataOverrides[asin] : undefined
+    if (reviewed) return { title: reviewed.title, author: reviewed.author,
+      coverUrl: await getAmazonBookCover(amazonUrl) || '/covers/default-book.jpg', subjects: [] }
     let bookData = null
 
     // First try by ASIN if available
-    if (asin) {
-      const isbnSearchUrl = `https://openlibrary.org/search.json?q=${asin}`
+    if (asin && /^[0-9]{9}[0-9X]$/.test(asin)) {
+      const isbnSearchUrl = `https://openlibrary.org/search.json?isbn=${asin}`
       const response = await fetchWithRetry(isbnSearchUrl)
       
       if (response?.ok) {
@@ -223,30 +227,6 @@ async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> 
           )
           if (exactMatch) {
             bookData = exactMatch
-          }
-        }
-      }
-    }
-
-    // If still no result, try a general search
-    if (!bookData) {
-      // Clean the URL for searching
-      const searchTerms = amazonUrl
-        .split('/dp/')[0]
-        .split('/').pop()
-        ?.replace(/-/g, ' ')
-        .replace(/ebook|kindle|edition|audiobook|hardcover|paperback/gi, '')
-        .replace(/[^a-zA-Z0-9\s]/g, ' ')
-        .trim()
-
-      if (searchTerms) {
-        const searchUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchTerms)}&fields=title,author_name,cover_i,first_publish_year,isbn,key,subject`
-        const response = await fetchWithRetry(searchUrl)
-        
-        if (response?.ok) {
-          const data = await response.json()
-          if (data?.docs?.length > 0) {
-            bookData = data.docs[0]
           }
         }
       }
@@ -292,7 +272,7 @@ async function getBookMetadata(amazonUrl: string): Promise<BookMetadata | null> 
     const amazonMetadata = await scrapeAmazonMetadata(amazonUrl)
     const amazonCover = await getAmazonBookCover(amazonUrl)
 
-    if (amazonMetadata || amazonCover) {
+    if (amazonMetadata && amazonMetadata.author !== 'Unknown Author') {
       const fallbackMetadata: BookMetadata = {
         title: amazonMetadata?.title || 'Unknown Title',
         author: amazonMetadata?.author || 'Unknown Author',

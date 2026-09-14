@@ -44,40 +44,17 @@ function collectAmazonHrefs($: CheerioAPI, roots: ReturnType<CheerioAPI>[]): str
 
 /**
  * Extract Amazon book URLs from the episode page's Links section.
- * Falls back to the entire page if the Links heading can't be located,
- * so episodes with unusual markup still yield sources.
+ * Includes the explicit Sources panel; absent source sections yield no links.
  */
 export function extractAmazonLinksFromEpisodePage(
   $: CheerioAPI,
   urlValidator: URLValidator
 ): string[] {
+  // Only explicit source content, never transcript, recommendations, or carve-outs.
   const roots: ReturnType<CheerioAPI>[] = []
-
-  const linksHeading = findLinksHeading($)
-  if (linksHeading) {
-    const nextSibling = linksHeading.nextAll('ul, ol').first()
-    if (nextSibling.length > 0) roots.push(nextSibling)
-
-    const parentContainer = linksHeading.parent()
-    if (parentContainer.length > 0) {
-      const siblingLists = parentContainer.find('ul, ol')
-      if (siblingLists.length > 0) roots.push(siblingLists)
-    }
-
-    let container = linksHeading.parent()
-    for (let i = 0; i < 4 && container.length > 0; i++) {
-      const lists = container.find('ul, ol')
-      if (lists.length > 0) {
-        roots.push(lists)
-        break
-      }
-      container = container.parent()
-    }
-  }
-
-  if (roots.length === 0) {
-    roots.push($('body'))
-  }
+  const heading = findLinksHeading($)
+  if (heading) roots.push(heading.nextUntil('h2, h3'))
+  $('.sources-rich-text').each((_, el) => { roots.push($(el)) })
 
   const hrefs = collectAmazonHrefs($, roots)
   const sanitized: string[] = []
@@ -87,7 +64,12 @@ export function extractAmazonLinksFromEpisodePage(
       sanitized.push(validation.sanitizedUrl)
     }
   }
-  return [...new Set(sanitized)]
+  const byAsin = new Map<string, string>()
+  for (const url of sanitized) {
+    const asin = url.match(ASIN_RE)?.[1] || url.match(STANDALONE_ASIN_RE)?.[1]
+    if (asin && !byAsin.has(asin.toUpperCase())) byAsin.set(asin.toUpperCase(), `https://www.amazon.com/dp/${asin.toUpperCase()}`)
+  }
+  return [...byAsin.values()]
 }
 
 export function extractEpisodeTitle($: CheerioAPI): string | null {
@@ -105,22 +87,25 @@ export function extractEpisodeTitle($: CheerioAPI): string | null {
 /**
  * Attempt to read a season/episode hint from the episode page body.
  * Handles the canonical "Season YYYY, Episode N" and "Fall 2025, Episode 3" forms.
- * Returns null when no hint is present — callers should fall back to sitemap-derived values.
+ * Returns null when no hint is present — callers may use explicit RSS season and episode tags.
  */
 export function parseSeasonEpisodeHint(
   $: CheerioAPI
-): { seasonNumber: number; episodeNumber: number } | null {
-  const body = $('body').text().replace(/\s+/g, ' ')
+): { seasonNumber: number; episodeNumber: number; seasonName?: string } | null {
+  // The season badge beside Episode/date is authoritative; avoid transcript mentions.
+  const badge = $('a[href^="/season/"]').filter((_, el) => /Episode/i.test($(el).parent().text())).first()
+  const body = (badge.length ? `${badge.text()} ${badge.siblings().text()}` : $('body').text()).replace(/\s+/g, ' ')
 
-  const seasonalMatch = body.match(/(?:Fall|Spring|Summer|Winter)\s+(\d{4})[,\s]+Episode\s+(\d+)/i)
+  const seasonalMatch = body.match(/(Fall|Spring|Summer|Winter)\s+(\d{4})[|,\s]+Episode\s+(\d+)/i)
   if (seasonalMatch) {
     return {
-      seasonNumber: parseInt(seasonalMatch[1], 10),
-      episodeNumber: parseInt(seasonalMatch[2], 10)
+      seasonNumber: parseInt(seasonalMatch[2], 10),
+      episodeNumber: parseInt(seasonalMatch[3], 10),
+      seasonName: `${seasonalMatch[1][0].toUpperCase()}${seasonalMatch[1].slice(1).toLowerCase()} ${seasonalMatch[2]}`
     }
   }
 
-  const seasonEpisodeMatch = body.match(/Season\s+(\d+)[,\s]+Episode\s+(\d+)/i)
+  const seasonEpisodeMatch = body.match(/Season\s+(\d+)[|,\s]+Episode\s+(\d+)/i)
   if (seasonEpisodeMatch) {
     return {
       seasonNumber: parseInt(seasonEpisodeMatch[1], 10),

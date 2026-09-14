@@ -2,14 +2,15 @@
 
 /**
  * Optimized Acquired Podcast Scraper
- * Discovers episodes via acquired.fm sitemap (with listing fallback),
+ * Discovers episodes from the canonical Acquired RSS feed,
  * extracts Amazon book links directly from each episode page's Links section,
  * enriches metadata via Open Library, uploads covers to Cloudflare R2,
  * and writes updated books.json.
  */
 
 import 'dotenv/config'
-import { getAllEpisodes, type Episode } from '../lib/scraper.js'
+import { uniqueNewBooks as deduplicateBooks } from '../lib/catalog-integrity.js'
+import { getAllEpisodes, slugify, type Episode } from '../lib/scraper.js'
 import { EpisodeClassifier } from '../lib/episode-classifier.js'
 import { URLValidator } from '../lib/url-validator.js'
 import { getBatchBookMetadata, type BookMetadata } from '../lib/openLibrary.js'
@@ -34,6 +35,7 @@ interface Book {
     seasonNumber: number
     episodeNumber: number
     slug?: string
+    seasonName?: string
   }
   addedAt: string
   source: 'automated'
@@ -41,14 +43,6 @@ interface Book {
 
 const CANARY_EPISODE_URL = 'https://www.acquired.fm/episodes/ferrari'
 const MIN_CANARY_AMAZON_LINKS = 1
-
-function slugify(value: string): string {
-  return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
 
 class OptimizedScraper {
   private classifier: EpisodeClassifier
@@ -71,7 +65,7 @@ class OptimizedScraper {
       this.r2Uploader = null
     }
 
-    this.discord = createDiscordNotifierFromEnv()
+    this.discord = process.env.SCRAPER_NOTIFY === 'false' ? null : createDiscordNotifierFromEnv()
 
     this.dataDir = path.join(process.cwd(), 'public', 'data')
     this.booksFile = path.join(this.dataDir, 'books.json')
@@ -98,7 +92,8 @@ class OptimizedScraper {
       console.log(`  Latest season with books: ${latestSeason}, processing from season ${minSeason}+`)
 
       const unprocessedEpisodes = allEpisodes.filter(episode => {
-        if (episode.seasonNumber === undefined || episode.seasonNumber < minSeason) return false
+        if (episode.year === undefined || episode.year < minSeason) return false
+        if (process.env.SCRAPER_SLUGS && !process.env.SCRAPER_SLUGS.split(',').includes(episode.slug)) return false
         if (processedSlugs.has(episode.slug)) return false
         const classification = this.classifier.classify(episode.name)
         if (classification.shouldSkip) {
@@ -133,11 +128,11 @@ class OptimizedScraper {
       }
 
       if (allNewBooks.length > 0) {
-        await this.updateBooksDatabase(allNewBooks)
-        console.log(`\nSuccessfully added ${allNewBooks.length} new books!`)
+        const addedBooks = await this.updateBooksDatabase(allNewBooks)
+        console.log(`\nSuccessfully added ${addedBooks.length} new books!`)
 
-        if (this.discord) {
-          const booksForDiscord = allNewBooks.map(book => ({
+        if (this.discord && addedBooks.length) {
+          const booksForDiscord = addedBooks.map(book => ({
             title: book.title,
             author: book.author,
             episode: book.episodeRef.name,
@@ -237,7 +232,7 @@ class OptimizedScraper {
 
     try {
       const $ = await this.fetchEpisodePage(episode.sourceUrl)
-      if (!$) return []
+      if (!$) throw new Error(`Unable to fetch ${episode.slug}`)
 
       const titleFromPage = extractEpisodeTitle($)
       const refinedName = titleFromPage && titleFromPage.length > 1 ? titleFromPage : episode.name
@@ -246,11 +241,12 @@ class OptimizedScraper {
       }
 
       const hint = parseSeasonEpisodeHint($)
-      const seasonNumber =
-        hint?.seasonNumber ??
-        episode.seasonNumber ??
-        (episode.lastmod ? new Date(episode.lastmod).getUTCFullYear() : new Date().getUTCFullYear())
-      const episodeNumber = hint?.episodeNumber ?? episode.episodeNumber ?? 0
+      if (!hint && (!episode.seasonNumber || !episode.episodeNumber)) {
+        throw new Error(`No verified season/episode identity for ${episode.slug}`)
+      }
+      const seasonNumber = hint?.seasonNumber ?? episode.seasonNumber!
+      const episodeNumber = hint?.episodeNumber ?? episode.episodeNumber!
+      const seasonName = hint?.seasonName
 
       const amazonLinks = extractAmazonLinksFromEpisodePage($, this.urlValidator)
       if (amazonLinks.length === 0) {
@@ -260,16 +256,19 @@ class OptimizedScraper {
       console.log(`  Found ${amazonLinks.length} Amazon book links`)
 
       const bookMetadata = await this.getBooksMetadata(amazonLinks)
+      const unresolved = amazonLinks.filter((_, index) => !bookMetadata[index])
+      if (unresolved.length) throw new Error(`Unresolved book metadata for ${episode.slug}: ${unresolved.join(', ')}; catalog unchanged`)
       const refinedEpisode: Episode = {
         ...episode,
         name: refinedName,
         seasonNumber,
-        episodeNumber
+        episodeNumber,
+        seasonName
       }
       return this.createBookObjects(bookMetadata, amazonLinks, refinedEpisode)
     } catch (error) {
       console.error(`  Error processing ${episode.name}:`, error)
-      return []
+      throw error
     }
   }
 
@@ -317,7 +316,8 @@ class OptimizedScraper {
       const amazonUrl = amazonUrls[i]
       if (!metadata) continue
 
-      const bookId = this.extractASIN(amazonUrl) || `automated-${Date.now()}-${i}`
+      const bookId = this.extractASIN(amazonUrl)
+      if (!bookId) continue
       let coverUrl = metadata.coverUrl || '/covers/default-book.jpg'
 
       if (this.r2Uploader && metadata.coverUrl && !metadata.coverUrl.startsWith('/')) {
@@ -341,7 +341,8 @@ class OptimizedScraper {
           name: episode.name,
           seasonNumber: episode.seasonNumber ?? new Date().getUTCFullYear(),
           episodeNumber: episode.episodeNumber ?? 0,
-          slug: episode.slug
+          slug: episode.slug,
+          seasonName: episode.seasonName
         },
         addedAt: new Date().toISOString(),
         source: 'automated'
@@ -358,7 +359,7 @@ class OptimizedScraper {
   }
 
   private extractASIN(amazonUrl: string): string | null {
-    const asinMatch = amazonUrl.match(/\/dp\/([A-Z0-9]{10})/) || amazonUrl.match(/\/([B][0-9A-Z]{9})/)
+    const asinMatch = amazonUrl.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i) || amazonUrl.match(/\/([B][0-9A-Z]{9})/i)
     return asinMatch?.[1] || null
   }
 
@@ -437,7 +438,7 @@ class OptimizedScraper {
     }
   }
 
-  private async updateBooksDatabase(newBooks: Book[]): Promise<void> {
+  private async updateBooksDatabase(newBooks: Book[]): Promise<Book[]> {
     try {
       let existingBooks: Book[] = []
       try {
@@ -447,12 +448,11 @@ class OptimizedScraper {
         console.log('No existing books file found, creating new one')
       }
 
-      const existingIds = new Set(existingBooks.map(book => book.id))
-      const uniqueNewBooks = newBooks.filter(book => !existingIds.has(book.id))
+      const uniqueNewBooks = deduplicateBooks(existingBooks, newBooks)
 
       if (uniqueNewBooks.length === 0) {
         console.log('All books already exist in the database')
-        return
+        return []
       }
 
       const allBooks = [...existingBooks, ...uniqueNewBooks]
@@ -470,6 +470,7 @@ class OptimizedScraper {
       uniqueNewBooks.forEach(book => {
         console.log(`  + "${book.title}" by ${book.author}`)
       })
+      return uniqueNewBooks
     } catch (error) {
       console.error('Error updating books database:', error)
       throw error

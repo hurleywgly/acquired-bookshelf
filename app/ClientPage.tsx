@@ -44,7 +44,7 @@ export default function ClientPage({ initialBooks }: { initialBooks: Book[] }) {
         <button className="episode" aria-pressed={!active} onClick={() => selectEpisode('')}><small>THE COMPLETE SHELF</small><span>All episodes</span></button>
         {episodes.filter(e => available.has(e.id) || e.id === active).map(e =>
           <button key={e.id} className="episode" aria-pressed={e.id === active} onClick={() => selectEpisode(e.id)}>
-            <small>S{e.seasonNumber} · E{e.episodeNumber}</small><span>{e.name}</span>
+            <small>{e.seasonName || `S${e.seasonNumber}`} · E{e.episodeNumber}</small><span>{e.name}</span>
           </button>)}
         {hasUnsorted && <button className="episode" aria-pressed={active === 'unsorted'} onClick={() => selectEpisode('unsorted')}><span>Other books</span></button>}
       </nav>
@@ -81,7 +81,7 @@ export default function ClientPage({ initialBooks }: { initialBooks: Book[] }) {
             <footer><b>Charles T. Munger</b>Poor Charlie&apos;s Almanack</footer>
           </aside>}
           {filtered.map((book, i) => <a className="book" key={`${episodeKey(book)}:${book.id}:${i}`} href={book.amazonUrl} target="_blank" rel="noopener noreferrer" aria-label={`${book.title} by ${book.author} — view on Amazon`}>
-            <p className="episode-label">{book.episodeRef?.name || 'Acquired'}</p><Cover book={book} priority={i < 6} />
+            <p className="episode-label"><span>{book.episodeRef?.name || 'Acquired'}</span></p><Cover book={book} priority={i < 6} />
             <div className="caption"><small className="category">{book.category || 'Books'}</small><h2 className="title">{book.title}</h2><p className="author">{book.author}</p></div>
           </a>)}
         </div></div>

@@ -1,6 +1,8 @@
 // Define interfaces
 export interface EpisodeRef {
     name: string
+    seasonName?: string;
+    slug?: string;
     seasonNumber: number
     episodeNumber: number
   }
