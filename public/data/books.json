@@ -119,6 +119,57 @@
     "source": "automated"
   },
   {
+    "id": "B007Z96F9E",
+    "title": "Top of the Rock: Inside the Rise and Fall of Must See TV",
+    "author": "Warren Littlefield",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B007Z96F9E.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/B007Z96F9E",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Seinfeld",
+      "seasonNumber": 2026,
+      "episodeNumber": 3,
+      "slug": "seinfeld",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-11-15T00:01:44.146Z",
+    "source": "automated"
+  },
+  {
+    "id": "1550229478",
+    "title": "Pretty, Pretty, Pretty Good",
+    "author": "Josh Levine",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1550229478.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1550229478",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Seinfeld",
+      "seasonNumber": 2026,
+      "episodeNumber": 3,
+      "slug": "seinfeld",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-11-15T00:01:45.036Z",
+    "source": "automated"
+  },
+  {
+    "id": "1515903982",
+    "title": "Seinfeldia: How a Show About Nothing Changed Everything",
+    "author": "Jennifer Keishin Armstrong",
+    "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1515903982.jpg",
+    "amazonUrl": "https://www.amazon.com/dp/1515903982",
+    "category": "Business",
+    "episodeRef": {
+      "name": "Seinfeld",
+      "seasonNumber": 2026,
+      "episodeNumber": 3,
+      "slug": "seinfeld",
+      "seasonName": "Fall 2026"
+    },
+    "addedAt": "2026-11-15T00:01:45.674Z",
+    "source": "automated"
+  },
+  {
     "id": "1788404718",
     "title": "Enzo",
     "author": "Luca Del Monte",
@@ -633,7 +684,7 @@
   {
     "id": "0679421904",
     "title": "The Emperors of Chocolate",
-    "author": "Jo\u00ebl Glenn Brenner",
+    "author": "Joël Glenn Brenner",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0679421904.jpg",
     "amazonUrl": "https://www.amazon.com/Emperors-Chocolate-Inside-Secret-Hershey/dp/0679421904",
     "category": "History",
@@ -665,7 +716,7 @@
   {
     "id": "1788840232",
     "title": "The Book of Rolex",
-    "author": "Jens H\u00f8y, Christian Frost",
+    "author": "Jens Høy, Christian Frost",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1788840232.jpg",
     "amazonUrl": "https://www.amazon.com/dp/1788840232",
     "category": "Business",
@@ -771,7 +822,7 @@
   {
     "id": "0767904575",
     "title": "The Emperors of Chocolate: Inside the Secret World of Hershey and Mars",
-    "author": "Jo\u00ebl Glenn Brenner",
+    "author": "Joël Glenn Brenner",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0767904575.jpg",
     "amazonUrl": "https://www.amazon.com/dp/0767904575",
     "category": "Business",
@@ -902,7 +953,7 @@
   },
   {
     "id": "1783341726",
-    "title": "Ikea: How to Become the World\u2019s Richest Man",
+    "title": "Ikea: How to Become the World’s Richest Man",
     "author": "Johan Stenbo",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/1783341726.jpg",
     "amazonUrl": "https://www.amazon.com/dp/1783341726",
@@ -1126,13 +1177,13 @@
   },
   {
     "id": "180279011X",
-    "title": "Little Book of Herm\u00e8s",
+    "title": "Little Book of Hermès",
     "author": "Karen Homer",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/180279011X.jpg",
     "amazonUrl": "https://www.amazon.com/Little-Book-Herm%C3%A8s-Iconic-Fashion/dp/180279011X",
     "category": "Business",
     "episodeRef": {
-      "name": "Herm\u00e8s",
+      "name": "Hermès",
       "seasonNumber": 14,
       "episodeNumber": 2,
       "slug": "hermes"
@@ -1146,7 +1197,7 @@
     "amazonUrl": "https://www.amazon.com/Score-Takes-Care-Itself-Philosophy/dp/1591843472",
     "category": "Leadership",
     "episodeRef": {
-      "name": "Herm\u00e8s",
+      "name": "Hermès",
       "seasonNumber": 14,
       "episodeNumber": 2,
       "slug": "hermes"
@@ -1630,10 +1681,10 @@
   {
     "id": "0747512027",
     "title": "The Taste of Luxury",
-    "author": "Nad\u00e8ge Forestier",
+    "author": "Nadège Forestier",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0747512027.jpg",
     "amazonUrl": "https://www.amazon.com/Taste-Luxury-Bernard-Arnault-Moet-Hennessy/dp/0747512027",
-    "category": "Louis Vuitton Mo\u00ebt-Hennessy (Firm)",
+    "category": "Louis Vuitton Moët-Hennessy (Firm)",
     "episodeRef": {
       "name": "LVMH",
       "seasonNumber": 12,
@@ -1658,7 +1709,7 @@
   {
     "id": "B008YUEDFG",
     "title": "The Luxury Strategy",
-    "author": "Jean-No\u00ebl Kapferer",
+    "author": "Jean-Noël Kapferer",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B008YUEDFG.jpg",
     "amazonUrl": "https://www.amazon.com/Luxury-Strategy-Break-Marketing-Brands-ebook/dp/B008YUEDFG",
     "category": "Product management",
@@ -1773,7 +1824,7 @@
     "author": "Ursula K. Le Guin",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B00YBA7PGW.jpg",
     "amazonUrl": "https://www.amazon.com/Left-Hand-Darkness-Science-Fiction-ebook/dp/B00YBA7PGW",
-    "category": "Ciencia-ficci\u00f3n",
+    "category": "Ciencia-ficción",
     "episodeRef": {
       "name": "Amazon.com",
       "seasonNumber": 11,
@@ -1869,7 +1920,7 @@
     "author": "John Nathan",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/0618126945.jpg",
     "amazonUrl": "https://www.amazon.com/Sony-Private-Life-John-Nathan/dp/0618126945",
-    "category": "Son\u012b Kabushiki Kaisha",
+    "category": "Sonī Kabushiki Kaisha",
     "episodeRef": {
       "name": "SONY",
       "seasonNumber": 10,
@@ -1897,7 +1948,7 @@
     "amazonUrl": "https://www.amazon.com/Taylor-Swift-Loves-Global-Sensation/dp/1912587556",
     "category": "Music history",
     "episodeRef": {
-      "name": "Taylor Swift (Acquired\u2019s Version)",
+      "name": "Taylor Swift (Acquired’s Version)",
       "seasonNumber": 10,
       "episodeNumber": 1
     }
@@ -1910,7 +1961,7 @@
     "amazonUrl": "https://www.amazon.com/Need-Know-About-Music-Business/dp/1501122185",
     "category": "Music trade",
     "episodeRef": {
-      "name": "Taylor Swift (Acquired\u2019s Version)",
+      "name": "Taylor Swift (Acquired’s Version)",
       "seasonNumber": 10,
       "episodeNumber": 1
     }
@@ -1973,7 +2024,7 @@
   },
   {
     "id": "110196703X",
-    "title": "Childhood\u2019s End",
+    "title": "Childhood’s End",
     "author": "Arthur C. Clarke",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/110196703X.jpg",
     "amazonUrl": "https://www.amazon.com/Childhoods-End-Arthur-C-Clarke/dp/110196703X",
@@ -2484,7 +2535,7 @@
     "author": "Randall E. Stross",
     "coverUrl": "https://pub-d21319a05b8646c1928e289444e77283.r2.dev/covers/B000FC1HTG.jpg",
     "amazonUrl": "https://www.amazon.com/eBoys-Inside-Account-Venture-Capitalists-ebook/dp/B000FC1HTG",
-    "category": "Commerce \u00e9lectronique",
+    "category": "Commerce électronique",
     "episodeRef": {
       "name": "SoftBank, Fortress and the Vision Fund",
       "seasonNumber": 2,
@@ -2824,7 +2875,7 @@
     "amazonUrl": "https://www.amazon.com/Mindset-Psychology-Success-Carol-Dweck-ebook/dp/B000FCKPHG",
     "category": "Belief and doubt",
     "episodeRef": {
-      "name": "Special\u201a An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
+      "name": "Special‚ An Acquirer's View into M&A with Taylor Barada, head of Corp Dev at Adobe",
       "seasonNumber": 1,
       "episodeNumber": 18
     }
